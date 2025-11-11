@@ -16,7 +16,7 @@ const Footer = () => {
               and future-proof platforms.
             </p>
             <div className="social-links">
-              <a href="https://www.linkedin.com/in/bablu-dangi-ba8a01259/" aria-label="LinkedIn">📱</a>
+              <a href="https://www.linkedin.com/in/jackie-mohanty-9214391b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">📱</a>
               <a href="#" aria-label="Twitter">🐦</a>
               <a href="https://github.com/babludangi6266" aria-label="GitHub">💻</a>
               <a href="#" aria-label="Dribbble">🎨</a>
