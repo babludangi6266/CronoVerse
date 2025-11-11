@@ -16,9 +16,9 @@ const Footer = () => {
               and future-proof platforms.
             </p>
             <div className="social-links">
-              <a href="#" aria-label="LinkedIn">📱</a>
+              <a href="https://www.linkedin.com/in/bablu-dangi-ba8a01259/" aria-label="LinkedIn">📱</a>
               <a href="#" aria-label="Twitter">🐦</a>
-              <a href="#" aria-label="GitHub">💻</a>
+              <a href="https://github.com/babludangi6266" aria-label="GitHub">💻</a>
               <a href="#" aria-label="Dribbble">🎨</a>
             </div>
           </div>
@@ -46,9 +46,9 @@ const Footer = () => {
           <div className="footer-section">
             <h4>Contact</h4>
             <ul>
-              <li>hello@chronoverse.dev</li>
-              <li>+1 (555) 123-4567</li>
-              <li>San Francisco, CA</li>
+              <li>jackie.mohanty2012@gmail.com</li>
+              <li>96502 80857</li>
+              <li>Bhubneshwar , Odisha , India</li>
               <li>
                 <button className="btn btn-primary btn-small">
                   Start Project
@@ -59,7 +59,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 ChronoVerse. All rights reserved.</p>
+          <p>&copy; 2025 ChronoVerse. All rights reserved.</p>
           <div className="footer-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

@@ -4,25 +4,18 @@ import React from 'react';
 const About = () => {
   const teamMembers = [
     {
-      name: 'Alex Morgan',
+      name: 'Bablu Dangi',
       role: 'Lead Full-Stack Developer',
-      expertise: 'React, Node.js, Cloud Architecture',
-      bio: '8+ years building scalable web applications for Fortune 500 companies',
+      expertise: 'React, Node.js, Cloud Architecture , Java , Spring Boot , MongoDB, MySQL, Payment Gateway Integration',
+      bio: '4+ years building scalable web applications for Fortune companies',
       avatar: 'https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-crop_800_800/B56ZoJu3TlKIAI-/0/1761099872574?e=1764201600&v=beta&t=MbK_EdN_j2OAAeiGOtS1MW2GVOCSMmQtfXB-JKR0LaM'
     },
     {
-      name: 'Sarah Chen',
-      role: 'Mobile Development Lead',
+      name: 'Jackie Mohanty',
+      role: 'Mobile Development , Lead , React Native Developer , ',
       expertise: 'React Native, Flutter, iOS/Android',
-      bio: 'Specialized in cross-platform mobile solutions with 6+ years experience',
+      bio: 'Specialized in cross-platform mobile solutions with 3+ years experience',
       avatar: 'https://media.licdn.com/dms/image/v2/D5603AQGHoOsmgbh3RQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1685289525051?e=1764201600&v=beta&t=mUIEXCS6HwPwESuIQAwrpUuSy_KyZFjhYT1l5WBSnzo'
-    },
-    {
-      name: 'Marcus Johnson',
-      role: 'UI/UX Architect',
-      expertise: 'Figma, Design Systems, User Research',
-      bio: 'Creating intuitive user experiences that drive engagement and conversion',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZmVzc2lvbmFsJTIwd29tYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600'
     }
   ];
 

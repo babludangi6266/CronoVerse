@@ -40,7 +40,7 @@ const Contact = () => {
                 <div className="method-icon">📧</div>
                 <div className="method-details">
                   <h4>Email Us</h4>
-                  <p>hello@chronoverse.dev</p>
+                  <p>jackie.mohanty2012@gmail.com</p>
                   <span>Typically replies within 2 hours</span>
                 </div>
               </div>
@@ -49,7 +49,7 @@ const Contact = () => {
                 <div className="method-icon">📞</div>
                 <div className="method-details">
                   <h4>Call Us</h4>
-                  <p>+1 (555) 123-4567</p>
+                  <p>+9196502 80857</p>
                   <span>Mon-Fri from 9am to 6pm</span>
                 </div>
               </div>

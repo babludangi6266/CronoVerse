@@ -1,4 +1,3 @@
-// src/pages/Services.jsx
 import React from 'react';
 import { SERVICES, TECHNOLOGIES } from '../utils/constants';
 
