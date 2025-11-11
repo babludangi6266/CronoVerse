@@ -50,9 +50,16 @@ const Footer = () => {
               <li>96502 80857</li>
               <li>Bhubneshwar , Odisha , India</li>
               <li>
-                <button className="btn btn-primary btn-small">
-                  Start Project
-                </button>
+               <button 
+      className="btn btn-primary"
+      onClick={() => {
+        const message = "Hi! I saw your portfolio and I'm interested in discussing a project with you.";
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/+919650280857?text=${encodedMessage}`, '_blank');
+      }}
+    >
+      Start Conversation
+    </button>
               </li>
             </ul>
           </div>

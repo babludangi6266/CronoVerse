@@ -64,13 +64,28 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="scheduling">
-              <h4>Prefer to schedule a call?</h4>
-              <p>Book a 30-minute strategy session at your convenience</p>
-              <button className="btn btn-primary">
-                📅 Book Strategy Session
-              </button>
-            </div>
+<div className="scheduling">
+  <h4>Prefer to schedule a call?</h4>
+  <p>Book a 30-minute strategy session at your convenience</p>
+  <div className="scheduling-buttons">
+    <button 
+      className="btn btn-primary"
+      onClick={() => window.open('https://calendly.com/jackie-mohanty2012/30min', '_blank')}
+    >
+      📅 Book Strategy Session
+    </button>
+    <span className="button-divider">or</span>
+    <button 
+      className="btn btn-secondary"
+      onClick={() => {
+        const message = "Hi! I'd like to schedule a call to discuss my project.";
+        window.open(`https://wa.me/+919650280857?text=${encodeURIComponent(message)}`, '_blank');
+      }}
+    >
+      💬 Chat on WhatsApp
+    </button>
+  </div>
+</div>
           </div>
 
           {/* Contact Form */}
