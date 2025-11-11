@@ -5,17 +5,17 @@ const About = () => {
   const teamMembers = [
     {
       name: 'Bablu Dangi',
-      role: 'Lead Full-Stack Developer',
+      role: 'Co-founder, CTO',
       expertise: 'React, Node.js, Cloud Architecture , Java , Spring Boot , MongoDB, MySQL, Payment Gateway Integration',
-      bio: '4+ years building scalable web applications for Fortune companies',
+      bio: '2+ years building scalable web applications for Fortune companies',
       avatar: 'https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-crop_800_800/B56ZoJu3TlKIAI-/0/1761099872574?e=1764201600&v=beta&t=MbK_EdN_j2OAAeiGOtS1MW2GVOCSMmQtfXB-JKR0LaM'
     },
     {
       name: 'Jackie Mohanty',
-      role: 'Mobile Development , Lead , React Native Developer , ',
+      role: 'Founder, CEO' ,
       expertise: 'React Native, Flutter, iOS/Android',
-      bio: 'Specialized in cross-platform mobile solutions with 3+ years experience',
-      avatar: 'https://media.licdn.com/dms/image/v2/D5603AQGHoOsmgbh3RQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1685289525051?e=1764201600&v=beta&t=mUIEXCS6HwPwESuIQAwrpUuSy_KyZFjhYT1l5WBSnzo'
+      bio: 'Specialized in cross-platform mobile solutions with 1+ years experience',
+      avatar: './images/jacky.png'
     }
   ];
 

@@ -143,7 +143,12 @@ const Portfolio = () => {
           <div className="cta-content">
             <h3>Ready to Start Your Project?</h3>
             <p>Let's discuss how we can bring your vision to life</p>
-            <button className="btn btn-primary">Start Conversation</button>
+            <button className="btn btn-primary"  onClick={() => {
+        const message = "Hi! I saw your portfolio and I'm interested in discussing a project with you.";
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/+919650280857?text=${encodedMessage}`, '_blank');
+      }}
+    >Start Conversation</button>
           </div>
         </div>
       </div>

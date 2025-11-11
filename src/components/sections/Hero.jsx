@@ -54,10 +54,15 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="hero-actions">
-              <button className="btn btn-primary with-glow">
-                <span className="btn-icon">🚀</span>
+              <button className="btn btn-primary with-glow" onClick={() => {
+        const message = "Hi! I saw your portfolio and I'm interested in discussing a project with you.";
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/+919650280857?text=${encodedMessage}`, '_blank');
+      }}
+    >
                 Start Your Project
               </button>
+
               <button className="btn btn-secondary with-icon">
                 <span>📱</span>
                 View Our Work
