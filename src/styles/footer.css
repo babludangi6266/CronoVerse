@@ -1,0 +1,118 @@
+.footer {
+  background-color: var(--secondary); /* Deep Navy */
+  color: white;
+  padding: 80px 0 20px;
+  font-size: 0.95rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.footer-col h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--primary); /* Blue accent */
+  font-weight: 700;
+}
+
+.footer-col p {
+  color: #94a3b8; /* Slate 400 */
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-col ul li {
+  color: #cbd5e1;
+}
+
+.footer-col ul li a {
+  color: #cbd5e1; /* Slate 300 */
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-col ul li a:hover {
+  color: var(--primary);
+  padding-left: 5px;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s;
+  font-size: 1.2rem;
+}
+
+.social-links a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* WhatsApp Button */
+.footer-chat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366; /* WhatsApp Green */
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.footer-chat-btn:hover {
+  background: #1ebc57;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 25px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

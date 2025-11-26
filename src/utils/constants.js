@@ -1,47 +1,52 @@
-// src/utils/constants.js
+import { FaLaptopCode, FaMobileAlt, FaCloud, FaPaintBrush, FaBrain, FaRocket } from 'react-icons/fa';
+
 export const COMPANY_INFO = {
-  name: 'ChronoVerse',
-  tagline: 'Future-Proof Digital Solutions',
-  email: 'hello@chronoverse.dev',
-  phone: '+1 (555) 123-4567',
-  address: 'San Francisco, CA'
+  name: 'Lexa Technologies',
+  tagline: 'Transforming Ideas into Digital Reality',
+  email: 'jackie.mohanty2012@gmail.com',
+  phone: '+91 96502 80857',
+  address: 'Bhubneshwar, Odisha, India',
+  whatsappLink: 'https://wa.me/+919650280857'
 };
 
 export const SERVICES = [
   {
-    id: 'web-development',
+    id: 1,
     title: 'Web Development',
-    description: 'Custom platforms, robust APIs, and scalable architecture built for the future.',
-    icon: '🌐',
-    features: [
-      'Custom Web Applications',
-      'E-commerce Solutions',
-      'API Development & Integration',
-      'Progressive Web Apps (PWA)',
-      'Cloud Architecture & Deployment',
-      'Performance Optimization'
-    ],
-    technologies: ['React', 'Vue.js', 'Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'AWS']
+    desc: 'Scalable, high-performance websites built with React, Next.js, and Node.',
+    icon: FaLaptopCode,
   },
   {
-    id: 'mobile-development',
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile experiences that users love.',
-    icon: '📱',
-    features: [
-      'Native iOS & Android Apps',
-      'Cross-Platform Solutions',
-      'UI/UX Design',
-      'App Store Deployment',
-      'Push Notifications',
-      'Offline Functionality'
-    ],
-    technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'GraphQL']
+    id: 2,
+    title: 'App Development',
+    desc: 'Native and Cross-platform (Flutter/React Native) mobile applications.',
+    icon: FaMobileAlt,
+  },
+  {
+    id: 3,
+    title: 'UI/UX Design',
+    desc: 'User-centric interfaces that drive engagement and retention.',
+    icon: FaPaintBrush,
+  },
+  {
+    id: 4,
+    title: 'Cloud Solutions',
+    desc: 'AWS & Azure infrastructure setup, DevOps, and secure deployment.',
+    icon: FaCloud,
   }
 ];
 
-export const TECHNOLOGIES = [
-  'React', 'Node.js', 'Python', 'TypeScript', 'Swift', 'Kotlin', 
-  'Flutter', 'React Native', 'Vue.js', 'MongoDB', 'PostgreSQL', 
-  'AWS', 'Firebase', 'Docker', 'GraphQL'
+export const TECH_STACK = {
+  Frontend: ['React.js', 'Next.js', 'Vue.js', 'Tailwind CSS', 'Redux'],
+  Backend: ['Node.js', 'Express', 'Python/Django', 'Java Spring Boot'],
+  Mobile: ['React Native', 'Flutter', 'Swift (iOS)', 'Kotlin (Android)'],
+  Database: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Redis'],
+  DevOps: ['AWS', 'Docker', 'Kubernetes', 'CI/CD Pipelines']
+};
+
+export const WORKFLOW = [
+  { step: '01', title: 'Discover', desc: 'We analyze your requirements and business goals.' },
+  { step: '02', title: 'Design', desc: 'Creating prototypes and architectural blueprints.' },
+  { step: '03', title: 'Develop', desc: 'Agile coding with regular updates and testing.' },
+  { step: '04', title: 'Deliver', desc: 'Deployment, training, and post-launch support.' }
 ];

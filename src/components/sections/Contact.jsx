@@ -1,183 +1,79 @@
-// src/components/sections/Contact.jsx
 import React, { useState } from 'react';
+import { COMPANY_INFO } from '../../utils/constants';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import '../../styles/contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    projectType: '',
-    budget: '',
-    message: ''
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    const msg = `Hi, I am ${formData.name}. ${formData.message}`;
+    window.open(`https://wa.me/+919650280857?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   return (
     <section id="contact" className="contact-section">
       <div className="container">
-        <div className="contact-grid">
-          {/* Contact Information */}
+        <div className="contact-wrapper">
           <div className="contact-info">
-            <div className="section-header">
-              <h2>Start Your Project</h2>
-              <p>Let's build something amazing together. Get in touch and we'll discuss your vision.</p>
+            <h2>Let's Discuss Your Project</h2>
+            <p>Ready to start? Call us or send a message.</p>
+            
+            <div className="info-item">
+              <FaPhoneAlt className="icon" />
+              <div>
+                <h4>Call Us</h4>
+                <p>{COMPANY_INFO.phone}</p>
+              </div>
             </div>
-
-            <div className="contact-methods">
-              <div className="contact-method">
-                <div className="method-icon">📧</div>
-                <div className="method-details">
-                  <h4>Email Us</h4>
-                  <p>jackie.mohanty2012@gmail.com</p>
-                  <span>Typically replies within 2 hours</span>
-                </div>
-              </div>
-
-              <div className="contact-method">
-                <div className="method-icon">📞</div>
-                <div className="method-details">
-                  <h4>Call Us</h4>
-                  <p>+9196502 80857</p>
-                  <span>Mon-Fri from 9am to 6pm</span>
-                </div>
-              </div>
-
-              <div className="contact-method">
-                <div className="method-icon">💬</div>
-                <div className="method-details">
-                  <h4>Chat Support</h4>
-                  <p>Live chat available</p>
-                  <span>Get instant answers to your questions</span>
-                </div>
+            
+            <div className="info-item">
+              <FaEnvelope className="icon" />
+              <div>
+                <h4>Email Us</h4>
+                <p>{COMPANY_INFO.email}</p>
               </div>
             </div>
 
-<div className="scheduling">
-  <h4>Prefer to schedule a call?</h4>
-  <p>Book a 30-minute strategy session at your convenience</p>
-  <div className="scheduling-buttons">
-    <button 
-      className="btn btn-primary"
-      onClick={() => window.open('https://calendly.com/jackie-mohanty2012/30min', '_blank')}
-    >
-      📅 Book Strategy Session
-    </button>
-    <span className="button-divider">or</span>
-    <button 
-      className="btn btn-secondary"
-      onClick={() => {
-        const message = "Hi! I'd like to schedule a call to discuss my project.";
-        window.open(`https://wa.me/+919650280857?text=${encodeURIComponent(message)}`, '_blank');
-      }}
-    >
-      💬 Chat on WhatsApp
-    </button>
-  </div>
-</div>
+            <div className="info-item">
+              <FaMapMarkerAlt className="icon" />
+              <div>
+                <h4>Visit Us</h4>
+                <p>{COMPANY_INFO.address}</p>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="contact-form-container">
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="company">Company</label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="projectType">Project Type</label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                  >
-                    <option value="">Select project type</option>
-                    <option value="web">Web Development</option>
-                    <option value="mobile">Mobile App</option>
-                    <option value="both">Web & Mobile</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="budget">Project Budget</label>
-                <select
-                  id="budget"
-                  name="budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                >
-                  <option value="">Select budget range</option>
-                  <option value="5k-15k">$5k - $15k</option>
-                  <option value="15k-30k">$15k - $30k</option>
-                  <option value="30k-50k">$30k - $50k</option>
-                  <option value="50k+">$50k+</option>
-                </select>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Project Details *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us about your project, goals, and timeline..."
-                  required
-                ></textarea>
-              </div>
-
-              <button type="submit" className="btn btn-primary btn-full">
-                Send Message
-              </button>
-            </form>
-          </div>
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Full Name</label>
+              <input 
+                type="text" 
+                placeholder="John Doe" 
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+              />
+            </div>
+            <div className="form-group">
+              <label>Email Address</label>
+              <input 
+                type="email" 
+                placeholder="john@example.com" 
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+              />
+            </div>
+            <div className="form-group">
+              <label>Message</label>
+              <textarea 
+                rows="4" 
+                placeholder="Tell us about your project..."
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+              ></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary full-width">
+              <FaWhatsapp /> Send Message on WhatsApp
+            </button>
+          </form>
         </div>
       </div>
     </section>

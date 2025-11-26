@@ -1,44 +1,73 @@
-// src/components/common/Header.jsx
-import React, { useState } from 'react';
-import Navigation from './Navigation';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { COMPANY_INFO } from '../../utils/constants';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import '../../styles/header.css'; // You will create this
 
-const Header = ({ darkMode, setDarkMode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'Our Work', path: '/portfolio' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Contact', path: '/contact' },
+  ];
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header-content">
-          {/* Logo */}
-          <div className="logo">
-            <h2>ChronoVerse</h2>
-            <span>Future-Proof Digital Solutions</span>
-          </div>
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="container header-content">
+        <Link to="/" className="logo">
+          <h2>Lexa<span className="dot">.</span></h2>
+        </Link>
 
-          {/* Navigation */}
-          <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <nav className="desktop-nav">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              to={link.path}
+              className={location.pathname === link.path ? 'active' : ''}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
 
-          {/* Dark Mode Toggle */}
-          <button 
-            className="theme-toggle"
-            onClick={() => setDarkMode(!darkMode)}
-            aria-label="Toggle dark mode"
-          >
-            {darkMode ? '☀️' : '🌙'}
-          </button>
+        <button 
+          className="btn btn-primary nav-cta"
+          onClick={() => window.open(COMPANY_INFO.whatsappLink, '_blank')}
+        >
+          Let's Talk
+        </button>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            className={`mobile-menu-toggle ${isMenuOpen ? 'active' : ''}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+        <div className="mobile-toggle" onClick={() => setMobileMenu(!mobileMenu)}>
+          {mobileMenu ? <HiX /> : <HiMenuAlt3 />}
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenu && (
+        <div className="mobile-menu">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              to={link.path} 
+              onClick={() => setMobileMenu(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 };

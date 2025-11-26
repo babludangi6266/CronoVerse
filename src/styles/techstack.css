@@ -1,0 +1,631 @@
+/* CONTAINER & LAYOUT */
+.tech-modern-section {
+  padding: 100px 0;
+  background-color: #FAFAFA; /* Very light grey */
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-header {
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.pill-badge {
+  background: #EEF2FF;
+  color: var(--primary);
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  display: inline-block;
+  margin-bottom: 15px;
+  border: 1px solid rgba(79, 70, 229, 0.1);
+}
+
+.modern-header h2 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: #0F172A;
+  margin-bottom: 15px;
+}
+
+.modern-header p {
+  font-size: 1.1rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* SPLIT LAYOUT */
+.tech-layout-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ACCORDION (LEFT SIDE) */
+.accordion-item {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-item.active {
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px -5px rgba(37, 99, 235, 0.1);
+  background: white;
+}
+
+.accordion-item:hover {
+  transform: translateX(5px);
+  border-color: #CBD5E1;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: #F8FAFC;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: background 0.3s;
+}
+
+.accordion-item.active .icon-box {
+  background: var(--primary);
+  color: white;
+}
+
+.header-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #1E293B;
+  margin: 0;
+}
+
+.header-text span {
+  font-size: 0.9rem;
+  color: #94A3B8;
+}
+
+/* EXPANDABLE CONTENT */
+.accordion-content {
+  overflow: hidden;
+}
+
+.tech-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #F1F5F9;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* FAQ BOX STYLING */
+.faq-box {
+  background: #EFF6FF; /* Very light blue */
+  padding: 20px;
+  border-radius: 16px;
+  border-left: 4px solid var(--primary);
+}
+
+.faq-box h4 {
+  font-size: 1rem;
+  color: #1E40AF;
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+}
+
+.faq-box p {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* VISUAL STAGE (RIGHT SIDE) */
+.tech-visual-stage {
+  height: 100%;
+  position: relative;
+}
+
+
+
+
+.glass-overlay span {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--primary);
+}
+/* ... Keep all your existing Accordion styles ... */
+
+/* UPDATED VISUAL STAGE (RIGHT SIDE) */
+.tech-visual-stage {
+  height: 100%;
+  position: relative;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 100px;
+  /* Ensure it has a reasonable max height */
+  max-height: 90vh;
+}
+
+.sticky-wrapper {
+  position: sticky;
+  top: 50%; /* Position top edge at 50% of viewport */
+  transform: translateY(-50%); /* Pull back by 50% of its own height to center */
+  max-height: 95vh;
+  /* Add padding to prevent cut-off on small laptop screens */
+  padding: 20px 0; 
+}
+
+.visual-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 3. NEW TERMINAL CARD */
+.code-card {
+  background: #1E1E1E; /* VS Code Dark */
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #333;
+  box-shadow: 0 15px 35px -5px rgba(0,0,0,0.4);
+}
+
+.terminal-header {
+  background: #252526;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+}
+
+.term-icon { color: #94A3B8; font-size: 0.9rem; margin-right: 8px; }
+
+.terminal-header span {
+  color: #94A3B8;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  margin-right: auto;
+}
+
+.window-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.code-block {
+  padding: 20px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #A9B7C6;
+  white-space: pre-wrap; /* Wraps text so it doesn't overflow horizontally */
+}
+/* 1. IMAGE CARD */
+.image-card-modern {
+  height: 350px; /* Slightly shorter to fit metrics below */
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1);
+}
+
+.image-card-modern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass-overlay {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 15px 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-overlay h3 { margin: 5px 0 0 0; font-size: 1.2rem; color: #0F172A; }
+
+/* 2. NEW METRICS CARD (Fills the void!) */
+.metrics-card {
+  background: #1E293B; /* Dark Slate Blue */
+  color: white;
+  padding: 25px;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px -5px rgba(30, 41, 59, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metrics-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.metric-icon {
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38BDF8; /* Sky Blue */
+  font-size: 1rem;
+}
+
+.metric-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1;
+}
+
+.metric-lbl {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  line-height: 1.2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .tech-layout-split { grid-template-columns: 1fr; }
+  .tech-visual-stage { display: none; } /* Hide sticky area on mobile */
+}
+
+/* DECORATIVE BLOB BEHIND IMAGE */
+.visual-blob {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #F9A8D4, #A78BFA);
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+
+/* MOBILE */
+@media (max-width: 992px) {
+  .tech-layout-split {
+    grid-template-columns: 1fr;
+  }
+  .tech-visual-stage {
+    display: none; /* Hide sticky image on mobile to save space */
+  }
+}
+/* ... Keep existing container styles ... */
+/* CONTAINER & LAYOUT */
+.tech-modern-section {
+    padding: 100px 0;
+    background-color: #FAFAFA; /* Very light grey */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .modern-header {
+    margin-bottom: 60px;
+    max-width: 600px;
+  }
+  
+  .pill-badge {
+    background: #EEF2FF;
+    color: var(--primary);
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 15px;
+    border: 1px solid rgba(79, 70, 229, 0.1);
+  }
+  
+  .modern-header h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: #0F172A;
+    margin-bottom: 15px;
+  }
+  
+  .modern-header p {
+    font-size: 1.1rem;
+    color: #64748B;
+    line-height: 1.6;
+  }
+  
+  /* SPLIT LAYOUT */
+  .tech-layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+/* ACCORDION REFINEMENTS */
+.accordion-item {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* AI PULSE EFFECT */
+.pulse-ai {
+  background: linear-gradient(135deg, #6366f1, #a855f7) !important;
+  color: white !important;
+  box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
+  animation: pulse-purple 2s infinite;
+}
+
+@keyframes pulse-purple {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(168, 85, 247, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  background: #F8FAFC;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.header-text h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #1E293B;
+  margin: 0;
+}
+
+.header-text span {
+  font-size: 0.9rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+/* CONTENT STYLING */
+.tech-description {
+  margin-top: 20px;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+/* DELIVERABLES (NEW) */
+.deliverables-box {
+  margin: 20px 0;
+  padding: 15px 0;
+}
+
+.deliverables-box h5 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #94A3B8;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.deliverables-box ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.deliverables-box li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+.check-icon { color: var(--primary); font-size: 0.8rem; }
+
+/* TECH PILLS */
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.pill {
+  background: #F1F5F9;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* FAQ BOX (Improved) */
+.faq-box {
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.faq-header h4 {
+  color: #0284C7;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.faq-question {
+  font-weight: 700;
+  color: #0C4A6E;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.faq-answer {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* IMAGE CARD */
+.image-card-modern {
+  height: 600px; /* Taller to match content */
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+}
+
+.image-card-modern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.glass-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  padding: 25px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.overlay-badge {
+  background: var(--primary);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .tech-layout-split { grid-template-columns: 1fr; }
+  .tech-visual-stage { display: none; }
+  .deliverables-box ul { grid-template-columns: 1fr; }
+}
+.tech-visual-stage {
+    height: 100%;
+    position: relative;
+  }
+  
+  .sticky-wrapper {
+    position: sticky;
+    top: 120px; /* Sticks as you scroll */
+  }
+  .visual-blob {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #F9A8D4, #A78BFA);
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.5;
+    border-radius: 50%;
+  }

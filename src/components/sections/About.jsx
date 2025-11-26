@@ -1,129 +1,55 @@
-// src/components/sections/About.jsx
 import React from 'react';
+import { FaCheckCircle } from 'react-icons/fa';
+import '../../styles/about.css';
 
 const About = () => {
-  const teamMembers = [
-    {
-      name: 'Bablu Dangi',
-      role: 'Co-founder, CTO',
-      expertise: 'React, Node.js, Cloud Architecture , Java , Spring Boot , MongoDB, MySQL, Payment Gateway Integration',
-      bio: '2+ years building scalable web applications for Fortune companies',
-      avatar: 'https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-crop_800_800/B56ZoJu3TlKIAI-/0/1761099872574?e=1764201600&v=beta&t=MbK_EdN_j2OAAeiGOtS1MW2GVOCSMmQtfXB-JKR0LaM'
-    },
-    {
-      name: 'Jackie Mohanty',
-      role: 'Founder, CEO' ,
-      expertise: 'React Native, Flutter, iOS/Android',
-      bio: 'Specialized in cross-platform mobile solutions with 1+ years experience',
-      avatar: './images/jacky.png'
-    }
-  ];
-
-  const processSteps = [
-    {
-      step: '01',
-      title: 'Discovery & Strategy',
-      description: 'Deep dive into your business goals, technical requirements, and user needs',
-      icon: '🔍'
-    },
-    {
-      step: '02',
-      title: 'Design & Prototyping',
-      description: 'Create wireframes and interactive prototypes for validation',
-      icon: '🎨'
-    },
-    {
-      step: '03',
-      title: 'Development & Testing',
-      description: 'Agile development with continuous integration and quality assurance',
-      icon: '⚡'
-    },
-    {
-      step: '04',
-      title: 'Launch & Scale',
-      description: 'Deployment, monitoring, and ongoing optimization for growth',
-      icon: '🚀'
-    }
-  ];
-
   return (
-    <section id="about" className="about-section">
+    <section className="about-section">
       <div className="container">
-        <div className="section-header">
-          <h2>Our Philosophy</h2>
-          <p>Building digital products that stand the test of time</p>
-        </div>
-
-        {/* Vision Section */}
-        <div className="vision-section">
-          <div className="vision-content">
-            <h3>The ChronoVerse Vision</h3>
+        <div className="about-grid">
+          <div className="about-image-col">
+            <div className="img-wrapper">
+               {/* Replace with office image */}
+               <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Lexa" />
+               <div className="experience-badge">
+                 <span className="years">3+</span>
+                 <span className="text">Years of Excellence</span>
+               </div>
+            </div>
+          </div>
+          
+          <div className="about-content">
+            <span className="section-subtitle">Why Choose Lexa?</span>
+            <h2>We Build Solutions That <span className="gradient-text">Last.</span></h2>
             <p>
-              In a world where technology evolves at lightning speed, we build solutions that 
-              remain relevant, scalable, and effective for years to come. Our "future-proof" 
-              approach means your digital products won't just work today—they'll adapt and 
-              grow with your business tomorrow.
+              At Lexa Technologies, we don't just deliver projects; we build partnerships. 
+              Our "Future-Proof" methodology ensures that the software we build today 
+              scales effortlessly with your business tomorrow.
             </p>
-            <div className="vision-points">
-              <div className="vision-point">
-                <span className="point-icon">⏳</span>
+
+            <div className="features-grid">
+              <div className="feature-item">
+                <FaCheckCircle className="check-icon" />
                 <div>
-                  <h4>Time-Tested Quality</h4>
-                  <p>We write clean, maintainable code that stands the test of time</p>
+                  <h4>Agile Methodology</h4>
+                  <p>Weekly sprints and transparent updates.</p>
                 </div>
               </div>
-              <div className="vision-point">
-                <span className="point-icon">🚀</span>
+              <div className="feature-item">
+                <FaCheckCircle className="check-icon" />
                 <div>
-                  <h4>Future-Proof Architecture</h4>
-                  <p>Scalable solutions designed to evolve with your business needs</p>
+                  <h4>Scalable Architecture</h4>
+                  <p>Built to handle millions of users.</p>
                 </div>
               </div>
-              <div className="vision-point">
-                <span className="point-icon">🔮</span>
+              <div className="feature-item">
+                <FaCheckCircle className="check-icon" />
                 <div>
-                  <h4>Innovation-Driven</h4>
-                  <p>Staying ahead of technology trends to keep your competitive edge</p>
+                  <h4>24/7 Support</h4>
+                  <p>We are always here when you need us.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Process Section */}
-        <div className="process-section">
-          <h3>Our Development Process</h3>
-          <div className="process-steps">
-            {processSteps.map((step, index) => (
-              <div key={index} className="process-step">
-                <div className="step-header">
-                  <span className="step-number">{step.step}</span>
-                  <span className="step-icon">{step.icon}</span>
-                </div>
-                <h4>{step.title}</h4>
-                <p>{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Team Section */}
-        <div className="team-section">
-          <h3>Meet Our Team</h3>
-          <div className="team-grid">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="team-card">
-                <div className="member-avatar">
-                  <img src={member.avatar} alt={member.name} />
-                </div>
-                <div className="member-info">
-                  <h4>{member.name}</h4>
-                  <p className="member-role">{member.role}</p>
-                  <p className="member-expertise">{member.expertise}</p>
-                  <p className="member-bio">{member.bio}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

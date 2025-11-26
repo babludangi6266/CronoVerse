@@ -1,78 +1,61 @@
-// src/components/common/Footer.jsx
 import React from 'react';
+import { COMPANY_INFO } from '../../utils/constants';
+import { FaLinkedin, FaGithub, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import '../../styles/footer.css';
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <div className="logo">
-              <h3>ChronoVerse</h3>
-              <p>Future-Proof Digital Solutions</p>
-            </div>
-            <p className="footer-description">
-              Building the next era of digital experiences with timeless code 
-              and future-proof platforms.
-            </p>
-            <div className="social-links">
-              <a href="https://www.linkedin.com/in/jackie-mohanty-9214391b2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn">📱</a>
-              <a href="#" aria-label="Twitter">🐦</a>
-              <a href="https://github.com/babludangi6266" aria-label="GitHub">💻</a>
-              <a href="#" aria-label="Dribbble">🎨</a>
-            </div>
-          </div>
-
-          <div className="footer-section">
-            <h4>Services</h4>
-            <ul>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Mobile App Development</a></li>
-              <li><a href="#">UI/UX Design</a></li>
-              <li><a href="#">Consulting</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Work</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Careers</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            <h4>Contact</h4>
-            <ul>
-              <li>jackie.mohanty2012@gmail.com</li>
-              <li>96502 80857</li>
-              <li>Bhubneshwar , Odisha , India</li>
-              <li>
-               <button 
-      className="btn btn-primary"
-      onClick={() => {
-        const message = "Hi! I saw your portfolio and I'm interested in discussing a project with you.";
-        const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/+919650280857?text=${encodedMessage}`, '_blank');
-      }}
-    >
-      Start Conversation
-    </button>
-              </li>
-            </ul>
+      <div className="container footer-content">
+        <div className="footer-col">
+          <h3>Lexa Technologies</h3>
+          <p>
+            Your trusted partner for all IT services. From web to mobile, 
+            we engineer digital excellence.
+          </p>
+          <div className="social-links">
+            <a href="https://linkedin.com/..." target="_blank" rel="noreferrer"><FaLinkedin /></a>
+            <a href="https://github.com/..." target="_blank" rel="noreferrer"><FaGithub /></a>
+            <a href="#" target="_blank" rel="noreferrer"><FaInstagram /></a>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p>&copy; 2025 ChronoVerse. All rights reserved.</p>
-          <div className="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookies</a>
-          </div>
+        <div className="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Web Development</li>
+            <li>Mobile App Development</li>
+            <li>UI/UX Design</li>
+            <li>Cloud Architecture</li>
+          </ul>
         </div>
+
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li>About Us</li>
+            <li>Our Projects</li>
+            <li>Workflow</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li>{COMPANY_INFO.email}</li>
+            <li>{COMPANY_INFO.phone}</li>
+            <li>{COMPANY_INFO.address}</li>
+            <li>
+              <a href={COMPANY_INFO.whatsappLink} className="footer-chat-btn">
+                <FaWhatsapp /> Chat on WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; 2025 Lexa Technologies. All Rights Reserved.</p>
       </div>
     </footer>
   );

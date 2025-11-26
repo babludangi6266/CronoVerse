@@ -1,0 +1,192 @@
+.portfolio-section-modern {
+  padding: 100px 0;
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.mb-60 { margin-bottom: 60px; }
+
+/* THE AESTHETIC GRID */
+.aesthetic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 Grid */
+  gap: 40px;
+}
+
+/* THE CARD */
+.aesthetic-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover State: Lift and colored shadow based on theme */
+.aesthetic-card:hover {
+  transform: translateY(-10px) scale(1.01);
+}
+
+/* THEME COLORS (Ambient Glows on Hover) */
+.theme-blue:hover { box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.25); border-color: rgba(37, 99, 235, 0.3); }
+.theme-purple:hover { box-shadow: 0 30px 60px -15px rgba(147, 51, 234, 0.25); border-color: rgba(147, 51, 234, 0.3); }
+.theme-orange:hover { box-shadow: 0 30px 60px -15px rgba(249, 115, 22, 0.25); border-color: rgba(249, 115, 22, 0.3); }
+.theme-green:hover { box-shadow: 0 30px 60px -15px rgba(16, 185, 129, 0.25); border-color: rgba(16, 185, 129, 0.3); }
+
+/* IMAGE AREA */
+.card-image-wrapper {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: #F8FAFC;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.aesthetic-card:hover .card-image-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Image Overlay Effect */
+.image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.6); /* Dark overlay */
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aesthetic-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.view-btn {
+  background: white;
+  color: #0F172A;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.aesthetic-card:hover .view-btn {
+  transform: translateY(0);
+}
+
+/* CONTENT AREA */
+.card-content {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Add a subtle top glow to the content area based on theme */
+.aesthetic-card::after {
+  content: '';
+  position: absolute;
+  top: 300px; /* Match image height */
+  left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, var(--theme-color, rgba(37, 99, 235, 0.05)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.theme-blue::after { --theme-color: rgba(37, 99, 235, 0.08); }
+.theme-purple::after { --theme-color: rgba(147, 51, 234, 0.08); }
+.theme-orange::after { --theme-color: rgba(249, 115, 22, 0.08); }
+.theme-green::after { --theme-color: rgba(16, 185, 129, 0.08); }
+
+.aesthetic-card:hover::after { opacity: 1; }
+
+
+.category-tag {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #94A3B8;
+  margin-bottom: 10px;
+}
+
+.theme-blue .category-tag { color: #3B82F6; }
+.theme-purple .category-tag { color: #A855F7; }
+.theme-orange .category-tag { color: #F97316; }
+.theme-green .category-tag { color: #10B981; }
+
+.card-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: #0F172A;
+  margin-bottom: 15px;
+}
+
+.card-content p {
+  color: #64748B;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+}
+
+.tech-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.mini-tag {
+  background: #F1F5F9;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.details-link {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  transition: gap 0.3s;
+}
+
+.theme-blue .details-link { color: #2563EB; }
+.theme-purple .details-link { color: #9333EA; }
+.theme-orange .details-link { color: #EA580C; }
+.theme-green .details-link { color: #059669; }
+
+.details-link:hover { gap: 15px; }
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .aesthetic-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 30px;
+  }
+  .card-image-wrapper {
+    height: 250px;
+  }
+}

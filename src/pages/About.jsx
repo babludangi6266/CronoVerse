@@ -7,7 +7,7 @@ const AboutPage = () => {
     <div className="page about-page">
       <section className="page-hero">
         <div className="container">
-          <h1>About ChronoVerse</h1>
+          <h1>About Lexa Technologies</h1>
           <p>Learn about our mission, values, and the team behind your success</p>
         </div>
       </section>

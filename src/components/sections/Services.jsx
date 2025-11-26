@@ -1,85 +1,130 @@
-// src/components/sections/Services.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FaLaptopCode, FaMobileAlt, FaCloud, FaPaintBrush, FaBrain, FaChartLine, FaArrowRight, FaCheck, FaAws } from 'react-icons/fa';
+import { SiReact, SiNodedotjs, SiFlutter, SiFigma, SiOpenai } from 'react-icons/si';
+import '../../styles/servicess.css';
 
 const Services = () => {
   const services = [
     {
-      icon: '🛠️',
+      id: 1,
       title: 'Custom Web Development',
-      description: 'Tailored web applications built with modern frameworks and scalable architecture.',
-      features: ['React/Vue.js', 'Node.js/Python', 'Responsive Design', 'API Integration'],
-      gradient: 'gradient-1',
-      image: 'https://images.unsplash.com/photo-1517309561013-16f6e4020305?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Q3VzdG9tJTIwV2ViJTIwRGV2ZWxvcG1lbnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600'
+      desc: 'We build high-performance, SEO-friendly web applications that scale with your business.',
+      icon: <FaLaptopCode />,
+      color: 'blue',
+      mainTech: <SiReact />,
+      features: ['SaaS Platforms', 'Progressive Web Apps (PWA)', 'Enterprise Dashboards', 'E-commerce Solutions']
     },
     {
-      icon: '📱',
-      title: 'Mobile App Development',
-      description: 'Native and cross-platform mobile apps that deliver exceptional user experiences.',
-      features: ['iOS & Android', 'React Native/Flutter', 'UI/UX Design', 'App Store Deployment'],
-      gradient: 'gradient-2',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600 '
+      id: 2,
+      title: 'Mobile App Engineering',
+      desc: 'Native-grade iOS and Android applications built with cross-platform efficiency.',
+      icon: <FaMobileAlt />,
+      color: 'purple',
+      mainTech: <SiFlutter />,
+      features: ['iOS & Android Apps', 'Cross-Platform (Flutter)', 'App Store Optimization', 'Offline-First Architecture']
     },
     {
-      icon: '☁️',
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure and deployment for optimal performance.',
-      features: ['AWS/Azure', 'DevOps', 'CI/CD', 'Microservices'],
-      gradient: 'gradient-3',
-      image: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=600'
+      id: 3,
+      title: 'Cloud & DevOps',
+      desc: 'Secure, scalable infrastructure that handles millions of requests without downtime.',
+      icon: <FaCloud />,
+      color: 'orange',
+      mainTech: <FaAws />, // 3. Updated this to use the working FaAws icon
+      features: ['AWS / Azure Architecture', 'CI/CD Automation', 'Serverless Computing', 'Cloud Security Audits']
+    },
+    {
+      id: 4,
+      title: 'UI/UX & Product Design',
+      desc: 'User-centric interfaces designed to convert visitors into loyal customers.',
+      icon: <FaPaintBrush />,
+      color: 'pink',
+      mainTech: <SiFigma />,
+      features: ['User Research', 'Wireframing & Prototyping', 'Design Systems', 'Interactive High-Fi UI']
+    },
+    {
+      id: 5,
+      title: 'AI & Automation',
+      desc: 'Leverage the power of LLMs and Machine Learning to automate complex workflows.',
+      icon: <FaBrain />,
+      color: 'green',
+      mainTech: <SiOpenai />,
+      features: ['Custom Chatbots', 'Predictive Analytics', 'Process Automation', 'OpenAI Integration']
+    },
+    {
+      id: 6,
+      title: 'Digital Consultancy',
+      desc: 'Strategic technical guidance to map out your digital transformation journey.',
+      icon: <FaChartLine />,
+      color: 'cyan',
+      mainTech: null,
+      features: ['CTO-as-a-Service', 'Tech Stack Selection', 'MVP Strategy', 'Legacy Modernization']
     }
   ];
 
   return (
-    <section id="services" className="services-section">
+    <section id="services" className="services-section-modern">
+      {/* Background Decor */}
+      <div className="bg-grid-pattern"></div>
+      
       <div className="container">
-        <div className="section-header">
-          <div className="section-badge">Our Expertise</div>
-          <h2>Services That Drive <span className="gradient-text">Digital Innovation</span></h2>
-          <p>We combine cutting-edge technology with proven methodologies to deliver exceptional results</p>
+        <div className="section-header center mb-60">
+          <span className="aesthetic-badge">🛠️ OUR EXPERTISE</span>
+          <h2>
+            Comprehensive <span className="gradient-text">IT Solutions</span>
+          </h2>
+          <p>
+            From the first line of code to the final deployment, we handle the entire 
+            lifecycle of your digital product with precision and engineering excellence.
+          </p>
         </div>
 
-        <div className="services-grid">
+        <div className="services-grid-dense">
           {services.map((service, index) => (
-            <div key={index} className={`service-card ${service.gradient}`}>
-              <div className="service-header">
-                <div className="service-icon">{service.icon}</div>
-                <div className="service-visual">
-                  <div className="service-image">
-                    <img src={service.image} alt={service.title} />
-                  </div>
+            <motion.div 
+              className={`service-card-modern ${service.color}-theme`}
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              {/* Top Gradient Line */}
+              <div className="card-top-line"></div>
+              
+              <div className="card-header">
+                <div className="service-icon-box">
+                  {service.icon}
                 </div>
+                {service.mainTech && (
+                  <div className="tech-badge">
+                    Powered by {service.mainTech}
+                  </div>
+                )}
+              </div>
+
+              <h3>{service.title}</h3>
+              <p className="service-desc">{service.desc}</p>
+
+              <div className="features-list">
+                {service.features.map((feature, idx) => (
+                  <div key={idx} className="feature-row">
+                    <FaCheck className="check-icon" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="card-footer">
+                <span className="learn-more-btn">
+                  Explore Service <FaArrowRight className="arrow-icon" />
+                </span>
               </div>
               
-              <div className="service-content">
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                
-                <div className="service-features">
-                  {service.features.map((feature, idx) => (
-                    <span key={idx} className="feature-tag">{feature}</span>
-                  ))}
-                </div>
-                
-                <button className="service-cta">
-                  Learn More →
-                </button>
-              </div>
-            </div>
+              {/* Hover Background Glow */}
+              <div className="hover-glow"></div>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Technology Stack Visual */}
-        <div className="tech-showcase">
-          <h3>Trusted By Modern Tech Stack</h3>
-          <div className="tech-scroll">
-            <div className="tech-track">
-              {['React', 'Node.js', 'Python', 'TypeScript', 'AWS', 'MongoDB', 'PostgreSQL', 'Docker', 'Kubernetes', 'GraphQL'].map((tech, idx) => (
-                <div key={idx} className="tech-item">
-                  <span>{tech}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>

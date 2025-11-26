@@ -1,0 +1,54 @@
+.marquee-section {
+  padding: 30px 0;
+  background: white;
+  border-bottom: 1px solid #f1f5f9;
+  overflow: hidden;
+  text-align: center;
+}
+
+.marquee-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 30s linear infinite;
+  min-width: 100%;
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.marquee-icon {
+  font-size: 1.8rem;
+  color: #94a3b8;
+  transition: color 0.3s;
+}
+
+.marquee-item:hover .marquee-icon {
+  color: var(--primary);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

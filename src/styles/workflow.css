@@ -1,0 +1,220 @@
+.workflow-section {
+  padding: 100px 0;
+  background-color: #F8FAFC;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Pattern */
+.workflow-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* TIMELINE CONTAINER */
+.timeline-wrapper {
+  position: relative;
+  margin-top: 60px;
+  padding: 20px 0;
+}
+
+/* THE GLOWING CENTER LINE */
+.center-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #E2E8F0;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  z-index: 0;
+}
+
+/* ROW LAYOUT */
+.timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-row:last-child { margin-bottom: 0; }
+
+/* 50% width for content and image */
+.timeline-content, .timeline-image {
+  width: 45%;
+}
+
+/* ALTERNATING ORDER (ZIG-ZAG) */
+.row-left { flex-direction: row; }
+.row-right { flex-direction: row-reverse; }
+
+/* THE CONTENT CARD (Glassmorphism) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -15px rgba(0,0,0,0.1);
+}
+
+/* GIANT BACKGROUND NUMBER */
+.step-number-bg {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 8rem;
+  font-weight: 800;
+  color: rgba(0,0,0,0.03);
+  font-family: var(--font-heading);
+  z-index: 0;
+}
+
+/* ICON BADGE */
+.icon-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--secondary);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.glass-card p {
+  color: #64748B;
+  line-height: 1.6;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* TAGS */
+.step-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-tag {
+  font-size: 0.75rem;
+  background: #F1F5F9;
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #475569;
+  font-weight: 600;
+}
+
+/* THE CENTER DOT */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot-inner {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 4px white;
+}
+
+.dot-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid;
+  opacity: 0.5;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* THE VISUAL IMAGE */
+.img-frame {
+  height: 350px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,0.15);
+  border: 8px solid white;
+}
+
+.img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-row:hover .img-frame img {
+  transform: scale(1.1);
+}
+
+/* RESPONSIVE DESIGN (Crucial) */
+@media (max-width: 992px) {
+  /* Remove center line and make it left-aligned */
+  .center-line { left: 20px; }
+  
+  .timeline-dot { left: 20px; }
+  
+  .timeline-row, .row-right {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 60px; /* Space for the line */
+  }
+
+  .timeline-content, .timeline-image {
+    width: 100%;
+  }
+
+  .timeline-image {
+    margin-top: 30px;
+    height: 250px;
+  }
+  
+  .img-frame { height: 250px; }
+}
