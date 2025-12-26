@@ -71,7 +71,7 @@ const About = () => {
       name: "Jacky Mohanty", // REPLACE WITH REAL NAME
       role: "Founder & CEO",
       image: "/images/jacky.png", // REPLACE WITH REAL PHOTO
-      linkedin: "https://www.linkedin.com/in/bablu-dangi-ba8a01259/"
+      linkedin: "https://www.linkedin.com/in/jackie-mohanty-9214391b2/"
     },
     {
       id: 2,
