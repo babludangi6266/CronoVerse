@@ -25,7 +25,7 @@
 .logo h2 {
   font-size: 28px;
   font-weight: 800;
-  color: var(--secondary);
+ color: aliceblue;
 }
 
 .logo .dot { color: var(--primary); }
@@ -33,12 +33,14 @@
 .desktop-nav {
   display: flex;
   gap: 40px;
+  color: rgb(101, 222, 20) !important;
 }
 
 .desktop-nav a {
   font-weight: 500;
   color: var(--text-main);
   transition: color 0.3s;
+  color: rgb(232, 235, 230) !important;
 }
 
 .desktop-nav a:hover, .desktop-nav a.active {

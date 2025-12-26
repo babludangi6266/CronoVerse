@@ -3,6 +3,7 @@
   background-color: var(--white);
   position: relative;
   z-index: 1;
+  
 }
 
 .mb-60 { margin-bottom: 60px; }
