@@ -10,10 +10,11 @@
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(161, 221, 186, 0.411);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
   padding: 15px 0;
+  color: rgb(0, 0, 0) !important;
 }
 
 .header-content {
@@ -33,14 +34,14 @@
 .desktop-nav {
   display: flex;
   gap: 40px;
-  color: rgb(101, 222, 20) !important;
+  color: rgb(218, 237, 204) !important;
 }
 
 .desktop-nav a {
   font-weight: 500;
   color: var(--text-main);
   transition: color 0.3s;
-  color: rgb(232, 235, 230) !important;
+  color: rgb(197, 202, 195) !important;
 }
 
 .desktop-nav a:hover, .desktop-nav a.active {

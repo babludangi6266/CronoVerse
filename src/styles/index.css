@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 :root {
-  /* Corporate Palette - Inspired by clean IT aesthetics */
   --primary: #2563EB; /* Royal Blue */
   --primary-dark: #1E40AF;
   --secondary: #0F172A; /* Deep Navy (Text) */
@@ -32,10 +31,10 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #FAFAFA;
+  background-color: #05081d;
   /* This creates a professional tech grid pattern */
   background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-  background-size: 30px 30px; 
+  background-size: 90px 30px; 
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;

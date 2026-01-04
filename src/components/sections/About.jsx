@@ -1,187 +1,212 @@
-// import React from 'react';
-// import { FaCheckCircle } from 'react-icons/fa';
-// import '../../styles/about.css';
-
-// const About = () => {
-//   return (
-//     <section className="about-section">
-//       <div className="container">
-//         <div className="about-grid">
-//           <div className="about-image-col">
-//             <div className="img-wrapper">
-//                {/* Replace with office image */}
-//                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Lexa" />
-//                <div className="experience-badge">
-//                  <span className="years">3+</span>
-//                  <span className="text">Years of Excellence</span>
-//                </div>
-//             </div>
-//           </div>
-          
-//           <div className="about-content">
-//             <span className="section-subtitle">Why Choose Lexa?</span>
-//             <h2>We Build Solutions That <span className="gradient-text">Last.</span></h2>
-//             <p>
-//               At Lexa Technologies, we don't just deliver projects; we build partnerships. 
-//               Our "Future-Proof" methodology ensures that the software we build today 
-//               scales effortlessly with your business tomorrow.
-//             </p>
-
-//             <div className="features-grid">
-//               <div className="feature-item">
-//                 <FaCheckCircle className="check-icon" />
-//                 <div>
-//                   <h4>Agile Methodology</h4>
-//                   <p>Weekly sprints and transparent updates.</p>
-//                 </div>
-//               </div>
-//               <div className="feature-item">
-//                 <FaCheckCircle className="check-icon" />
-//                 <div>
-//                   <h4>Scalable Architecture</h4>
-//                   <p>Built to handle millions of users.</p>
-//                 </div>
-//               </div>
-//               <div className="feature-item">
-//                 <FaCheckCircle className="check-icon" />
-//                 <div>
-//                   <h4>24/7 Support</h4>
-//                   <p>We are always here when you need us.</p>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default About;
-
-import React from 'react';
-import { FaCheckCircle, FaLinkedinIn, FaArrowRight } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaArrowRight, FaLinkedinIn, FaFingerprint, FaLayerGroup, FaBolt, FaGlobeAmericas, FaRocket, FaCode } from 'react-icons/fa';
 import '../../styles/about.css';
 
 const About = () => {
-  
+  const [textIndex, setTextIndex] = useState(0);
+  const rotatingLines = [
+    "From ideas in the morning to delivery by evening.",
+    "Websites today. Apps in days. Not months.",
+    "This is not a startup. This is a new era."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prev) => (prev + 1) % rotatingLines.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const leaders = [
     {
-      id: 1,
-      name: "Jacky Mohanty", // REPLACE WITH REAL NAME
-      role: "Founder & CEO",
-      image: "/images/jacky.png", // REPLACE WITH REAL PHOTO
+      id: 1, name: "Jackie Mohanty", role: "Founder",
+      image: "/images/jacky.png", 
       linkedin: "https://www.linkedin.com/in/jackie-mohanty-9214391b2/"
     },
     {
-      id: 2,
-      name: "Bablu Dangi", // REPLACE WITH REAL NAME
-      role: "Co-Founder & CTO",
-      image: "https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-scale_400_400/B56ZoJu3TlKIAg-/0/1761099872653?e=1768435200&v=beta&t=oLFkQMYQcVx1J0IYoo7eVRjU5KFVARtklbyOhcMEjzA", // REPLACE WITH REAL PHOTO
+      id: 2, name: "Bablu Dangi", role: "Co-Founder",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-scale_400_400/B56ZoJu3TlKIAg-/0/1761099872653?e=1768435200&v=beta&t=oLFkQMYQcVx1J0IYoo7eVRjU5KFVARtklbyOhcMEjzA", 
       linkedin: "https://www.linkedin.com/in/bablu-dangi-ba8a01259/"
     }
   ];
 
   return (
-    <section className="about-section">
-      <div className="container">
-        
-        {/* --- PART 1: COMPANY INFO --- */}
-        <div className="about-grid">
-          {/* Left Side: Image with Badge */}
-          <div className="about-image-col">
-            <div className="img-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Lexa Office" 
-                className="main-about-img"
-              />
-              <div className="floating-badge">
-                <span className="badge-number">3+</span>
-                <span className="badge-text">Years of <br/> Innovation</span>
-              </div>
-              {/* Decorative dots behind */}
-              <div className="dots-deco"></div>
-            </div>
-          </div>
-          
-          {/* Right Side: Text Content */}
-          <div className="about-content">
-            <span className="section-label">WHO WE ARE</span>
-            <h2>
-              We Build Solutions That <br />
-              <span className="gradient-text">Define The Future.</span>
-            </h2>
-            <p className="about-desc">
-              At Lexa Technologies, we don't just deliver code; we deliver <b>business growth</b>. 
-              Our "Future-Proof" methodology ensures that the software we build today 
-              scales effortlessly with your vision tomorrow.
-            </p>
+    <div className="dark-theme-wrapper">
+      
+      {/* --- BACKGROUND GRAPHICS --- */}
+      <div className="bg-glow top-left"></div>
+      <div className="bg-glow bottom-right"></div>
+      <div className="grid-overlay"></div>
 
-            <div className="features-grid">
-              <div className="feature-item">
-                <div className="icon-circle"><FaCheckCircle /></div>
-                <div>
-                  <h4>Agile Methodology</h4>
-                  <p>Weekly sprints & transparent updates.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="icon-circle"><FaCheckCircle /></div>
-                <div>
-                  <h4>Scalable Architecture</h4>
-                  <p>Built to handle millions of users.</p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <div className="icon-circle"><FaCheckCircle /></div>
-                <div>
-                  <h4>24/7 Support</h4>
-                  <p>We are always here when you need us.</p>
-                </div>
-              </div>
+      {/* --- HERO SECTION --- */}
+      <header className="hero-dark">
+        <div className="container relative-z">
+          <div className="hero-badge"><FaBolt /> LEXA TECHNOLOGIES</div>
+          <h1 className="hero-title">
+            India’s Fastest <br/>
+            <span className="gradient-text">Software Delivery</span> <br/>
+            Company.
+          </h1>
+          
+          <div className="hero-content-grid">
+            <div className="hero-text-side">
+              <div className="hero-line"></div>
+              <p className="rotating-text">{rotatingLines[textIndex]}</p>
             </div>
           </div>
         </div>
+      </header>
 
-        {/* --- PART 2: LEADERSHIP TEAM --- */}
-        <div className="team-section">
-          <div className="section-header-small">
-            <h3>Meet The Visionaries</h3>
-            <div className="line-separator"></div>
+      {/* --- ABOUT: SPLIT IMAGE LAYOUT --- */}
+      <section className="about-dark">
+        <div className="container">
+          <div className="split-layout">
+            
+            {/* Left Content */}
+            <div className="about-text-content">
+              <span className="section-tag">THE MANIFESTO</span>
+              <h2>This is not a startup.<br/>This is a <span className="highlight-blue">new era.</span></h2>
+              <p className="lead">
+                Buying software from LEXA feels like buying a product, not starting a project.
+              </p>
+              <p className="sub-text">
+                LEXA (Lexa Technologies) is a global IT solutions, consulting, and product development company redefining how the world builds software.
+                We operate as a <b>delivery-first, culture-first</b> technology platform. While traditional companies take weeks to initiate, LEXA builds continuously.
+              </p>
+
+              <div className="tech-stack-pills">
+                <span><FaCode/> Custom Web</span>
+                <span><FaRocket/> Mobile Apps</span>
+                <span><FaLayerGroup/> AI & Cloud</span>
+              </div>
+            </div>
+
+            {/* Right Visual */}
+            <div className="about-visual">
+              <img 
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Cyberpunk Workspace" 
+                className="main-img"
+              />
+              <div className="floating-card">
+                <h4>Same Day Delivery</h4>
+                <div className="progress-bar"><div className="fill"></div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* --- VISION: GLASS BENTO GRID --- */}
+      <section className="vision-dark">
+        <div className="container">
+          <div className="section-header-left">
+            <h3>Vision 2030</h3>
+            <p>A Platform, Not A Prison.</p>
           </div>
 
-          <div className="founders-grid">
+          <div className="bento-grid">
+            {/* Box 1: Main Vision */}
+            <div className="bento-card large-card gradient-bg">
+              <FaFingerprint className="card-icon"/>
+              <h4>The New Global Era</h4>
+              <p>We replace fear with ownership, control with trust, and employment with alignment. Work adapts to human energy, not the other way around.</p>
+            </div>
+
+            {/* Box 2: Culture Agreement */}
+            <div className="bento-card tall-card glass-bg">
+              <FaLayerGroup className="card-icon text-blue"/>
+              <h4>Culture First</h4>
+              <ul className="check-list">
+                <li>You choose when you work</li>
+                <li>Performance = Contribution</li>
+                <li>No politics, no hierarchy</li>
+                <li>No bonds, no drama</li>
+              </ul>
+            </div>
+
+            {/* Box 3: Product Drops */}
+            <div className="bento-card wide-card image-bg">
+              <div className="overlay"></div>
+              <div className="content">
+                <h4>Cultural Drops</h4>
+                <p>We release products like artists release music.</p>
+                <span className="tag">4 Apps / 3 Months</span>
+              </div>
+            </div>
+
+            {/* Box 4 & 5 */}
+            <div className="bento-card small-card glass-bg">
+              <h4>Skills &gt; Titles</h4>
+            </div>
+            <div className="bento-card small-card glass-bg">
+              <h4>Output &gt; Hours</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- MISSION (6-4 SYSTEM) --- */}
+      <section className="mission-dark">
+        <div className="container">
+          <div className="mission-wrapper">
+            <div className="mission-header">
+              <span className="section-tag">OUR MISSION</span>
+              <h2>Replacing Outdated Systems.</h2>
+              <p>At LEXA, individuals don’t apply for jobs. <b>They associate with a platform.</b></p>
+            </div>
+
+            {/* 6-4 System Graphic */}
+            <div className="system-graphic-container">
+               <div className="graphic-module">
+                 <div className="big-num">6</div>
+                 <span>Hours/Day</span>
+               </div>
+               <div className="connector"></div>
+               <div className="graphic-module">
+                 <div className="big-num">4</div>
+                 <span>Days/Week</span>
+               </div>
+               <div className="connector"></div>
+               <div className="graphic-module icon-mod">
+                 <FaGlobeAmericas />
+                 <span>Remote</span>
+               </div>
+            </div>
+
+            <div className="hiring-banner">
+              <p>"We do not reward presence. We reward contribution."</p>
+              <div className="hiring-tag">No Resumes. No Interviews. Just Skills.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- TEAM --- */}
+      <section className="team-dark">
+        <div className="container">
+          <h3 className="team-title">The Architects</h3>
+          <div className="team-grid">
             {leaders.map((leader) => (
-              <div key={leader.id} className="founder-card">
-                <div className="founder-img-box">
+              <div key={leader.id} className="team-card">
+                <div className="img-container">
                   <img src={leader.image} alt={leader.name} />
-                  
-                  {/* Hover Overlay */}
-                  <div className="social-overlay">
-                    <a 
-                      href={leader.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="linkedin-btn"
-                    >
-                      <FaLinkedinIn />
-                      <span>View Profile</span>
-                    </a>
+                  <div className="social-hover">
+                    <a href={leader.linkedin} target="_blank" rel="noreferrer"><FaLinkedinIn /></a>
                   </div>
                 </div>
-                
-                <div className="founder-info">
+                <div className="text-container">
                   <h4>{leader.name}</h4>
-                  <span className="founder-role">{leader.role}</span>
+                  <p>{leader.role}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+    </div>
   );
 };
 

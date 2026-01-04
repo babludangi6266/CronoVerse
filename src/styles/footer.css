@@ -4,8 +4,8 @@
   --bg-card: #0f172a;       /* Slightly lighter for cards */
   --accent: #6366f1;        /* Indigo 500 */
   --accent-hover: #4f46e5;  /* Indigo 600 */
-  --text-main: #94a3b8;     /* Slate 400 */
-  --text-light: #f8fafc;    /* Slate 50 */
+  --text-main: #ffffff;     /* Slate 400 */
+  --text-light: #ffffff;    /* Slate 50 */
   --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
