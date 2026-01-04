@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO } from '../../utils/constants';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import '../../styles/header.css'; // You will create this
+import '../../styles/header.css'; 
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +17,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
+    { name: 'Solutions', path: '/services' },
     { name: 'Our Work', path: '/portfolio' },
     { name: 'About Us', path: '/about' },
     { name: 'Contact', path: '/contact' },
