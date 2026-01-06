@@ -43,16 +43,18 @@
   margin-bottom: 24px;
 }
 
-/* Brand Section */
-.footer-logo h2 {
-  font-size: 2rem;
-  color: var(--text-light);
-  margin-bottom: 15px;
-  font-weight: 800;
+
+.footer-logo {
+  margin-top: -60px;
+  margin-bottom: -40px;
 }
 
-.footer-logo span {
-  color: var(--accent);
+.footer-logo-img {
+  height: 150px; /* Adjust this value to make the logo bigger/smaller */
+  width: 130px;
+  display: block;
+  /* If your logo is black and needs to be white on the dark footer, uncomment below: */
+  /* filter: brightness(0) invert(1); */
 }
 
 .brand-desc {

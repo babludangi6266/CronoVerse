@@ -1,19 +1,21 @@
+
+
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -10px;
+  left: 0px;
   width: 100%;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 0 0;
   transition: all 0.3s ease;
   background: transparent;
 }
 
 .header.scrolled {
-  background: rgba(161, 221, 186, 0.411);
-  backdrop-filter: blur(10px);
+  background: rgba(161, 221, 186, 0.153);
+  backdrop-filter: blur(0px);
   box-shadow: var(--shadow-sm);
-  padding: 15px 0;
+  padding: -10px 0;
   color: rgb(0, 0, 0) !important;
 }
 
@@ -23,13 +25,12 @@
   align-items: center;
 }
 
-.logo h2 {
-  font-size: 28px;
-  font-weight: 800;
- color: aliceblue;
+/* Styles for the new image logo */
+.logo-image {
+ /* Adjust height as needed */
+  width: 150px;
+  display: block;
 }
-
-.logo .dot { color: var(--primary); }
 
 .desktop-nav {
   display: flex;

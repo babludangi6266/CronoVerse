@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { COMPANY_INFO } from '../../utils/constants';
 import { 
   FaLinkedin, FaGithub, FaInstagram, FaWhatsapp, FaTwitter, 
   FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobeAsia, FaHeart 
 } from 'react-icons/fa';
+import logo from '../../../public/images/logo.png'; // Import the logo
 import '../../styles/footer.css';
 
 const Footer = () => {
@@ -17,7 +19,8 @@ const Footer = () => {
           {/* Column 1: Brand Identity */}
           <div className="footer-widget brand-widget">
             <div className="footer-logo">
-              <h2>Lexa<span>Tech</span>.</h2>
+              {/* Updated: Image Logo */}
+              <img src={logo} alt="LexaTech Logo" className="footer-logo-img" />
             </div>
             <p className="brand-desc">
               Pioneering digital transformation through scalable code and human-centric design. 
@@ -127,7 +130,7 @@ const Footer = () => {
           <div className="copyright-text">
             <p>
               &copy; {new Date().getFullYear()} Lexa Technologies. 
-              Made with <FaHeart className="heart-icon" /> in India.
+              All Rights Reserved.
             </p>
           </div>
         </div>
