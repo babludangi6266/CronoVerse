@@ -62,6 +62,58 @@
   margin-bottom: 25px;
   max-width: 300px;
 }
+/* --- MSME Trust Badge Styles --- */
+
+.msme-badge-container {
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+.msme-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.03); /* Subtle glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  /* Optional: Add a subtle gold glow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.msme-badge:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #f59e0b; /* Amber/Gold border on hover */
+  transform: translateY(-2px);
+}
+
+.msme-icon-box {
+  color: #f59e0b; /* Amber 500 - Looks like gold/certification */
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.msme-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.msme-title {
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.msme-sub {
+  color: #94a3b8; /* Slate 400 */
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
 /* Social Icons */
 .social-icons {

@@ -3,7 +3,7 @@ import React from 'react';
 import { COMPANY_INFO } from '../../utils/constants';
 import { 
   FaLinkedin, FaGithub, FaInstagram, FaWhatsapp, FaTwitter, 
-  FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobeAsia, FaHeart 
+  FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobeAsia, FaHeart , FaCertificate
 } from 'react-icons/fa';
 import logo from '../../../public/images/logo.png'; // Import the logo
 import '../../styles/footer.css';
@@ -26,6 +26,19 @@ const Footer = () => {
               Pioneering digital transformation through scalable code and human-centric design. 
               We build the technology that powers tomorrow's enterprises.
             </p>
+
+            <div className="msme-badge-container">
+              <div className="msme-badge">
+                <div className="msme-icon-box">
+                  <FaCertificate />
+                </div>
+                <div className="msme-content">
+                  <span className="msme-title">MSME Registered</span>
+                  <span className="msme-sub">Govt. of India Recognized</span>
+                </div>
+              </div>
+            </div>
+            
             <div className="social-icons">
               <a href="#" className="sc-icon" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="#" className="sc-icon" aria-label="GitHub"><FaGithub /></a>
