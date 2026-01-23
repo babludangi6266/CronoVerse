@@ -14,6 +14,11 @@ import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
 import Fintech from './pages/Fintech';
 import Agritech from './pages/Agritech';
+import Ecommerce from './pages/Ecommerce';
+import Healthcare from './pages/Healthcare';
+import Edtech from './pages/Edtech';
+import Logistics from './pages/Logistics';
+import Careers from './pages/Careers';
 // Styles
 import './styles/index.css';
 
@@ -32,6 +37,11 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/fintech" element={<Fintech />} />
             <Route path="/agritech" element={<Agritech />} />
+            <Route path="/ecommerce" element={<Ecommerce />} />
+            <Route path="/healthcare" element={<Healthcare />} />
+            <Route path="/edtech" element={<Edtech />} />
+            <Route path="/logistics" element={<Logistics />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </main>
         <Footer />

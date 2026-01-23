@@ -6,7 +6,7 @@ import {
   FaLinkedin, FaGithub, FaInstagram, FaWhatsapp, FaTwitter, 
   FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobeAsia, FaHeart , FaCertificate
 } from 'react-icons/fa';
-import logo from '../../../public/images/logo.png'; 
+import logo from '/images/logo.png'; 
 import msmeLogo from '/images/msme-logo.jpeg';
 import '../../styles/footer.css';
 
@@ -45,12 +45,12 @@ const Footer = () => {
           <div className="footer-widget">
             <h4 className="widget-title">Expertise</h4>
             <ul className="footer-list">
-              <li><a href="/services">Full-Stack Development</a></li>
-              <li><a href="/services">MERN Stack Solutions</a></li>
-              <li><a href="/services">Cloud Architecture (AWS)</a></li>
-              <li><a href="/services">Database Management</a></li>
-              <li><a href="/services">API Integration</a></li>
-              <li><a href="/services">DevOps & CI/CD</a></li>
+              <li><Link to="/services">Full-Stack Development</Link></li>
+              <li><Link to="/services">MERN Stack Solutions</Link></li>
+              <li><Link to="/services">Cloud Architecture (AWS)</Link></li>
+              <li><Link to="/services">Database Management</Link></li>
+              <li><Link to="/services">API Integration</Link></li>
+              <li><Link to="/services">DevOps & CI/CD</Link></li>
             </ul>
           </div>
 
@@ -58,16 +58,15 @@ const Footer = () => {
           <div className="footer-widget">
             <h4 className="widget-title">Company</h4>
             <ul className="footer-list">
-              <li><a href="/about">About Lexa</a></li>
-              <li><a href="#">Our Methodology</a></li>
-              <li>
-                <a href="#" className="link-with-badge">
-                  Careers <span className="badge-hiring">We're Hiring</span>
-                </a>
-              </li>
-              <li><a href="/portfolio">Case Studies</a></li>
-              <li><a href="#">Press & Media</a></li>
-              <li><a href="#">Partnerships</a></li>
+              <li><Link to="/about">About Lexa</Link></li>
+              <li><Link to="#">Our Methodology</Link></li>
+              <Link to="/careers" className="link-with-badge">
+   Careers <span className="badge-hiring">We're Hiring</span>
+</Link>
+              
+              <li><Link to="/portfolio">Case Studies</Link></li>
+              <li><Link to="#">Press & Media</Link></li>
+              <li><Link to="#">Partnerships</Link></li>
             </ul>
           </div>
 
@@ -77,10 +76,10 @@ const Footer = () => {
             <ul className="footer-list">
               <li><Link to="/fintech">FinTech & Banking</Link></li>
               <li><Link to="/agritech">AgriTech Solutions</Link></li>
-              <li><a href="#">E-Commerce</a></li>
-              <li><a href="#">Healthcare IT</a></li>
-              <li><a href="#">EdTech Platforms</a></li>
-              <li><a href="#">Logistics & Supply Chain</a></li>
+              <li><Link to="/ecommerce">E-Commerce</Link></li>
+              <li><Link to="/healthcare">Healthcare IT</Link></li>
+              <li><Link to="/edtech">EdTech Platforms</Link></li>
+              <li><Link to="/logistics">Logistics & Supply Chain</Link></li>
             </ul>
           </div>
 
