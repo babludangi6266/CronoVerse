@@ -1,16 +1,16 @@
-// src/pages/About.jsx
+
 import React from 'react';
 import About from '../components/sections/About';
 
 const AboutPage = () => {
   return (
     <div className="page about-page">
-      <section className="page-hero">
+      {/* <section className="page-hero">
         <div className="container">
           <h1>About Lexa Technologies</h1>
           <p>Learn about our mission, values, and the team behind your success</p>
         </div>
-      </section>
+      </section> */}
       <About />
     </div>
   );

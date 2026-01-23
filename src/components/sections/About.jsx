@@ -38,6 +38,13 @@ const About = () => {
       <div className="bg-glow bottom-right"></div>
       <div className="grid-overlay"></div>
 
+       <section className="page-hero">
+        <div className="container">
+          <h1>About Lexa Technologies</h1>
+          <p>Learn about our mission, values, and the team behind your success</p>
+        </div>
+      </section>
+
       {/* --- HERO SECTION --- */}
       <header className="hero-dark">
         <div className="container relative-z">

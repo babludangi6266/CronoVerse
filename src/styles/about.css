@@ -19,11 +19,6 @@
   min-height: 100vh;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
 
 /* --- BACKGROUND FX --- */
 .grid-overlay {
@@ -52,25 +47,24 @@
 /* --- HERO SECTION --- */
 .hero-dark {
   min-height: 85vh;
-  display: flex;
-  align-items: center;
+  display: contents;
+  align-items: flex-start;
   position: relative;
-  padding-top: 60px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(59, 130, 246, 0.1);
+  background: rgba(51, 182, 31, 0.1);
   color: var(--primary-blue);
-  padding: 8px 16px;
+  padding: 8px 4px;
   border-radius: 50px;
   border: 1px solid rgba(59, 130, 246, 0.2);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 .hero-title {
