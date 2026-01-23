@@ -1,11 +1,13 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { COMPANY_INFO } from '../../utils/constants';
 import { 
   FaLinkedin, FaGithub, FaInstagram, FaWhatsapp, FaTwitter, 
   FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaGlobeAsia, FaHeart , FaCertificate
 } from 'react-icons/fa';
-import logo from '../../../public/images/logo.png'; // Import the logo
+import logo from '../../../public/images/logo.png'; 
+import msmeLogo from '/images/msme-logo.jpeg';
 import '../../styles/footer.css';
 
 const Footer = () => {
@@ -27,18 +29,10 @@ const Footer = () => {
               We build the technology that powers tomorrow's enterprises.
             </p>
 
-            <div className="msme-badge-container">
-              <div className="msme-badge">
-                <div className="msme-icon-box">
-                  <FaCertificate />
-                </div>
-                <div className="msme-content">
-                  <span className="msme-title">MSME Registered</span>
-                  <span className="msme-sub">Govt. of India Recognized</span>
-                </div>
-              </div>
+         <div className="msme-badge-container">
+               <img src={msmeLogo} alt="MSME Registered" className="msme-logo-img" />
             </div>
-            
+
             <div className="social-icons">
               <a href="#" className="sc-icon" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="#" className="sc-icon" aria-label="GitHub"><FaGithub /></a>
@@ -81,8 +75,8 @@ const Footer = () => {
           <div className="footer-widget">
             <h4 className="widget-title">Industries</h4>
             <ul className="footer-list">
-              <li><a href="#">FinTech & Banking</a></li>
-              <li><a href="#">AgriTech Solutions</a></li>
+              <li><Link to="/fintech">FinTech & Banking</Link></li>
+              <li><Link to="/agritech">AgriTech Solutions</Link></li>
               <li><a href="#">E-Commerce</a></li>
               <li><a href="#">Healthcare IT</a></li>
               <li><a href="#">EdTech Platforms</a></li>

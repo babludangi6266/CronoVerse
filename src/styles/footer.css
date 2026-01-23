@@ -19,7 +19,7 @@
 }
 
 .container {
-  max-width: 1280px; /* Wider container for 5 columns */
+  max-width: 1280px; 
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -27,7 +27,6 @@
 /* --- Main Grid Layout --- */
 .footer-grid {
   display: grid;
-  /* 5 Columns: Brand takes 1.5, others take 1, Contact takes 1.2 */
   grid-template-columns: 1.5fr 1fr 1fr 1fr 1.3fr;
   gap: 40px;
   margin-bottom: 60px;
@@ -43,18 +42,16 @@
   margin-bottom: 24px;
 }
 
-
+/* --- Main Logo Styles --- */
 .footer-logo {
   margin-top: -60px;
   margin-bottom: -40px;
 }
 
 .footer-logo-img {
-  height: 150px; /* Adjust this value to make the logo bigger/smaller */
+  height: 150px; 
   width: 130px;
   display: block;
-  /* If your logo is black and needs to be white on the dark footer, uncomment below: */
-  /* filter: brightness(0) invert(1); */
 }
 
 .brand-desc {
@@ -62,60 +59,34 @@
   margin-bottom: 25px;
   max-width: 300px;
 }
-/* --- MSME Trust Badge Styles --- */
 
+/* --- UPDATED: MSME Image Styles --- */
 .msme-badge-container {
   margin-bottom: 25px;
   display: inline-block;
 }
 
-.msme-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.03); /* Subtle glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 16px;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  /* Optional: Add a subtle gold glow */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+.msme-logo-img {
+  /* Set a max width so it doesn't look too big */
+  width: 140px; 
+  height: auto;
+  object-fit: contain;
+  
+  /* OPTIONAL: If your PNG is transparent but has dark text, 
+     you might need a white background. Uncomment lines below if needed:
+  */
+  /* background-color: rgba(255, 255, 255, 0.9); */
+  /* padding: 8px; */
+  /* border-radius: 8px; */
+  
+  transition: transform 0.3s ease;
 }
 
-.msme-badge:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: #f59e0b; /* Amber/Gold border on hover */
-  transform: translateY(-2px);
+.msme-logo-img:hover {
+  transform: scale(1.05);
 }
 
-.msme-icon-box {
-  color: #f59e0b; /* Amber 500 - Looks like gold/certification */
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-}
-
-.msme-content {
-  display: flex;
-  flex-direction: column;
-}
-
-.msme-title {
-  color: var(--text-light);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  line-height: 1.2;
-}
-
-.msme-sub {
-  color: #94a3b8; /* Slate 400 */
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Social Icons */
+/* --- Social Icons --- */
 .social-icons {
   display: flex;
   gap: 12px;
@@ -141,7 +112,7 @@
   color: white;
 }
 
-/* Footer Links Lists */
+/* --- Footer Lists --- */
 .footer-list {
   list-style: none;
   padding: 0;
@@ -163,7 +134,7 @@
   padding-left: 5px;
 }
 
-/* "Hiring" Badge */
+/* --- Hiring Badge --- */
 .link-with-badge {
   display: flex;
   align-items: center;
@@ -181,7 +152,7 @@
   letter-spacing: 0.5px;
 }
 
-/* --- Contact Card (The Aesthetic Highlight) --- */
+/* --- Contact Card --- */
 .contact-card {
   background: var(--bg-card);
   padding: 25px;
@@ -213,7 +184,7 @@
   display: block;
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: #64748b; /* Slate 500 */
+  color: #64748b; 
   font-weight: 700;
   margin-bottom: 2px;
 }
@@ -231,7 +202,7 @@
   color: var(--accent);
 }
 
-/* WhatsApp Button Full Width */
+/* WhatsApp Button */
 .whatsapp-btn-full {
   display: flex;
   align-items: center;
@@ -296,7 +267,7 @@
 }
 
 .heart-icon {
-  color: #ef4444; /* Red 500 */
+  color: #ef4444; 
   animation: beat 1.5s infinite;
 }
 
@@ -308,17 +279,17 @@
 /* --- Responsive Design --- */
 @media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr 1fr; /* 3 columns tablet */
+    grid-template-columns: 1fr 1fr 1fr; 
   }
   .contact-widget {
-    grid-column: span 3; /* Contact card takes full width on tablet */
+    grid-column: span 3; 
     max-width: 500px;
   }
 }
 
 @media (max-width: 768px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr; /* 2 columns mobile landscape */
+    grid-template-columns: 1fr 1fr; 
   }
   .contact-widget {
     grid-column: span 2;
@@ -331,7 +302,7 @@
 
 @media (max-width: 500px) {
   .footer-grid {
-    grid-template-columns: 1fr; /* 1 column mobile portrait */
+    grid-template-columns: 1fr; 
   }
   .contact-widget, .brand-widget {
     grid-column: span 1;

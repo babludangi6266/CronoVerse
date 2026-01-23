@@ -1,4 +1,3 @@
-// src/components/common/Navigation.jsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -7,8 +6,8 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/portfolio', label: 'Work' },
+    { path: '/services', label: 'Solutions' },
+    { path: '/portfolio', label: 'Portifolio' },
     { path: '/about', label: 'About' },
     { path: '/contact', label: 'Contact' }
   ];
