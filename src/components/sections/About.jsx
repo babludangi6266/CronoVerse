@@ -25,7 +25,7 @@ const About = () => {
     },
     {
       id: 2, name: "Bablu Dangi", role: "Co-Founder",
-      image: "https://media.licdn.com/dms/image/v2/D5603AQHMIEo9mFohIA/profile-displayphoto-scale_400_400/B56ZoJu3TlKIAg-/0/1761099872653?e=1768435200&v=beta&t=oLFkQMYQcVx1J0IYoo7eVRjU5KFVARtklbyOhcMEjzA", 
+      image: "/images/bablu.jpg", 
       linkedin: "https://www.linkedin.com/in/bablu-dangi-ba8a01259/"
     }
   ];

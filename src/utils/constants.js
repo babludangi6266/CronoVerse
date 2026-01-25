@@ -3,7 +3,7 @@ import { FaLaptopCode, FaMobileAlt, FaCloud, FaPaintBrush, FaBrain, FaRocket } f
 export const COMPANY_INFO = {
   name: 'Lexa Technologies',
   tagline: 'Transforming Ideas into Digital Reality',
-  email: 'jackie.mohanty2012@gmail.com',
+  email: 'business@lexatechnologies.com',
   phone: '+91 96502 80857',
   address: 'Bhubneshwar, Odisha, India',
   whatsappLink: 'https://wa.me/+919650280857'

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FaRocket, FaClock, FaGlobeAmericas, FaLaptopCode, 
-  FaPaintBrush, FaBullhorn, FaCopy, FaCheckCircle, FaEnvelope 
+  FaPaintBrush, FaBullhorn, FaVideo, FaHandshake, FaPenNib, 
+  FaMobileAlt, FaCheckCircle, FaEnvelope, FaCopy, FaArrowRight, FaChevronDown 
 } from 'react-icons/fa';
-import { COMPANY_INFO } from '../utils/constants'; // Ensure this path is correct
+import { COMPANY_INFO } from '../utils/constants'; 
 import '../styles/careers.css';
 
 const Careers = () => {
   const [copied, setCopied] = useState(false);
+  const [activeRole, setActiveRole] = useState(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(COMPANY_INFO.email);
@@ -16,30 +18,66 @@ const Careers = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const benefits = [
+  const culturePoints = [
     { icon: <FaClock />, title: "The 6-4 System", desc: "6 Hours/Day. 4 Days/Week. We value output, not hours." },
-    { icon: <FaGlobeAmericas />, title: "Remote First", desc: "Work from anywhere. Your desk, a cafe, or the beach." },
-    { icon: <FaRocket />, title: "Rapid Growth", desc: "No corporate ladders. Just pure skill-based progression." },
+    { icon: <FaGlobeAmericas />, title: "Remote First", desc: "Work from anywhere. No clock-ins. No micromanagement." },
+    { icon: <FaRocket />, title: "Performance Pay", desc: "No fixed caps. Revenue share & project-based payouts." },
   ];
 
-  const jobs = [
+  const roles = [
     {
-      title: "Full Stack Developer",
-      type: "Remote | Full-Time",
-      icon: <FaLaptopCode />,
-      tags: ["React.js", "Node.js", "MongoDB", "AWS", "Payment Gateways"]
+      id: 1,
+      title: "Social Media Content Creator (On-Camera)",
+      icon: <FaVideo />,
+      tagline: "Not posts. Not noise. Real content.",
+      whatYouDo: ["Create short-form & long-form content", "Translate tech ideas into clarity", "Build brand voice across platforms"],
+      compensation: "Performance-based payouts + Growth incentives",
+      assessment: "Create 2 LinkedIn posts explaining why fast software delivery matters for businesses."
     },
     {
-      title: "UI/UX Product Designer",
-      type: "Remote | Contract",
+      id: 2,
+      title: "Business Development Executive",
+      icon: <FaHandshake />,
+      tagline: "Sell value. Not hours.",
+      whatYouDo: ["Identify & close high-quality clients", "Sell outcomes, not features", "Build long-term relationships"],
+      compensation: "Deal-based revenue share + No cap commissions",
+      assessment: "Draft a simple outreach message to a startup founder explaining LEXA’s value in under 150 words."
+    },
+    {
+      id: 3,
+      title: "Video Editor",
       icon: <FaPaintBrush />,
-      tags: ["Figma", "Prototyping", "Design Systems"]
+      tagline: "Edit for clarity. Not just cuts.",
+      whatYouDo: ["Edit short-form & long-form videos", "Craft storytelling through motion", "Maintain brand visual consistency"],
+      compensation: "Project-based payouts + Long-term alignment",
+      assessment: "Edit a 30–60 sec video explaining a tech concept (sample provided or self-shot)."
     },
     {
-      title: "Growth Marketing Manager",
-      type: "Remote | Part-Time",
-      icon: <FaBullhorn />,
-      tags: ["SEO", "Content Strategy", "Analytics"]
+      id: 4,
+      title: "Content Writer / Strategist",
+      icon: <FaPenNib />,
+      tagline: "Words that move decisions.",
+      whatYouDo: ["Write strategic content (LinkedIn, blogs)", "Build positioning & narratives", "Simplify complex tech ideas"],
+      compensation: "Performance-linked pay + Strategy incentives",
+      assessment: "Write a 300-word LinkedIn article positioning LEXA as a delivery-first tech company."
+    },
+    {
+      id: 5,
+      title: "Full-Stack Web Developer",
+      icon: <FaLaptopCode />,
+      tagline: "Build fast. Ship faster.",
+      whatYouDo: ["Build production-ready web apps", "Optimize for speed & scalability", "Own features end-to-end"],
+      compensation: "Project-based payouts + Performance incentives",
+      assessment: "Build a simple feature/module (spec provided) with clean logic and documentation."
+    },
+    {
+      id: 6,
+      title: "Mobile App Developer (Android/iOS)",
+      icon: <FaMobileAlt />,
+      tagline: "Apps in days. Not months.",
+      whatYouDo: ["Build Android / iOS apps", "Ship MVPs & scalable products", "Focus on performance & UX"],
+      compensation: "Project-based earnings + Growth-aligned payouts",
+      assessment: "Build a small functional screen or flow (Android/iOS) based on a real use case."
     }
   ];
 
@@ -61,18 +99,19 @@ const Careers = () => {
               <span className="text-gradient-green">Join the Revolution.</span>
             </h1>
             <p className="hero-sub">
-              We are replacing the outdated 9-to-5 with a culture built on freedom, 
-              responsibility, and meaningful contribution.
+              This is a new SaaS startup experience. No interviews. No resume judgments. 
+              Only skill & contribution. If you believe work should adapt to human energy, 
+              LEXA is for you.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* --- CULTURE / BENEFITS --- */}
+      {/* --- CULTURE / MODEL --- */}
       <section className="culture-section">
         <div className="container">
           <div className="benefits-grid">
-            {benefits.map((item, index) => (
+            {culturePoints.map((item, index) => (
               <motion.div 
                 key={index}
                 className="benefit-card"
@@ -90,7 +129,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* --- OPEN POSITIONS --- */}
+      {/* --- OPEN POSITIONS (ACCORDION STYLE) --- */}
       <section className="jobs-section">
         <div className="container">
           <div className="section-header-left">
@@ -98,41 +137,82 @@ const Careers = () => {
             <p>Find your place in the new era.</p>
           </div>
 
-          <div className="jobs-grid">
-            {jobs.map((job, index) => (
-              <div key={index} className="job-card">
-                <div className="job-header">
-                  <div className="job-icon-box">{job.icon}</div>
-                  <div>
-                    <h3>{job.title}</h3>
-                    <span className="job-type">{job.type}</span>
+          <div className="jobs-list">
+            {roles.map((role) => (
+              <div 
+                key={role.id} 
+                className={`job-row ${activeRole === role.id ? 'active' : ''}`}
+                onClick={() => setActiveRole(activeRole === role.id ? null : role.id)}
+              >
+                {/* Header Line */}
+                <div className="job-row-header">
+                  <div className="job-title-group">
+                    <div className="job-icon">{role.icon}</div>
+                    <div>
+                      <h3>{role.title}</h3>
+                      <span className="job-tagline">{role.tagline}</span>
+                    </div>
                   </div>
+                  <FaChevronDown className={`arrow-icon ${activeRole === role.id ? 'rotate' : ''}`} />
                 </div>
-                <div className="job-tags">
-                  {job.tags.map((tag, i) => <span key={i}>{tag}</span>)}
-                </div>
-                {/* Visual "Apply" Button that scrolls to contact */}
-                <button className="btn-apply-dummy" onClick={() => document.getElementById('apply-area').scrollIntoView({behavior: 'smooth'})}>
-                  Apply Now
-                </button>
+
+                {/* Expandable Content */}
+                <AnimatePresence>
+                  {activeRole === role.id && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="job-details"
+                    >
+                      <div className="details-grid">
+                        <div className="detail-col">
+                          <h4>What You'll Do</h4>
+                          <ul>
+                            {role.whatYouDo.map((item, i) => <li key={i}><FaCheckCircle className="check-icon"/> {item}</li>)}
+                          </ul>
+                        </div>
+                        <div className="detail-col">
+                          <h4>Compensation</h4>
+                          <p className="comp-text">{role.compensation}</p>
+                          
+                          <div className="assessment-box">
+                            <h4>Assessment Task (Replaces Interview)</h4>
+                            <p>{role.assessment}</p>
+                          </div>
+                          
+                          <button 
+                            className="btn-apply-green" 
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              document.getElementById('apply-area').scrollIntoView({behavior: 'smooth'});
+                            }}
+                          >
+                            Apply for this Role <FaArrowRight />
+                          </button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* --- APPLICATION AREA (EMAIL) --- */}
+      {/* --- APPLICATION AREA --- */}
       <section id="apply-area" className="apply-section">
         <div className="container">
           <motion.div 
             className="apply-box"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
           >
             <div className="apply-content">
               <h2>Ready to Apply?</h2>
               <p>
                 We don't use complex forms. We value your work. <br/>
-                Send us your <strong>Resume</strong> and links to your <strong>Best Projects</strong> directly.
+                Send us your <strong>Resume</strong> (optional) and <strong>Assessment Task</strong> directly.
               </p>
               
               <div className="email-display-wrapper">
@@ -150,7 +230,7 @@ const Careers = () => {
               </div>
 
               <div className="tip-box">
-                <strong>💡 Tip:</strong> Subject line should be "Application for [Role Name] - [Your Name]"
+                <strong>💡 Subject Line Format:</strong> "Application for [Role Name] - [Your Name]"
               </div>
             </div>
           </motion.div>

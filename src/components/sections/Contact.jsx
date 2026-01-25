@@ -47,6 +47,8 @@ const Contact = () => {
                 <div>
                   <h4>Email Us</h4>
                   <p>{COMPANY_INFO.email}</p>
+                  <p>or</p>
+                  <p>jackie@lexatechnologies.com</p>
                 </div>
               </div>
 
