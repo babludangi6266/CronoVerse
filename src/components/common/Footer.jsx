@@ -34,10 +34,10 @@ const Footer = () => {
             </div>
 
             <div className="social-icons">
-              <a href="#" className="sc-icon" aria-label="LinkedIn"><FaLinkedin /></a>
+              <a href="https://www.linkedin.com/company/lexa-tech/" className="sc-icon" aria-label="LinkedIn"><FaLinkedin /></a>
               <a href="#" className="sc-icon" aria-label="GitHub"><FaGithub /></a>
               <a href="#" className="sc-icon" aria-label="Twitter"><FaTwitter /></a>
-              <a href="#" className="sc-icon" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://www.instagram.com/lexa.technologies/" className="sc-icon" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
 

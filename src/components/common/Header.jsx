@@ -19,8 +19,9 @@ const Header = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Solutions', path: '/services' },
-    { name: 'Portifolio', path: '/portfolio' },
+    { name: 'Portfolio', path: '/portfolio' },
     { name: 'About Us', path: '/about' },
+    { name: 'Careers', path: '/careers', isSpecial: true }, // Special Flag
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -31,12 +32,16 @@ const Header = () => {
           <img src={logo} alt="LexaTech Logo" className="logo-image" />
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="desktop-nav">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               to={link.path}
-              className={location.pathname === link.path ? 'active' : ''}
+              className={`
+                ${location.pathname === link.path ? 'active' : ''} 
+                ${link.isSpecial ? 'neon-frame' : 'nav-link'} 
+              `}
             >
               {link.name}
             </Link>
@@ -63,6 +68,7 @@ const Header = () => {
               key={link.name} 
               to={link.path} 
               onClick={() => setMobileMenu(false)}
+              className={link.isSpecial ? 'mobile-neon-link' : ''}
             >
               {link.name}
             </Link>

@@ -9,6 +9,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
     { path: '/services', label: 'Solutions' },
     { path: '/portfolio', label: 'Portifolio' },
     { path: '/about', label: 'About' },
+    { path: '/careers', label: 'Careers' },
     { path: '/contact', label: 'Contact' }
   ];
 

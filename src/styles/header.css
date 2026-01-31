@@ -1,4 +1,4 @@
-
+/* 
 
 .header {
   position: fixed;
@@ -25,9 +25,9 @@
   align-items: center;
 }
 
-/* Styles for the new image logo */
+
 .logo-image {
- /* Adjust height as needed */
+ 
   width: 150px;
   display: block;
 }
@@ -55,7 +55,7 @@
 
 .mobile-toggle { display: none; font-size: 28px; cursor: pointer; }
 
-/* Mobile CSS */
+
 @media (max-width: 768px) {
   .desktop-nav, .nav-cta { display: none; }
   .mobile-toggle { display: block; }
@@ -77,5 +77,115 @@
   .mobile-menu a {
     font-size: 20px;
     font-weight: 600;
+  }
+} */
+
+
+.header {
+  position: fixed;
+  top: -15px; /* Changed from -30px to 0 for better visibility */
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0; /* Added padding for spacing */
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.header.scrolled {
+  background: rgba(15, 23, 42, 0.8); /* Darker bg for contrast with neon */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image {
+  width: 100px;
+  display: block;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 30px; /* Reduced slightly to fit frame */
+  align-items: center;
+}
+
+.desktop-nav a {
+  font-weight: 500;
+  color: #CBD5E1; /* Light Gray text for dark theme */
+  transition: color 0.3s;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.desktop-nav a:hover, .desktop-nav a.active {
+  color: #3B82F6; /* Blue hover */
+}
+
+/* --- NEON FRAME STYLE --- */
+.neon-frame {
+  padding: 6px 16px;
+  border: 1px solid #10B981; /* Green Border */
+  color: #10B981 !important; /* Green Text */
+  border-radius: 4px; /* Slight rounded corners */
+  text-transform: uppercase;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 1px;
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.4), inset 0 0 5px rgba(16, 185, 129, 0.1);
+  transition: all 0.3s ease;
+}
+
+.neon-frame:hover {
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6), inset 0 0 10px rgba(16, 185, 129, 0.2);
+  text-shadow: 0 0 5px rgba(16, 185, 129, 0.8);
+  transform: translateY(-2px);
+}
+
+.nav-cta {
+  display: flex;
+}
+
+.mobile-toggle { display: none; font-size: 28px; cursor: pointer; color: white; }
+
+/* Mobile CSS */
+@media (max-width: 768px) {
+  .desktop-nav, .nav-cta { display: none; }
+  .mobile-toggle { display: block; }
+  
+  .mobile-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0F172A; /* Dark BG */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    gap: 30px;
+  }
+  
+  .mobile-menu a {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+  }
+
+  .mobile-neon-link {
+    color: #10B981 !important;
+    border: 1px solid #10B981;
+    padding: 10px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
   }
 }
