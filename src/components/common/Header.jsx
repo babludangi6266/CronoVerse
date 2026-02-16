@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO } from '../../utils/constants';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FaUserShield } from 'react-icons/fa';
 import logo from '../../../public/images/logo.png';
 import '../../styles/header.css';
 
@@ -46,7 +47,12 @@ const Header = () => {
               {link.name}
             </Link>
           ))}
+          {/* NEW: Employee Portal Link */}
+          <Link to="/portal/login" className="portal-link">
+            <FaUserShield /> Portal
+          </Link>
         </nav>
+        
 
         <button 
           className="btn btn-primary nav-cta"

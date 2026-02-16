@@ -1,12 +1,95 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Components
+// import { AuthProvider } from './context/AuthContext';
+// import Login from './pages/portal/Login';
+// import Register from './pages/portal/Register';
+// import EmployeeDashboard from './pages/portal/EmployeeDashboard';
+// import AdminDashboard from './pages/portal/AdminDashboard'; 
+// import AdminUsers from './pages/portal/AdminUsers';
+// // Components
+// import Header from './components/common/Header';
+// import Footer from './components/common/Footer';
+// import ScrollToTop from './components/common/ScrollToTop'; // Added this
+
+// // Pages
+// import Home from './pages/Home';
+// import ServicesPage from './pages/Services';
+// import PortfolioPage from './pages/Portfolio';
+// import AboutPage from './pages/About';
+// import ContactPage from './pages/Contact';
+// import Fintech from './pages/Fintech';
+// import Agritech from './pages/Agritech';
+// import Ecommerce from './pages/Ecommerce';
+// import Healthcare from './pages/Healthcare';
+// import Edtech from './pages/Edtech';
+// import Logistics from './pages/Logistics';
+// import Careers from './pages/Careers';
+// // Styles
+// import './styles/index.css';
+
+// function App() {
+//   return (
+//     <Router>
+//       <ScrollToTop /> {/* Activates scroll reset on page change */}
+//       <div className="app-wrapper">
+//         <AuthProvider>
+//         <Header />
+//         <main>
+//           <Routes>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/services" element={<ServicesPage />} />
+//             <Route path="/portfolio" element={<PortfolioPage />} />
+//             <Route path="/about" element={<AboutPage />} />
+//             <Route path="/contact" element={<ContactPage />} />
+//             <Route path="/fintech" element={<Fintech />} />
+//             <Route path="/agritech" element={<Agritech />} />
+//             <Route path="/ecommerce" element={<Ecommerce />} />
+//             <Route path="/healthcare" element={<Healthcare />} />
+//             <Route path="/edtech" element={<Edtech />} />
+//             <Route path="/logistics" element={<Logistics />} />
+//             <Route path="/careers" element={<Careers />} />
+
+
+//             <Route path="/portal/login" element={<Login />} />
+//           <Route path="/portal/register" element={<Register />} />
+//           <Route path="/portal/employee" element={<EmployeeDashboard />} />
+//         <Route path="/portal/admin" element={<AdminDashboard />} />
+//         <Route path="/portal/admin/users" element={<AdminUsers />} />
+
+//           </Routes>
+//         </main>
+//         <Footer />
+//         </AuthProvider>
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { AuthProvider } from './context/AuthContext';
+
+// Portal Pages
+import Login from './pages/portal/Login';
+import Register from './pages/portal/Register';
+import EmployeeDashboard from './pages/portal/EmployeeDashboard';
+import AdminDashboard from './pages/portal/AdminDashboard'; 
+import AdminUsers from './pages/portal/AdminUsers';
+import AdminUserDetail from './pages/portal/AdminUserDetail';
+
+// Public Components
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import ScrollToTop from './components/common/ScrollToTop'; // Added this
+import ScrollToTop from './components/common/ScrollToTop';
 
-// Pages
+// Public Pages
 import Home from './pages/Home';
 import ServicesPage from './pages/Services';
 import PortfolioPage from './pages/Portfolio';
@@ -19,33 +102,66 @@ import Healthcare from './pages/Healthcare';
 import Edtech from './pages/Edtech';
 import Logistics from './pages/Logistics';
 import Careers from './pages/Careers';
+
 // Styles
 import './styles/index.css';
+
+// --- Layout Manager Component ---
+// This component decides whether to show Header/Footer based on the URL
+const AppLayout = () => {
+  const location = useLocation();
+  // Check if the current URL starts with "/portal"
+  const isPortal = location.pathname.startsWith('/portal');
+
+  return (
+    <div className="app-wrapper">
+      <ToastContainer position="top-right" theme="dark" />
+      
+      {/* Only show Header if NOT on a portal page */}
+      {!isPortal && <Header />}
+      
+      <main>
+        <Routes>
+          {/* === PUBLIC ROUTES === */}
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/careers" element={<Careers />} />
+          
+          {/* Industries */}
+          <Route path="/industries/fintech" element={<Fintech />} />
+          <Route path="/industries/agritech" element={<Agritech />} />
+          <Route path="/industries/ecommerce" element={<Ecommerce />} />
+          <Route path="/industries/healthcare" element={<Healthcare />} />
+          <Route path="/industries/edtech" element={<Edtech />} />
+          <Route path="/industries/logistics" element={<Logistics />} />
+
+          {/* === PORTAL ROUTES === */}
+          <Route path="/portal/login" element={<Login />} />
+          <Route path="/portal/register" element={<Register />} />
+          <Route path="/portal/employee" element={<EmployeeDashboard />} />
+          <Route path="/portal/admin" element={<AdminDashboard />} />
+          <Route path="/portal/admin/users" element={<AdminUsers />} />
+          <Route path="/portal/admin/user/:id" element={<AdminUserDetail />} />
+        </Routes>
+      </main>
+
+      {/* Only show Footer if NOT on a portal page */}
+      {!isPortal && <Footer />}
+    </div>
+  );
+};
 
 function App() {
   return (
     <Router>
-      <ScrollToTop /> {/* Activates scroll reset on page change */}
-      <div className="app-wrapper">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/fintech" element={<Fintech />} />
-            <Route path="/agritech" element={<Agritech />} />
-            <Route path="/ecommerce" element={<Ecommerce />} />
-            <Route path="/healthcare" element={<Healthcare />} />
-            <Route path="/edtech" element={<Edtech />} />
-            <Route path="/logistics" element={<Logistics />} />
-            <Route path="/careers" element={<Careers />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <ScrollToTop />
+      <AuthProvider>
+        {/* We use a child component here so useLocation() works */}
+        <AppLayout />
+      </AuthProvider>
     </Router>
   );
 }

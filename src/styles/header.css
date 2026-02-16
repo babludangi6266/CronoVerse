@@ -1,97 +1,16 @@
-/* 
-
-.header {
-  position: fixed;
-  top: -30px;
-  left: 0px;
-  width: 100%;
-  z-index: 1000;
-  padding: 0 0;
-  transition: all 0.3s ease;
-  background: transparent;
-}
-
-.header.scrolled {
-  background: rgba(161, 221, 186, 0.153);
-  backdrop-filter: blur(0px);
-  box-shadow: var(--shadow-sm);
-  padding: -10px 0;
-  color: rgb(0, 0, 0) !important;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-
-.logo-image {
- 
-  width: 150px;
-  display: block;
-}
-
-.desktop-nav {
-  display: flex;
-  gap: 40px;
-  color: rgb(218, 237, 204) !important;
-}
-
-.desktop-nav a {
-  font-weight: 500;
-  color: var(--text-main);
-  transition: color 0.3s;
-  color: rgb(197, 202, 195) !important;
-}
-
-.desktop-nav a:hover, .desktop-nav a.active {
-  color: var(--primary);
-}
-
-.nav-cta {
-  display: flex;
-}
-
-.mobile-toggle { display: none; font-size: 28px; cursor: pointer; }
-
-
-@media (max-width: 768px) {
-  .desktop-nav, .nav-cta { display: none; }
-  .mobile-toggle { display: block; }
-  
-  .mobile-menu {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-    gap: 30px;
-  }
-  
-  .mobile-menu a {
-    font-size: 20px;
-    font-weight: 600;
-  }
-} */
 
 
 .header {
   position: fixed;
-  top: -15px; /* Changed from -30px to 0 for better visibility */
+  top: 0; /* CHANGED FROM -15px TO 0 */
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 10px 0; /* Added padding for spacing */
+  height: 700;
+  padding:10px; /* Slightly increased padding for breathing room */
   transition: all 0.3s ease;
-  background: transparent;
+  background: rgba(15, 23, 42, 0.8);
 }
-
 .header.scrolled {
   background: rgba(15, 23, 42, 0.8); /* Darker bg for contrast with neon */
   backdrop-filter: blur(10px);
@@ -189,3 +108,15 @@
     box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
   }
 }
+.portal-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.portal-link:hover { color: #3B82F6; text-shadow: 0 0 10px rgba(59, 130, 246, 0.5); }
