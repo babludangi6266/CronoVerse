@@ -1,13 +1,17 @@
-import React, { useState, useEffect , useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import api from '../../api/axios';
 import PortalLayout from '../../components/portal/PortalLayout';
 import ChatWidget from '../../components/portal/ChatWidget';
-import { FaUserCheck, FaUserClock, FaTasks, FaCheckCircle, FaTimesCircle, FaPaperPlane } from 'react-icons/fa';
+import { 
+  FaUserCheck, FaUserClock, FaTasks, FaCheckCircle, FaTimesCircle, 
+  FaPaperPlane, FaExternalLinkAlt, FaQuoteLeft 
+} from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import '../../styles/portal.css';
 
 const AdminDashboard = () => {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [stats, setStats] = useState({ totalUsers: 0, activeUsers: 0, pendingUsers: 0, completedTasks: 0 });
   const [pendingUsers, setPendingUsers] = useState([]);
   const [activeEmployees, setActiveEmployees] = useState([]);
@@ -41,7 +45,6 @@ const AdminDashboard = () => {
     if(!window.confirm(`Are you sure you want to ${action} this user?`)) return;
     try {
       await api.post('/admin/review', { userId, action });
-      // alert(`User ${action}d successfully`);
       toast.success(`User ${action}d successfully`);
       fetchDashboardData(); // Refresh list
     } catch (err) {
@@ -54,7 +57,7 @@ const AdminDashboard = () => {
     try {
       await api.post('/tasks/assign', taskForm);
       toast.success('Task Assigned Successfully!');
-      setTaskForm({ title: '', description: '', assignedTo: '', dueDate: '' }); // Reset form
+      setTaskForm({ title: '', description: '', assignedTo: '', dueDate: '' }); 
     } catch (err) {
       toast.error('Failed to assign task');
     }
@@ -62,7 +65,7 @@ const AdminDashboard = () => {
 
   return (
     <PortalLayout>
-      <h1 className="ept-title" style={{textAlign: 'left'}}>Admin Overview</h1>
+      <h1 className="ept-title" style={{textAlign: 'left', marginBottom: '20px'}}>Admin Overview</h1>
 
       {/* --- STATS GRID --- */}
       <div className="ept-grid">
@@ -88,54 +91,109 @@ const AdminDashboard = () => {
         </div>
       </div>
 
-      <div style={{display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '30px', alignItems: 'start'}}>
+      <div style={{display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: '30px', alignItems: 'start'}}>
         
         {/* --- LEFT COL: PENDING APPROVALS --- */}
         <div className="ept-card">
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px'}}>
-            <h3><FaUserClock /> Pending Onboarding ({pendingUsers.length})</h3>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px'}}>
+            <h3 style={{margin: 0, display: 'flex', alignItems: 'center', gap: '10px'}}>
+              <FaUserClock size={18}/> Pending Onboarding ({pendingUsers.length})
+            </h3>
           </div>
 
           {pendingUsers.length === 0 ? (
-            <p style={{color: '#94A3B8', fontStyle: 'italic'}}>No pending approvals.</p>
+            <div style={{textAlign: 'center', padding: '40px', color: '#94A3B8', background: 'rgba(255,255,255,0.02)', borderRadius: '12px'}}>
+              <FaCheckCircle size={30} style={{marginBottom: '10px', opacity: 0.5}}/>
+              <p>All cleared! No pending approvals.</p>
+            </div>
           ) : (
-            <div style={{display: 'flex', flexDirection: 'column', gap: '15px'}}>
+            <div style={{display: 'flex', flexDirection: 'column', gap: '20px'}}>
               {pendingUsers.map(user => (
                 <div key={user._id} style={{
-                  background: 'rgba(255,255,255,0.03)', padding: '15px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'
+                  background: 'rgba(30, 41, 59, 0.5)', 
+                  borderRadius: '16px', 
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  overflow: 'hidden'
                 }}>
-                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px'}}>
+                  {/* Candidate Header */}
+                  <div style={{
+                    padding: '15px 20px', 
+                    background: 'rgba(0,0,0,0.2)', 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    alignItems: 'center',
+                    borderBottom: '1px solid rgba(255,255,255,0.05)'
+                  }}>
                     <div>
-                      <h4 style={{margin: 0, color: 'white'}}>{user.email}</h4>
-                      <span style={{fontSize: '0.8rem', color: '#06B6D4'}}>{user.areaOfInterest}</span>
+                      <h4 style={{margin: 0, color: '#F8FAFC', fontSize: '1rem'}}>{user.name || user.email}</h4>
+                      <div style={{fontSize: '0.8rem', color: '#06B6D4', marginTop: '2px'}}>{user.areaOfInterest}</div>
                     </div>
-                    <span className="ept-status st-pending">{user.type}</span>
+                    <span style={{
+                      padding: '4px 10px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: '600',
+                      background: user.type === 'Full-Time' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(236, 72, 153, 0.15)',
+                      color: user.type === 'Full-Time' ? '#60A5FA' : '#F472B6'
+                    }}>
+                      {user.type}
+                    </span>
                   </div>
                   
                   {/* Submission Content */}
-                  <div style={{background: 'rgba(0,0,0,0.3)', padding: '10px', borderRadius: '8px', fontSize: '0.9rem', marginBottom: '15px', color: '#CBD5E1'}}>
-                    <strong>Task Submission:</strong><br/>
-                    {user.onboardingSubmission?.text || "No text provided."} <br/>
-                    {user.onboardingSubmission?.link && (
-                      <a href={user.onboardingSubmission.link} target="_blank" rel="noreferrer" style={{color: '#3B82F6'}}>View Work Link</a>
-                    )}
-                  </div>
+                  <div style={{padding: '20px'}}>
+                    <div style={{marginBottom: '15px'}}>
+                      <label style={{fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '5px', display: 'block'}}>Submission Note</label>
+                      <div style={{
+                        background: 'rgba(0,0,0,0.2)', padding: '12px', borderRadius: '8px', 
+                        color: '#CBD5E1', fontSize: '0.9rem', lineHeight: '1.5', display: 'flex', gap: '10px'
+                      }}>
+                        <FaQuoteLeft size={14} color="#475569" style={{minWidth: '14px'}}/>
+                        {user.onboardingSubmission?.text || "No description provided."}
+                      </div>
+                    </div>
 
-                  <div style={{display: 'flex', gap: '10px'}}>
-                    <button 
-                      onClick={() => handleReview(user._id, 'Approve')}
-                      className="ept-btn" 
-                      style={{background: '#10B981', padding: '8px', fontSize: '0.9rem'}}
-                    >
-                      <FaCheckCircle /> Approve
-                    </button>
-                    <button 
-                      onClick={() => handleReview(user._id, 'Reject')}
-                      className="ept-btn" 
-                      style={{background: '#EF4444', padding: '8px', fontSize: '0.9rem'}}
-                    >
-                      <FaTimesCircle /> Reject
-                    </button>
+                    {user.onboardingSubmission?.link && (
+                       <div style={{marginBottom: '20px'}}>
+                         <label style={{fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '5px', display: 'block'}}>Project Link</label>
+                         <a 
+                           href={user.onboardingSubmission.link} 
+                           target="_blank" 
+                           rel="noreferrer" 
+                           style={{
+                             display: 'inline-flex', alignItems: 'center', gap: '8px',
+                             background: 'rgba(6, 182, 212, 0.1)', color: '#22D3EE',
+                             padding: '8px 14px', borderRadius: '8px', textDecoration: 'none',
+                             fontSize: '0.9rem', fontWeight: '500', transition: '0.2s'
+                           }}
+                           onMouseOver={(e) => e.target.style.background = 'rgba(6, 182, 212, 0.2)'}
+                           onMouseOut={(e) => e.target.style.background = 'rgba(6, 182, 212, 0.1)'}
+                         >
+                           <FaExternalLinkAlt size={12}/> View Submission
+                         </a>
+                       </div>
+                    )}
+
+                    {/* Actions */}
+                    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px', marginTop: '15px'}}>
+                      <button 
+                        onClick={() => handleReview(user._id, 'Reject')}
+                        className="ept-btn" 
+                        style={{
+                          background: 'transparent', border: '1px solid #EF4444', color: '#EF4444', 
+                          display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px'
+                        }}
+                      >
+                        <FaTimesCircle /> Reject
+                      </button>
+                      <button 
+                        onClick={() => handleReview(user._id, 'Approve')}
+                        className="ept-btn" 
+                        style={{
+                          background: '#10B981', color: 'white', 
+                          display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px'
+                        }}
+                      >
+                        <FaCheckCircle /> Approve Candidate
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -146,6 +204,8 @@ const AdminDashboard = () => {
         {/* --- RIGHT COL: ASSIGN TASK --- */}
         <div className="ept-card" style={{position: 'sticky', top: '20px'}}>
           <h3><FaTasks /> Assign New Task</h3>
+          <p style={{fontSize: '0.85rem', color: '#94A3B8', marginBottom: '20px'}}>Assign work to active employees.</p>
+          
           <form onSubmit={handleAssignTask}>
             <div className="ept-input-group">
               <label>Task Title</label>
@@ -153,12 +213,13 @@ const AdminDashboard = () => {
                 className="ept-input" 
                 value={taskForm.title}
                 onChange={(e) => setTaskForm({...taskForm, title: e.target.value})}
+                placeholder="e.g. Design Homepage Mockup"
                 required 
               />
             </div>
             
             <div className="ept-input-group">
-              <label>Assign To (Active Employee)</label>
+              <label>Assign To</label>
               <select 
                 className="ept-input"
                 value={taskForm.assignedTo}
@@ -167,7 +228,7 @@ const AdminDashboard = () => {
               >
                 <option value="">Select Employee</option>
                 {activeEmployees.map(emp => (
-                  <option key={emp._id} value={emp._id}>{emp.email} ({emp.areaOfInterest})</option>
+                  <option key={emp._id} value={emp._id}>{emp.name || emp.email} — {emp.areaOfInterest}</option>
                 ))}
               </select>
             </div>
@@ -190,11 +251,12 @@ const AdminDashboard = () => {
                 rows="3"
                 value={taskForm.description}
                 onChange={(e) => setTaskForm({...taskForm, description: e.target.value})}
+                placeholder="Brief details about the task..."
               ></textarea>
             </div>
 
             <button className="ept-btn">
-              <FaPaperPlane /> Assign Task
+              <FaPaperPlane style={{marginRight: '8px'}} /> Assign Task
             </button>
           </form>
         </div>

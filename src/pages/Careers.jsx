@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Import Link
 import { 
   FaRocket, FaClock, FaGlobeAmericas, FaLaptopCode, 
   FaPaintBrush, FaBullhorn, FaVideo, FaHandshake, FaPenNib, 
-  FaMobileAlt, FaCheckCircle, FaEnvelope, FaCopy, FaArrowRight, FaChevronDown 
+  FaMobileAlt, FaCheckCircle, FaArrowRight, FaChevronDown 
 } from 'react-icons/fa';
 import { COMPANY_INFO } from '../utils/constants'; 
 import '../styles/careers.css';
 
 const Careers = () => {
-  const [copied, setCopied] = useState(false);
   const [activeRole, setActiveRole] = useState(null);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(COMPANY_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const culturePoints = [
     { icon: <FaClock />, title: "The 6-4 System", desc: "6 Hours/Day. 4 Days/Week. We value output, not hours." },
@@ -129,7 +123,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* --- OPEN POSITIONS (ACCORDION STYLE) --- */}
+      {/* --- OPEN POSITIONS --- */}
       <section className="jobs-section">
         <div className="container">
           <div className="section-header-left">
@@ -201,7 +195,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* --- APPLICATION AREA --- */}
+      {/* --- UPDATED APPLICATION AREA --- */}
       <section id="apply-area" className="apply-section">
         <div className="container">
           <motion.div 
@@ -212,25 +206,17 @@ const Careers = () => {
               <h2>Ready to Apply?</h2>
               <p>
                 We don't use complex forms. We value your work. <br/>
-                Send us your <strong>Resume</strong> (optional) and <strong>Assessment Task</strong> directly.
+                Complete your profile and submit your <strong>Assessment Task</strong> directly on our portal.
               </p>
               
-              <div className="email-display-wrapper">
-                <div className="email-box">
-                  <FaEnvelope className="env-icon"/>
-                  <a href={`mailto:${COMPANY_INFO.email}?subject=Application for [Role Name] - [Your Name]`}>
-                    {COMPANY_INFO.email}
-                  </a>
-                </div>
-                
-                <button className="copy-btn" onClick={handleCopyEmail}>
-                  {copied ? <FaCheckCircle className="text-green"/> : <FaCopy />}
-                  {copied ? "Copied!" : "Copy"}
-                </button>
+              <div style={{marginTop: '30px'}}>
+                <Link to="/portal/register" className="btn btn-primary" style={{padding: '15px 40px', fontSize: '1.1rem'}}>
+                  Start Application / Register <FaArrowRight style={{marginLeft: '10px'}}/>
+                </Link>
               </div>
 
-              <div className="tip-box">
-                <strong>💡 Subject Line Format:</strong> "Application for [Role Name] - [Your Name]"
+              <div className="tip-box" style={{marginTop: '30px'}}>
+                <strong>💡 Note:</strong> You will need to upload a link to your work (Google Drive/GitHub) during registration.
               </div>
             </div>
           </motion.div>
