@@ -33,13 +33,14 @@ const AdminUserDetail = () => {
          </div>
       </div>
 
-      <div className="ept-card">
+    <div className="ept-card">
         <h3>Task History</h3>
         <table className="ept-table">
           <thead>
             <tr>
               <th>Title</th>
-              <th>Type</th>
+              <th>Category</th> {/* Renamed from Type */}
+              <th>Frequency</th> {/* NEW COLUMN */}
               <th>Created At</th>
               <th>Status</th>
             </tr>
@@ -49,7 +50,16 @@ const AdminUserDetail = () => {
               <tr key={task._id}>
                 <td>{task.title}</td>
                 <td>
-                   {task.isPersonal ? <span style={{color: '#94A3B8'}}>Personal To-Do</span> : <span style={{color: '#06B6D4'}}>Admin Assigned</span>}
+                   {task.isPersonal ? <span style={{color: '#94A3B8'}}>Personal</span> : <span style={{color: '#06B6D4'}}>Assigned</span>}
+                </td>
+                {/* NEW FREQUENCY DATA */}
+                <td>
+                  <span style={{
+                    fontSize: '0.8rem', padding: '2px 8px', borderRadius: '10px',
+                    border: '1px solid #334155', color: '#CBD5E1'
+                  }}>
+                    {task.frequency || 'One-time'}
+                  </span>
                 </td>
                 <td>{new Date(task.createdAt).toLocaleDateString()}</td>
                 <td>
@@ -57,7 +67,6 @@ const AdminUserDetail = () => {
                 </td>
               </tr>
             ))}
-            {tasks.length === 0 && <tr><td colSpan="4" style={{textAlign: 'center'}}>No activity found.</td></tr>}
           </tbody>
         </table>
       </div>
