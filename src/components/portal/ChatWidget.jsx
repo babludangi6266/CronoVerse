@@ -14,7 +14,7 @@ const ChatWidget = ({ user }) => {
   useEffect(() => {
     if (isOpen) {
       // Connect Socket
-      socketRef.current = io('http://localhost:5000'); // Check your port
+      socketRef.current = io('https://cronoverse-backend.onrender.com'); // Check your port
       socketRef.current.emit('join_community');
 
       // Load History from Database
