@@ -11,6 +11,61 @@
   transition: all 0.3s ease;
   background: rgba(15, 23, 42, 0.8);
 }
+/* --- HEADER DROPDOWN STYLES --- */
+.nav-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 150%; /* Pushed slightly down */
+  left: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 0;
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  
+  /* Hidden by default with animation ready */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+/* Show menu on hover */
+.nav-dropdown-wrapper:hover .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  top: 100%;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #CBD5E1;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(6, 182, 212, 0.1);
+  color: #06B6D4;
+  padding-left: 25px; /* Slight right shift on hover */
+}
 .header.scrolled {
   background: rgba(15, 23, 42, 0.8); /* Darker bg for contrast with neon */
   backdrop-filter: blur(10px);

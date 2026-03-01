@@ -1,7 +1,96 @@
+// import React, { useState, useEffect } from 'react';
+// import { Link, useLocation } from 'react-router-dom';
+// import { COMPANY_INFO } from '../../utils/constants';
+// import { HiMenuAlt3, HiX } from 'react-icons/hi';
+// import { FaUserShield } from 'react-icons/fa';
+// import logo from '../../../public/images/logo.png';
+// import '../../styles/header.css';
+
+// const Header = () => {
+//   const [scrolled, setScrolled] = useState(false);
+//   const [mobileMenu, setMobileMenu] = useState(false);
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     const handleScroll = () => setScrolled(window.scrollY > 50);
+//     window.addEventListener('scroll', handleScroll);
+//     return () => window.removeEventListener('scroll', handleScroll);
+//   }, []);
+
+//   const navLinks = [
+//     { name: 'Home', path: '/' },
+//     { name: 'Solutions', path: '/services' },
+//     { name: 'Portfolio', path: '/portfolio' },
+//     { name: 'About Us', path: '/about' },
+//     { name: 'Careers', path: '/careers', isSpecial: true }, // Special Flag
+//     { name: 'Contact', path: '/contact' },
+//   ];
+
+//   return (
+//     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+//       <div className="container header-content">
+//         <Link to="/" className="logo">
+//           <img src={logo} alt="LexaTech Logo" className="logo-image" />
+//         </Link>
+
+//         {/* Desktop Navigation */}
+//         <nav className="desktop-nav">
+//           {navLinks.map((link) => (
+//             <Link 
+//               key={link.name} 
+//               to={link.path}
+//               className={`
+//                 ${location.pathname === link.path ? 'active' : ''} 
+//                 ${link.isSpecial ? 'neon-frame' : 'nav-link'} 
+//               `}
+//             >
+//               {link.name}
+//             </Link>
+//           ))}
+//           {/* NEW: Employee Portal Link */}
+//           <Link to="/portal/login" className="portal-link">
+//             <FaUserShield /> Portal
+//           </Link>
+//         </nav>
+        
+
+//         <button 
+//           className="btn btn-primary nav-cta"
+//           onClick={() => window.open(COMPANY_INFO.whatsappLink, '_blank')}
+//         >
+//           Let's Talk
+//         </button>
+
+//         <div className="mobile-toggle" onClick={() => setMobileMenu(!mobileMenu)}>
+//           {mobileMenu ? <HiX /> : <HiMenuAlt3 />}
+//         </div>
+//       </div>
+
+//       {/* Mobile Menu Overlay */}
+//       {mobileMenu && (
+//         <div className="mobile-menu">
+//           {navLinks.map((link) => (
+//             <Link 
+//               key={link.name} 
+//               to={link.path} 
+//               onClick={() => setMobileMenu(false)}
+//               className={link.isSpecial ? 'mobile-neon-link' : ''}
+//             >
+//               {link.name}
+//             </Link>
+//           ))}
+//         </div>
+//       )}
+//     </header>
+//   );
+// };
+
+// export default Header;
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_INFO } from '../../utils/constants';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiChevronDown } from 'react-icons/hi';
 import { FaUserShield } from 'react-icons/fa';
 import logo from '../../../public/images/logo.png';
 import '../../styles/header.css';
@@ -9,6 +98,7 @@ import '../../styles/header.css';
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
+  const [mobileIndOpen, setMobileIndOpen] = useState(false); // For mobile dropdown
   const location = useLocation();
 
   useEffect(() => {
@@ -21,9 +111,15 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'Solutions', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Careers', path: '/careers', isSpecial: true }, // Special Flag
-    { name: 'Contact', path: '/contact' },
+  ];
+
+  const industryLinks = [
+    { name: 'FinTech & Banking', path: '/industries/fintech' },
+    { name: 'AgriTech Solutions', path: '/industries/agritech' },
+    { name: 'E-Commerce', path: '/industries/ecommerce' },
+    { name: 'Healthcare IT', path: '/industries/healthcare' },
+    { name: 'EdTech Platforms', path: '/industries/edtech' },
+    { name: 'Logistics & Supply', path: '/industries/logistics' },
   ];
 
   return (
@@ -33,31 +129,36 @@ const Header = () => {
           <img src={logo} alt="LexaTech Logo" className="logo-image" />
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* --- DESKTOP NAVIGATION --- */}
         <nav className="desktop-nav">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path}
-              className={`
-                ${location.pathname === link.path ? 'active' : ''} 
-                ${link.isSpecial ? 'neon-frame' : 'nav-link'} 
-              `}
-            >
+            <Link key={link.name} to={link.path} className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}>
               {link.name}
             </Link>
           ))}
-          {/* NEW: Employee Portal Link */}
+          
+          {/* Industries Dropdown */}
+          <div className="nav-dropdown-wrapper">
+            <Link to="/industries" className={`nav-link nav-dropdown-trigger ${location.pathname.includes('/industries') ? 'active' : ''}`}>
+              Industries <HiChevronDown style={{marginLeft: '2px', marginTop: '2px'}}/>
+            </Link>
+            <div className="nav-dropdown-menu">
+              {industryLinks.map(ind => (
+                <Link key={ind.name} to={ind.path} className="dropdown-item">{ind.name}</Link>
+              ))}
+            </div>
+          </div>
+
+          <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>About Us</Link>
+          <Link to="/careers" className="neon-frame">Careers</Link>
+          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
+          
           <Link to="/portal/login" className="portal-link">
             <FaUserShield /> Portal
           </Link>
         </nav>
-        
 
-        <button 
-          className="btn btn-primary nav-cta"
-          onClick={() => window.open(COMPANY_INFO.whatsappLink, '_blank')}
-        >
+        <button className="btn btn-primary nav-cta" onClick={() => window.open(COMPANY_INFO.whatsappLink, '_blank')}>
           Let's Talk
         </button>
 
@@ -66,19 +167,31 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* --- MOBILE MENU --- */}
       {mobileMenu && (
         <div className="mobile-menu">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
-              onClick={() => setMobileMenu(false)}
-              className={link.isSpecial ? 'mobile-neon-link' : ''}
-            >
-              {link.name}
-            </Link>
+            <Link key={link.name} to={link.path} onClick={() => setMobileMenu(false)}>{link.name}</Link>
           ))}
+          
+          {/* Mobile Industries Accordion */}
+          <div style={{width: '100%', textAlign: 'center'}}>
+            <div onClick={() => setMobileIndOpen(!mobileIndOpen)} style={{fontSize: '20px', fontWeight: '600', color: 'white', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px'}}>
+              Industries <HiChevronDown style={{transform: mobileIndOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: '0.3s'}}/>
+            </div>
+            {mobileIndOpen && (
+              <div style={{display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '15px', background: 'rgba(255,255,255,0.05)', padding: '15px', borderRadius: '10px'}}>
+                <Link to="/industries" onClick={() => setMobileMenu(false)} style={{color: '#06B6D4', fontSize: '18px'}}>View All Industries</Link>
+                {industryLinks.map(ind => (
+                  <Link key={ind.name} to={ind.path} onClick={() => setMobileMenu(false)} style={{fontSize: '16px', color: '#94A3B8'}}>{ind.name}</Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link to="/about" onClick={() => setMobileMenu(false)}>About Us</Link>
+          <Link to="/careers" className="mobile-neon-link" onClick={() => setMobileMenu(false)}>Careers</Link>
+          <Link to="/contact" onClick={() => setMobileMenu(false)}>Contact</Link>
         </div>
       )}
     </header>

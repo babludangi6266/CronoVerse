@@ -70,18 +70,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Industries (New Content) */}
-          <div className="footer-widget">
-            <h4 className="widget-title">Industries</h4>
-            <ul className="footer-list">
-              <li><Link to="/fintech">FinTech & Banking</Link></li>
-              <li><Link to="/agritech">AgriTech Solutions</Link></li>
-              <li><Link to="/ecommerce">E-Commerce</Link></li>
-              <li><Link to="/healthcare">Healthcare IT</Link></li>
-              <li><Link to="/edtech">EdTech Platforms</Link></li>
-              <li><Link to="/logistics">Logistics & Supply Chain</Link></li>
-            </ul>
-          </div>
+          {/* Column 4: Industries (New Content)
+          // <div className="footer-widget">
+          //   <h4 className="widget-title">Industries</h4>
+          //   <ul className="footer-list">
+          //     <li><Link to="/fintech">FinTech & Banking</Link></li>
+          //     <li><Link to="/agritech">AgriTech Solutions</Link></li>
+          //     <li><Link to="/ecommerce">E-Commerce</Link></li>
+          //     <li><Link to="/healthcare">Healthcare IT</Link></li>
+          //     <li><Link to="/edtech">EdTech Platforms</Link></li>
+          //     <li><Link to="/logistics">Logistics & Supply Chain</Link></li>
+          //   </ul>
+          // </div> */}
+
+{/* Column 4: Industries (Fix the paths here) */}
+<div className="footer-widget">
+  <h4 className="widget-title">Industries</h4>
+  <ul className="footer-list">
+    <li><Link to="/industries/fintech">FinTech & Banking</Link></li>
+    <li><Link to="/industries/agritech">AgriTech Solutions</Link></li>
+    <li><Link to="/industries/ecommerce">E-Commerce</Link></li>
+    <li><Link to="/industries/healthcare">Healthcare IT</Link></li>
+    <li><Link to="/industries/edtech">EdTech Platforms</Link></li>
+    <li><Link to="/industries/logistics">Logistics & Supply Chain</Link></li>
+  </ul>
+</div>
 
           {/* Column 5: Contact Card (Visual Highlight) */}
           <div className="footer-widget contact-widget">

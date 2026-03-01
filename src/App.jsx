@@ -25,6 +25,7 @@ import Home from './pages/Home';
 import ServicesPage from './pages/Services';
 import PortfolioPage from './pages/Portfolio';
 import AboutPage from './pages/About';
+import IndustriesPage from './pages/Industries';
 import ContactPage from './pages/Contact';
 import Fintech from './pages/Fintech';
 import Agritech from './pages/Agritech';
@@ -56,6 +57,7 @@ const AppLayout = () => {
           {/* === PUBLIC ROUTES === */}
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/industries" element={<IndustriesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
