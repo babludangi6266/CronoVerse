@@ -37,8 +37,13 @@ const ChatWidget = ({ user }) => {
   useEffect(() => {
     if (isOpen) {
       // 1. Connect Socket
-      socketRef.current = io('https://cronoverse-backend.onrender.com/api'); 
+      // socketRef.current = io('https://cronoverse-backend.onrender.com/api'); 
 
+      socketRef.current = io('https://cronoverse-backend.onrender.com', {
+  transports: ['websocket', 'polling'], // Critical for Render deployment
+  reconnectionAttempts: 5,              // Tells it to keep trying if Render sleeps
+  timeout: 10000,
+});
       // 2. Fetch User Directory for the Sidebar
       const fetchDirectory = async () => {
         try {
