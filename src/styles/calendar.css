@@ -1,0 +1,149 @@
+/* --- LEXA CRM DARK CALENDAR --- */
+@import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+.lexa-crm-calendar-wrapper {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  height: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Base Calendar Colors */
+.rbc-calendar {
+  font-family: 'Inter', sans-serif;
+  color: #CBD5E1;
+}
+
+/* Header & Toolbar */
+.rbc-toolbar button {
+  color: #CBD5E1;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+.rbc-toolbar button:hover, .rbc-toolbar button:active, .rbc-toolbar button.rbc-active {
+  background: #06B6D4;
+  color: #020617;
+  border-color: #06B6D4;
+}
+.rbc-toolbar-label {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #F8FAFC;
+}
+
+/* Grid & Borders */
+.rbc-month-view, .rbc-time-view, .rbc-header {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.rbc-day-bg, .rbc-month-row, .rbc-time-content {
+  border-color: rgba(255, 255, 255, 0.05);
+}
+.rbc-off-range-bg {
+  background: rgba(0, 0, 0, 0.2);
+}
+.rbc-today {
+  background: rgba(6, 182, 212, 0.05); /* Subtle highlight for today */
+}
+
+/* Custom Event Styling (We handle colors dynamically in React, just removing borders here) */
+.rbc-event {
+  border: none;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.rbc-event.rbc-selected {
+  outline: 2px solid white;
+}
+
+/* --- LEXA RICH CALENDAR HOVER REPORT --- */
+.lexa-cal-event-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 2px 4px;
+}
+
+.lexa-cal-event-title {
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The Hidden Report Card */
+.lexa-cal-hover-report {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 130%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  width: 280px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+  z-index: 9999;
+  color: #F8FAFC;
+  transition: all 0.2s ease;
+  pointer-events: none; /* Prevents flickering */
+}
+
+/* The little triangle pointer at the bottom of the tooltip */
+.lexa-cal-hover-report::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(6, 182, 212, 0.4) transparent transparent transparent;
+}
+
+/* Show report on hover */
+.lexa-cal-event-wrapper:hover .lexa-cal-hover-report {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.lexa-cal-report-header {
+  font-size: 0.75rem;
+  color: #06B6D4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+}
+
+.lexa-cal-report-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: #CBD5E1;
+}
+
+.lexa-cal-report-row svg {
+  color: #94A3B8;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.lexa-cal-report-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 10px 0;
+}

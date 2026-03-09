@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/axios';
 import { Link } from 'react-router-dom';
+import { FaTrash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import PortalLayout from '../../components/portal/PortalLayout';
 import '../../styles/portal.css';
 
@@ -18,6 +20,18 @@ const AdminUsers = () => {
     const res = await api.get(`/admin/users${query}`);
     setUsers(res.data);
   };
+
+  const handleDeleteUser = async (id, name) => {
+  if (!window.confirm(`Are you absolutely sure you want to remove ${name}? This action cannot be undone.`)) return;
+
+  try {
+    await api.delete(`/admin/users/${id}`);
+    toast.success("Employee removed successfully");
+    fetchUsers(); // Refresh the table
+  } catch (err) {
+    toast.error("Failed to delete user");
+  }
+};
 
   return (
     <PortalLayout>
@@ -74,6 +88,22 @@ const AdminUsers = () => {
                     View Tasks
                   </Link>
                 </td>
+                <td>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <Link to={`/portal/admin/user/${u._id}`} className="ept-btn" style={{padding: '6px 12px', fontSize: '0.8rem', width: 'auto', textDecoration: 'none'}}>
+                    View Tasks
+                  </Link>
+                  <button 
+                    onClick={() => handleDeleteUser(u._id, u.name)}
+                    style={{ background: 'transparent', border: 'none', color: '#EF4444', cursor: 'pointer', fontSize: '1.1rem', transition: '0.2s' }}
+                    title="Remove Employee"
+                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
+                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
+              </td>
               </tr>
             ))}
             {users.length === 0 && <tr><td colSpan="6" style={{textAlign: 'center', padding: '20px'}}>No users found.</td></tr>}

@@ -6,19 +6,16 @@ const Testimonials = () => {
   const reviews = [
     {
       name: "Rajesh Kumar",
-      role: "Director, EduTech India",
       text: "Lexa Technologies transformed our offline coaching into a full-fledged LMS. Their speed and code quality are unmatched in Odisha.",
       initial: "R"
     },
     {
       name: "Sarah Williams",
-      role: "Founder, GreenEarth",
       text: "The mobile app they built for us helped us secure our Series A funding. The UI/UX is exactly what we envisioned.",
       initial: "S"
     },
     {
       name: "Amit Das",
-      role: "CEO, Kalinga Logistics",
       text: "Reliable, technical, and future-proof. Their cloud solutions reduced our server costs by 40%. Highly recommended.",
       initial: "A"
     }
@@ -41,7 +38,7 @@ const Testimonials = () => {
                 <div className="avatar">{review.initial}</div>
                 <div>
                   <h4>{review.name}</h4>
-                  <span>{review.role}</span>
+                  
                   <div className="stars">
                     {[1,2,3,4,5].map(i => <FaStar key={i} size={12} color="#F59E0B"/>)}
                   </div>

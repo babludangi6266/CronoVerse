@@ -1,29 +1,89 @@
 import React, { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
-import api from '../../api/axios'; // Import your axios instance
-import { FaPaperPlane, FaComments, FaTimes } from 'react-icons/fa';
+import api from '../../api/axios'; 
+import { FaPaperPlane, FaComments, FaTimes, FaHashtag, FaUserCircle , FaBroom} from 'react-icons/fa';
+import '../../styles/messenger.css';
 
 const ChatWidget = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [directory, setDirectory] = useState([]); // List of users
+  
+  // State to track current room (defaults to community)
+  const [activeRoom, setActiveRoom] = useState('community'); 
+  const [activeChatName, setActiveChatName] = useState('Team Community'); 
+  
   const socketRef = useRef();
-  const scrollRef = useRef(); // To auto-scroll to bottom
+  const scrollRef = useRef();
 
-  // 1. Fetch History & Connect Socket when Chat Opens
+  // Generate a unique room ID for 1-on-1 chats regardless of who clicks who first
+  const generateRoomId = (id1, id2) => {
+    return [id1, id2].sort().join('_');
+  };
+
+  const handleClearChat = async () => {
+  if (!window.confirm("Are you sure you want to clear all messages in this conversation? Everyone will lose access to this history.")) return;
+
+  try {
+    await api.delete(`/chat/clear/${activeRoom}`);
+    setMessages([]); // Clear locally for Admin
+    socketRef.current.emit('clear_chat_event', activeRoom); // Tell the server to clear it for the Employee instantly
+  } catch (err) {
+    console.error("Failed to clear chat");
+  }
+};
+
   useEffect(() => {
     if (isOpen) {
-      // Connect Socket
-      socketRef.current = io('https://cronoverse-backend.onrender.com'); // Check your port
-      socketRef.current.emit('join_community');
+      // 1. Connect Socket
+      socketRef.current = io('https://cronoverse-backend.onrender.com/api'); 
 
-      // Load History from Database
+      // 2. Fetch User Directory for the Sidebar
+      const fetchDirectory = async () => {
+        try {
+          const res = await api.get('/chat/users');
+          setDirectory(res.data);
+        } catch (err) { console.error("Failed to load users"); }
+      };
+      fetchDirectory();
+
+      // Listen for incoming messages globally
+      socketRef.current.on('receive_message', (data) => {
+        // Only append to screen if the message belongs to the room we are currently looking at
+        if (data.room === activeRoom) {
+          setMessages((prev) => [...prev, data]);
+        }
+      });
+
+      socketRef.current.on('chat_was_cleared', (clearedRoom) => {
+     // If the user is currently looking at the room that was cleared, empty the screen
+     setActiveRoom((currentActive) => {
+       if (currentActive === clearedRoom) {
+         setMessages([]);
+       }
+       return currentActive;
+     });
+   });
+    }
+
+    return () => {
+      if (socketRef.current) socketRef.current.disconnect();
+    };
+  }, [isOpen]);
+
+  // Re-run this effect whenever the active room changes
+  useEffect(() => {
+    if (isOpen && socketRef.current) {
+      // 1. Join the new socket room
+      socketRef.current.emit('join_room', activeRoom);
+
+      // 2. Fetch History for this specific room
       const fetchHistory = async () => {
         try {
-          const res = await api.get('/chat/history');
-          // Format DB messages to match Socket format
+          const res = await api.get(`/chat/history?room=${activeRoom}`);
           const formattedHistory = res.data.map(msg => ({
-            senderId: msg.sender?._id || msg.sender, // Handle populated/unpopulated
+            senderId: msg.sender?._id || msg.sender,
             senderName: msg.sender?.name || "Unknown",
             message: msg.message,
             createdAt: msg.createdAt
@@ -34,19 +94,10 @@ const ChatWidget = ({ user }) => {
         }
       };
       fetchHistory();
-
-      // Listen for New Messages
-      socketRef.current.on('receive_message', (data) => {
-        setMessages((prev) => [...prev, data]);
-      });
     }
+  }, [activeRoom, isOpen]);
 
-    return () => {
-      if (socketRef.current) socketRef.current.disconnect();
-    };
-  }, [isOpen]);
-
-  // 2. Auto-scroll to bottom when messages change
+  // Auto-scroll to bottom
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isOpen]);
@@ -59,86 +110,122 @@ const ChatWidget = ({ user }) => {
       senderId: user._id || user.id, 
       senderName: user.name || user.email, 
       message: input,
+      room: activeRoom, // Attach the room ID so backend knows where to route it
       createdAt: new Date().toISOString()
     };
 
     socketRef.current.emit('send_message', msgData);
-    // Optimistic UI update is handled by the socket broadcast 'receive_message' usually,
-    // but to feel instant, you can append it here if you filter duplicates.
-    // For simplicity, we wait for the socket to echo it back (standard practice).
-    
     setInput('');
   };
 
+  const switchChat = (roomType, targetUser = null) => {
+    if (roomType === 'community') {
+      setActiveRoom('community');
+      setActiveChatName('Team Community');
+    } else if (targetUser) {
+      const roomId = generateRoomId(user._id || user.id, targetUser._id);
+      setActiveRoom(roomId);
+      setActiveChatName(targetUser.name);
+    }
+  };
+
+  
+
   return (
     <>
-      {/* Floating Button */}
+      {/* Floating Action Button */}
       {!isOpen && (
-        <div 
-          onClick={() => setIsOpen(true)}
-          style={{
-            position: 'fixed', bottom: '30px', right: '30px',
-            width: '60px', height: '60px', background: '#06B6D4',
-            borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', fontSize: '1.5rem', boxShadow: '0 10px 20px rgba(6,182,212,0.4)', zIndex: 999
-          }}
-        >
-          <FaComments color="black" />
+        <div className="lexa-msg-fab" onClick={() => setIsOpen(true)}>
+          <FaComments />
         </div>
       )}
 
-      {/* Chat Window */}
+      {/* Professional Slack-like Messenger */}
       {isOpen && (
-        <div className="ept-chat-box">
-          <div className="chat-header" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-            <span>Community Chat</span>
-            <FaTimes style={{cursor: 'pointer'}} onClick={() => setIsOpen(false)} />
-          </div>
+        <div className="lexa-msg-overlay">
           
-          <div className="chat-messages">
-            {messages.map((msg, i) => {
-              const isMe = msg.senderId === (user._id || user.id);
-              return (
-                <div key={i} style={{
-                  marginBottom: '12px', 
-                  textAlign: isMe ? 'right' : 'left',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: isMe ? 'flex-end' : 'flex-start'
-                }}>
-                  <span style={{fontSize: '0.7rem', color: '#94A3B8', marginBottom: '2px'}}>
-                    {isMe ? 'You' : msg.senderName}
-                  </span>
-                  <div style={{
-                    background: isMe ? '#06B6D4' : '#1E293B',
-                    color: isMe ? 'black' : 'white',
-                    padding: '8px 12px', 
-                    borderRadius: '12px', 
-                    borderTopRightRadius: isMe ? '0' : '12px',
-                    borderTopLeftRadius: isMe ? '12px' : '0',
-                    maxWidth: '85%',
-                    wordWrap: 'break-word'
-                  }}>
-                    {msg.message}
+          {/* --- LEFT SIDEBAR --- */}
+          <div className="lexa-msg-sidebar">
+            <div className="lexa-msg-sidebar-header">
+              Messages
+            </div>
+
+            <div className="lexa-msg-section-title">Channels</div>
+            <div 
+              className={`lexa-msg-contact ${activeRoom === 'community' ? 'active' : ''}`}
+              onClick={() => switchChat('community')}
+            >
+              <FaHashtag /> Team Community
+            </div>
+
+            <div className="lexa-msg-section-title">Direct Messages</div>
+            <div style={{overflowY: 'auto', flexGrow: 1}}>
+              {directory.map(contact => {
+                const roomId = generateRoomId(user._id || user.id, contact._id);
+                return (
+                  <div 
+                    key={contact._id} 
+                    className={`lexa-msg-contact ${activeRoom === roomId ? 'active' : ''}`}
+                    onClick={() => switchChat('dm', contact)}
+                  >
+                    <div className="lexa-msg-status-dot"></div>
+                    <span style={{overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap'}}>{contact.name}</span>
                   </div>
-                </div>
-              );
-            })}
-            <div ref={scrollRef} />
+                );
+              })}
+            </div>
           </div>
 
-          <form className="chat-input-area" onSubmit={sendMessage}>
-            <input 
-              className="ept-input" 
-              value={input} 
-              onChange={(e) => setInput(e.target.value)} 
-              placeholder="Type a message..."
-              style={{borderRadius: '20px'}}
-            />
-            <button type="submit" className="ept-btn" style={{width: 'auto', borderRadius: '50%', padding: '12px'}}>
-              <FaPaperPlane />
-            </button>
-          </form>
+          {/* --- RIGHT CHAT AREA --- */}
+          <div className="lexa-msg-chat-area">
+           <div className="lexa-msg-chat-header">
+           <h3>
+             {activeRoom === 'community' ? <FaHashtag style={{color: '#94A3B8'}}/> : <FaUserCircle style={{color: '#06B6D4'}}/>}
+             {activeChatName}
+           </h3>
+           <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+             {user.role === 'Admin' && (
+               <button 
+                 onClick={handleClearChat}
+                 style={{ background: 'transparent', border: 'none', color: '#EAB308', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '5px', fontSize: '0.8rem', fontWeight: 'bold' }}
+                 title="Clear Chat History"
+               >
+                 <FaBroom /> Clear
+               </button>
+             )}
+             <FaTimes className="lexa-msg-close" onClick={() => setIsOpen(false)} />
+           </div>
+         </div>
+            
+            <div className="lexa-msg-history">
+              {messages.map((msg, i) => {
+                const isMe = msg.senderId === (user._id || user.id);
+                return (
+                  <div key={i} className={`lexa-msg-bubble-wrapper ${isMe ? 'me' : 'other'}`}>
+                    <div className="lexa-msg-meta">
+                      {isMe ? 'You' : msg.senderName} • {new Date(msg.createdAt).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                    </div>
+                    <div className="lexa-msg-bubble">
+                      {msg.message}
+                    </div>
+                  </div>
+                );
+              })}
+              <div ref={scrollRef} />
+            </div>
+
+            <form className="lexa-msg-input-area" onSubmit={sendMessage}>
+              <input 
+                value={input} 
+                onChange={(e) => setInput(e.target.value)} 
+                placeholder={`Message ${activeChatName}...`}
+              />
+              <button type="submit" className="lexa-msg-send-btn" disabled={!input.trim()}>
+                <FaPaperPlane />
+              </button>
+            </form>
+          </div>
+
         </div>
       )}
     </>
@@ -146,5 +233,3 @@ const ChatWidget = ({ user }) => {
 };
 
 export default ChatWidget;
-
-

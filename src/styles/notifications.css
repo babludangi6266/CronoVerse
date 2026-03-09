@@ -1,0 +1,122 @@
+.lexa-notif-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.lexa-notif-bell {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #CBD5E1;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.lexa-notif-bell:hover {
+  background: rgba(30, 41, 59, 1);
+  color: white;
+}
+
+.lexa-notif-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: #EF4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #020617;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.lexa-notif-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 320px;
+  background: #0F172A;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+  animation: fadeInDown 0.2s ease forwards;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lexa-notif-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-weight: 700;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lexa-notif-body {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.lexa-notif-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: background 0.2s;
+}
+
+.lexa-notif-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.lexa-notif-item.unread {
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.lexa-notif-icon {
+  background: rgba(6, 182, 212, 0.2);
+  color: #06B6D4;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.lexa-notif-text {
+  color: #F8FAFC;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.lexa-notif-time {
+  color: #64748B;
+  font-size: 0.75rem;
+}

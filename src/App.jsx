@@ -14,6 +14,9 @@ import EmployeeDashboard from './pages/portal/EmployeeDashboard';
 import AdminDashboard from './pages/portal/AdminDashboard'; 
 import AdminUsers from './pages/portal/AdminUsers';
 import AdminUserDetail from './pages/portal/AdminUserDetail';
+import CalendarPage from './pages/portal/CalendarPage';
+import AdminDeals from './pages/portal/AdminDeals';
+import EmployeeProjects from './pages/portal/EmployeeProjects';
 
 // Public Components
 import Header from './components/common/Header';
@@ -78,6 +81,9 @@ const AppLayout = () => {
           <Route path="/portal/admin" element={<AdminDashboard />} />
           <Route path="/portal/admin/users" element={<AdminUsers />} />
           <Route path="/portal/admin/user/:id" element={<AdminUserDetail />} />
+          <Route path="/portal/calendar" element={<CalendarPage />} />
+          <Route path="/portal/admin/deals" element={<AdminDeals />} />
+          <Route path="/portal/employee/projects" element={<EmployeeProjects />} />
         </Routes>
       </main>
 

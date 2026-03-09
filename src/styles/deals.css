@@ -1,0 +1,96 @@
+/* --- LEXA CRM DEAL PIPELINE --- */
+.lexa-deal-board-wrapper {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  min-height: 65vh;
+}
+
+.lexa-deal-column {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lexa-deal-col-header {
+  padding: 18px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Pipeline Stage Colors */
+.lexa-col-lead { border-top: 4px solid #94A3B8; color: #F8FAFC; }
+.lexa-col-negotiating { border-top: 4px solid #EAB308; color: #FDE047; }
+.lexa-col-active { border-top: 4px solid #10B981; color: #6EE7B7; }
+.lexa-col-past { border-top: 4px solid #6366F1; color: #A5B4FC; }
+
+.lexa-deal-drop-zone {
+  padding: 15px;
+  flex-grow: 1;
+  transition: background 0.2s;
+}
+.lexa-deal-drop-zone.active-drag { background: rgba(255, 255, 255, 0.02); }
+
+/* Deal Card */
+.lexa-deal-card {
+  background: #1E293B;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.lexa-deal-card.dragging {
+  transform: rotate(3deg) scale(1.05);
+  border-color: #06B6D4;
+  box-shadow: 0 15px 30px rgba(6, 182, 212, 0.2);
+}
+
+.lexa-deal-company {
+  font-size: 1.15rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.lexa-deal-contact {
+  color: #94A3B8;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lexa-deal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.lexa-deal-value {
+  color: #10B981;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.lexa-deal-industry {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #CBD5E1;
+}
