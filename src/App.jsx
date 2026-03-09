@@ -3,6 +3,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { AnimatePresence } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { AuthProvider } from './context/AuthContext';
@@ -18,10 +19,12 @@ import CalendarPage from './pages/portal/CalendarPage';
 import AdminDeals from './pages/portal/AdminDeals';
 import EmployeeProjects from './pages/portal/EmployeeProjects';
 
+
 // Public Components
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
+import LexaBotWidget from './components/common/LexaBotWidget';
 
 // Public Pages
 import Home from './pages/Home';
@@ -54,9 +57,10 @@ const AppLayout = () => {
       
       {/* Only show Header if NOT on a portal page */}
       {!isPortal && <Header />}
-      
+      {!isPortal && <LexaBotWidget />}
       <main>
-        <Routes>
+      <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
           {/* === PUBLIC ROUTES === */}
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<ServicesPage />} />
@@ -84,7 +88,9 @@ const AppLayout = () => {
           <Route path="/portal/calendar" element={<CalendarPage />} />
           <Route path="/portal/admin/deals" element={<AdminDeals />} />
           <Route path="/portal/employee/projects" element={<EmployeeProjects />} />
+        
         </Routes>
+      </AnimatePresence>
       </main>
 
       {/* Only show Footer if NOT on a portal page */}
@@ -93,12 +99,26 @@ const AppLayout = () => {
   );
 };
 
+// Add this right above your function App()
+import { motion } from 'framer-motion';
+const PageWrapper = ({ children }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
       <AuthProvider>
-        {/* We use a child component here so useLocation() works */}
         <AppLayout />
       </AuthProvider>
     </Router>
