@@ -66,19 +66,38 @@ const LexaBotWidget = () => {
   return (
     <>
       {/* 1. The Welcome Greeting Bubble */}
+    {/* 1. The Premium "Live Agent" Video Greeting */}
       {!isOpen && showGreeting && (
-        <div className="lexabot-greeting" onClick={handleOpenChat}>
-          <span>👋 Hey! I am Lexa AI. Want to build something great?</span>
-          <FaTimes 
-            className="lexabot-greeting-close" 
+        <div className="lexabot-video-greeting" onClick={handleOpenChat}>
+          
+          {/* Close Button (Top Right) */}
+          <div 
+            className="lexabot-video-close" 
             onClick={(e) => { 
-              e.stopPropagation(); // Prevents click from opening the chat
-              setShowGreeting(false); // Just dismisses the bubble
-            }} 
+              e.stopPropagation(); 
+              setShowGreeting(false); 
+            }}
+          >
+            <FaTimes />
+          </div>
+
+          {/* Full Background Video */}
+          <video 
+            src="/Avatar_Greeting_Video_Creation.mp4" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
           />
+
+          {/* Cinematic Text Overlay (Bottom) */}
+          <div className="lexabot-video-overlay">
+            <span>AI Assistant</span>
+            <strong>Hey! I am Lexa. <br/>Tap to chat 👋</strong>
+          </div>
+
         </div>
       )}
-
       {/* 2. Floating Action Button */}
       {!isOpen && (
         <div className="lexabot-fab" onClick={handleOpenChat}>
