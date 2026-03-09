@@ -11,10 +11,20 @@ const Portfolio = () => {
       category: 'Government Platform',
       description: 'A scalable e-commerce and data platform for agricultural management handling thousands of daily users.',
       // Using an aesthetic placeholder that looks like a complex web app
-      image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: '/images/icar.png',
       tags: ['React.js', 'Node.js', 'MySQL', 'Enterprise'],
       link: 'https://icar-ciwa-tms.in/',
       theme: 'theme-blue' // For customized glow
+    },
+     {
+      id: 5,
+      title: 'Summer70 Learning Hub ',
+      category: 'E-Learning Solution',
+      description: 'An interactive learning platform for immersive educational experiences.',
+      image: './images/summer70.png',
+      tags: ['React', 'Node.js', 'MongoDB'],
+      link: 'https://summer70.com',
+      theme: 'theme-teal'
     },
     {
       id: 4,
@@ -28,25 +38,26 @@ const Portfolio = () => {
       theme: 'theme-purple'
     },
     {
-      id: 2,
+      id: 5,
       title: 'The Kamakshi',
       category: 'Global Job Platform',
       description: 'Connecting talent with opportunities across 25 countries with intelligent matching algorithms.',
-      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: './images/kamalshi.png',
       tags: ['React Native', 'Web Platform', 'Firebase'],
       link: 'https://vendor-public.vercel.app/',
       theme: 'theme-orange'
     },
-    {
-      id: 3,
-      title: 'LearnWithUs EdTech',
-      category: 'E-Learning Solution',
-      description: 'An interactive educational platform making learning accessible with gamified experiences.',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      tags: ['MERN Stack', 'Redux', 'Mobile Friendly'],
-      link: 'https://learnwithus-three.vercel.app/',
-      theme: 'theme-green'
-    }
+    // {
+    //   id: 3,
+    //   title: 'LearnWithUs EdTech',
+    //   category: 'E-Learning Solution',
+    //   description: 'An interactive educational platform making learning accessible with gamified experiences.',
+    //   image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    //   tags: ['MERN Stack', 'Redux', 'Mobile Friendly'],
+    //   link: 'https://learnwithus-three.vercel.app/',
+    //   theme: 'theme-green'
+    // },
+   
   ];
 
   return (

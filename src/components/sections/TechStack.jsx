@@ -56,7 +56,7 @@ const TechStack = () => {
       title: "Backend Core",
       subtitle: "Secure & Scalable Logic",
       icon: <FaShieldAlt />,
-      image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1669023414166-a4cc7c0fe1f5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEJhY2tlbmQlMjBzb2Z0d2FyZXxlbnwwfHwwfHx8MA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       description: "The backbone of your application. We architect secure APIs and databases that can handle millions of requests.",
       techs: [
         { name: "Node.js", icon: <FaNodeJs /> },

@@ -15,13 +15,23 @@ const PortfolioPage = () => {
       title: 'ICAR-CIWA (NISWA)',
       category: 'Government',
       desc: 'A scalable data management platform for the Central Institute for Women in Agriculture. Features complex role-based access control and large-scale data visualization.',
-      image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: './images/icar.png',
       stack: ['React.js', 'Node.js', 'MySQL', 'Redux'],
       link: 'https://icar-ciwa-tms.in/',
       color: 'blue'
     },
     {
       id: 2,
+      title: 'Summer70 Learning Hub',
+      category: 'EdTech',
+      desc: 'An interactive learning platform for immersive educational experiences. Features include live classes, resource sharing, and community forums.',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      stack: ['React', 'Node.js', 'MongoDB' , 'Firebase' , 'Socket.io', 'AWS S3'],
+      link: 'https://summer70.com',
+      color: 'teal'
+    },
+    {
+      id: 5,
       title: 'Analytix Pro Dashboard',
       category: 'IoT & Analytics',
       desc: 'Real-time hardware monitoring dashboard processing 10k+ data points per second via WebSockets. Includes predictive maintenance algorithms.',
@@ -35,21 +45,22 @@ const PortfolioPage = () => {
       title: 'The Kamakshi',
       category: 'Platforms',
       desc: 'A global recruitment platform connecting talent across 25 countries. Features an AI-driven matching algorithm and automated interview scheduling.',
-      image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+      image: './images/kamalshi.png',
       stack: ['React Native', 'Firebase', 'Node.js'],
-      link: 'https://vendor-public.vercel.app/',
+      link: 'https://thekamakshi.com/',
       color: 'orange'
     },
-    {
-      id: 4,
-      title: 'LearnWithUs EdTech',
-      category: 'EdTech',
-      desc: 'Interactive learning management system (LMS) with gamified quizzes, progress tracking, and integrated video conferencing.',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-      stack: ['MERN Stack', 'Redux', 'AWS S3'],
-      link: 'https://learnwithus-three.vercel.app/',
-      color: 'green'
-    }
+    // {
+    //   id: 4,
+    //   title: 'LearnWithUs EdTech',
+    //   category: 'EdTech',
+    //   desc: 'Interactive learning management system (LMS) with gamified quizzes, progress tracking, and integrated video conferencing.',
+    //   image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    //   stack: ['MERN Stack', 'Redux', 'AWS S3'],
+    //   link: 'https://learnwithus-three.vercel.app/',
+    //   color: 'green'
+    // },
+    
   ];
 
   return (
