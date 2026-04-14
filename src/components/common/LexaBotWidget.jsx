@@ -66,13 +66,24 @@ const LexaBotWidget = () => {
   return (
     <>
       {/* 1. The Welcome Greeting Bubble */}
-    {/* 1. The Premium "Live Agent" Video Greeting */}
+    {/* 1. The Simple Compact Greeting */}
       {!isOpen && showGreeting && (
-        <div className="lexabot-video-greeting" onClick={handleOpenChat}>
+        <div className="lexabot-simple-greeting" onClick={handleOpenChat}>
           
-          {/* Close Button (Top Right) */}
+          {/* Simple Robot Icon instead of GIF/Video */}
+          <div className="lexabot-simple-icon">
+            <FaRobot size={18} />
+          </div>
+
+          {/* Compact Greeting Text */}
+          <div className="lexabot-simple-text">
+            <strong>Hey! I am Lexa 👋</strong>
+            <span>Need help? Chat with me!</span>
+          </div>
+
+          {/* Close Button */}
           <div 
-            className="lexabot-video-close" 
+            className="lexabot-simple-close" 
             onClick={(e) => { 
               e.stopPropagation(); 
               setShowGreeting(false); 
@@ -81,30 +92,9 @@ const LexaBotWidget = () => {
             <FaTimes />
           </div>
 
-          {/* Full Background Video */}
-          <video 
-            src="/Avatar_Greeting_Video_Creation.mp4" 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-          />
-
-          {/* Cinematic Text Overlay (Bottom) */}
-          <div className="lexabot-video-overlay">
-            <span>AI Assistant</span>
-            <strong>Hey! I am Lexa. <br/>Tap to chat 👋</strong>
-          </div>
-
         </div>
       )}
-      {/* 2. Floating Action Button */}
-      {!isOpen && (
-        <div className="lexabot-fab" onClick={handleOpenChat}>
-          <FaRobot />
-        </div>
-      )}
-
+      
       {/* 3. Main Chat Window */}
       {isOpen && (
         <div className="lexabot-window">

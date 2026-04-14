@@ -1,28 +1,3 @@
-/* --- LEXA AI PREMIUM WIDGET --- */
-
-.lexabot-fab {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 65px;
-  height: 65px;
-  background: linear-gradient(135deg, #06B6D4, #3B82F6);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #020617;
-  font-size: 1.8rem;
-  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
-  z-index: 9999;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.lexabot-fab:hover { 
-  transform: scale(1.1) rotate(5deg); 
-  box-shadow: 0 15px 35px rgba(6, 182, 212, 0.6);
-}
-
 .lexabot-window {
   position: fixed;
   bottom: 110px;
@@ -48,6 +23,103 @@
 @keyframes scaleUp {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* --- LEXA AI SIMPLE COMPACT GREETING --- */
+.lexabot-simple-greeting {
+  position: fixed;
+  bottom: 105px;
+  right: 30px;
+  background: rgba(15, 23, 42, 0.9); /* Dark frosted glass */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 8px 16px 8px 8px;
+  border-radius: 40px; /* Perfect pill shape */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9998;
+  cursor: pointer;
+  animation: slideInSimple 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.2s ease;
+}
+
+.lexabot-simple-greeting:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(6, 182, 212, 0.2);
+  border-color: rgba(6, 182, 212, 0.6);
+}
+
+@keyframes slideInSimple {
+  0% { opacity: 0; transform: translateX(30px) scale(0.9); }
+  100% { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+/* Gradient Robot Icon Container */
+.lexabot-simple-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #06B6D4, #3B82F6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #020617;
+  flex-shrink: 0;
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+/* Text Layout */
+.lexabot-simple-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.lexabot-simple-text strong {
+  color: #F8FAFC;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.lexabot-simple-text span {
+  color: #94A3B8;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Close Button */
+.lexabot-simple-close {
+  color: #64748B;
+  margin-left: 5px;
+  padding: 4px;
+  font-size: 0.9rem;
+  transition: 0.2s;
+  z-index: 10;
+}
+
+.lexabot-simple-close:hover {
+  color: #EF4444;
+  transform: scale(1.1);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+  .lexabot-simple-greeting {
+    bottom: 95px;
+    right: 20px;
+    padding: 6px 12px 6px 6px;
+    max-width: calc(100vw - 40px);
+  }
+  .lexabot-simple-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  .lexabot-simple-text strong { font-size: 0.8rem; }
+  .lexabot-simple-text span { font-size: 0.7rem; }
 }
 
 .lexabot-header {

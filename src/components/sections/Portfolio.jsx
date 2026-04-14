@@ -47,16 +47,16 @@ const Portfolio = () => {
       link: 'https://vendor-public.vercel.app/',
       theme: 'theme-orange'
     },
-    // {
-    //   id: 3,
-    //   title: 'LearnWithUs EdTech',
-    //   category: 'E-Learning Solution',
-    //   description: 'An interactive educational platform making learning accessible with gamified experiences.',
-    //   image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    //   tags: ['MERN Stack', 'Redux', 'Mobile Friendly'],
-    //   link: 'https://learnwithus-three.vercel.app/',
-    //   theme: 'theme-green'
-    // },
+    {
+      id: 3,
+      title: 'SM2 Health and Aesthetics',
+      category: 'Healthcare Solution',
+      description: 'A patient engagement platform with appointment scheduling, telemedicine, and personalized health insights.',
+      image: './images/sm2.png',
+      tags: ['MERN Stack', 'Redux', 'Mobile Friendly' , 'Healthcare' ,  'Telemedicine' ],
+      link: 'https://sm2healthandaesthetics.com/',
+      theme: 'theme-green'
+    },
    
   ];
 

@@ -6,7 +6,6 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  height: 700;
   padding:10px; /* Slightly increased padding for breathing room */
   transition: all 0.3s ease;
   background: rgba(15, 23, 42, 0.8);
@@ -70,7 +69,7 @@
   background: rgba(15, 23, 42, 0.8); /* Darker bg for contrast with neon */
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  padding: 10px 0;
+  padding: 10px 20px;
 }
 
 .header-content {
@@ -134,6 +133,13 @@
   .desktop-nav, .nav-cta { display: none; }
   .mobile-toggle { display: block; }
   
+  .header {
+    padding: 15px; 
+  }
+  .header.scrolled {
+    padding: 10px 15px;
+  }
+
   .mobile-menu {
     position: fixed;
     top: 70px;

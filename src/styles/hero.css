@@ -1,4 +1,3 @@
-/* --- LAYOUT --- */
 .hero-section {
   position: relative;
   width: 100%;
@@ -10,10 +9,9 @@
   color: #fff;
   font-family: 'Inter', sans-serif;
   
-  /* CRITICAL: Space for your Navbar */
-  padding-top: 200px; 
+  /* Adjusted for a standard navbar height to keep it perfectly centered */
+  padding-top: 0px; 
 }
-
 /* --- VIDEO BACKGROUND --- */
 .video-bg {
   position: absolute;
@@ -40,7 +38,7 @@
   width: 100%;
   max-width: 900px; /* Limits width so text doesn't stretch too far */
   text-align: left; /* CENTERS EVERYTHING */
-  padding: 0 40px;
+  padding: 0 10px;
 }
 
 .tagline {
@@ -52,7 +50,7 @@
   margin-bottom: 20px;
   text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px 16px;
+  padding: 0px 16px;
   border-radius: 50px;
 }
 
@@ -142,12 +140,43 @@ background: linear-gradient(135deg, #60A5FA 0%, #C084FC 100%);
   margin-top: 20px;
 }
 
-/* --- MOBILE --- */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.8rem; }
-  .hero-buttons { flex-direction: column; gap: 20px; }
-  .btn-primary { width: 100%; justify-content: center; }
-  /* Ensure padding top exists on mobile too */
-  .hero-section { padding-top: 100px; align-items: flex-start; } 
-  .hero-content { margin-top: 40px; }
+  .hero-title { 
+    font-size: 2.5rem; /* Slightly tighter for small screens */
+    margin-bottom: 15px;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .tagline {
+    font-size: 0.75rem;
+    padding: 1px 5px;
+  }
+
+  /* Center everything beautifully on mobile */
+  .hero-content { 
+    text-align: center; 
+    padding: 0 10px;
+  }
+
+  .hero-buttons { 
+    flex-direction: column; 
+    gap: 15px; 
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .btn-primary { 
+    width: 100%; 
+    justify-content: center; 
+  }
+  
+  /* Fix the spacing issue: Keep it centered, don't use flex-start */
+  .hero-section { 
+    padding-top: 0px; /* Just enough to clear the mobile navbar */
+    align-items: center; 
+  } 
 }
