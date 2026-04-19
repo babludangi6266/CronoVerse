@@ -1,0 +1,209 @@
+/* --- MASTER STYLES FOR SERVICE DETAIL PAGES --- */
+
+.srv-detail-wrapper {
+  background-color: #020617;
+  color: #F8FAFC;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* 1. Immersive Hero Section */
+.srv-detail-hero {
+  position: relative;
+  height: 75vh;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 60px; /* Accounts for Navbar */
+}
+
+.srv-detail-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.srv-detail-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.srv-detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(2, 6, 23, 0.98) 0%, rgba(2, 6, 23, 0.8) 50%, rgba(2, 6, 23, 0.4) 100%);
+}
+
+.srv-detail-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.srv-detail-text h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.srv-detail-text p {
+  font-size: 1.25rem;
+  color: #CBD5E1;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+/* Color Variables for the specific themes */
+.theme-blue { color: #3B82F6; }
+.theme-purple { color: #A855F7; }
+.theme-cyan { color: #06B6D4; }
+.theme-orange { color: #F97316; }
+
+.bg-theme-blue { background: #3B82F6; color: white; }
+.bg-theme-purple { background: #A855F7; color: white; }
+.bg-theme-cyan { background: #06B6D4; color: #020617; }
+.bg-theme-orange { background: #F97316; color: white; }
+
+/* 2. Split Value Section */
+.srv-value-section { padding: 100px 0; }
+.srv-split-val { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px; 
+  align-items: center; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 24px;
+}
+
+.srv-check-list { list-style: none; padding: 0; }
+.srv-check-list li { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; font-size: 1.1rem; font-weight: 500; }
+
+/* --- CSS MOCKUPS FOR EACH SERVICE --- */
+
+/* Mockup 1: CRM Dashboard (Blue) */
+.mock-dashboard {
+  width: 100%; height: 400px;
+  background: #0F172A; border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; display: flex; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(59, 130, 246, 0.3);
+}
+.mock-sidebar { width: 80px; background: rgba(0,0,0,0.3); border-right: 1px solid rgba(255,255,255,0.05); }
+.mock-main { flex-grow: 1; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+.mock-header { height: 40px; background: rgba(255,255,255,0.05); border-radius: 8px; }
+.mock-cards { display: flex; gap: 15px; }
+.m-card { flex-grow: 1; height: 80px; background: rgba(255,255,255,0.05); border-radius: 8px; }
+.mock-chart { flex-grow: 1; background: rgba(59, 130, 246, 0.1); border-radius: 8px; border: 1px dashed rgba(59, 130, 246, 0.3); }
+
+/* Mockup 2: AI Chat Interface (Purple) */
+.mock-ai-chat {
+  width: 100%; height: 400px;
+  background: #0F172A; border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px; display: flex; flex-direction: column; padding: 20px;
+  box-shadow: 0 30px 60px rgba(168, 85, 247, 0.2);
+}
+.m-ai-bubble { padding: 15px; border-radius: 12px; margin-bottom: 15px; max-width: 80%; font-size: 0.8rem; color: #CBD5E1; }
+.m-ai-user { background: rgba(255,255,255,0.05); align-self: flex-end; border-bottom-right-radius: 2px; }
+.m-ai-bot { background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.3); align-self: flex-start; border-bottom-left-radius: 2px; }
+.m-ai-input { margin-top: auto; height: 50px; background: rgba(0,0,0,0.3); border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); }
+
+/* Mockup 3: Full Stack Code Editor (Cyan) */
+.mock-code-editor {
+  width: 100%; height: 400px;
+  background: #020617; border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(6, 182, 212, 0.15);
+  font-family: 'Courier New', Courier, monospace;
+}
+.m-code-head { height: 35px; background: #0F172A; display: flex; align-items: center; padding: 0 15px; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.m-code-dot { width: 12px; height: 12px; border-radius: 50%; }
+.m-code-body { padding: 20px; color: #64748B; font-size: 0.85rem; line-height: 1.8; }
+.m-code-keyword { color: #C084FC; } .m-code-function { color: #60A5FA; } .m-code-string { color: #4ADE80; }
+
+/* Mockup 4: Mobile App Frame (Orange) */
+.mock-mobile-frame {
+  width: 220px; height: 450px;
+  background: #0F172A; border: 8px solid #1E293B;
+  border-radius: 35px; margin: 0 auto;
+  box-shadow: 0 30px 60px rgba(249, 115, 22, 0.2);
+  display: flex; flex-direction: column; padding: 15px;
+}
+.m-mobile-notch { width: 100px; height: 20px; background: #1E293B; border-radius: 0 0 15px 15px; margin: -15px auto 20px; }
+.m-mobile-block { background: rgba(255,255,255,0.05); border-radius: 12px; margin-bottom: 15px; }
+.m-mb-1 { height: 100px; background: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(249,115,22,0.05)); }
+.m-mb-2 { height: 60px; }
+.m-mb-3 { height: 60px; }
+
+
+/* 3. Features Grid */
+.srv-features-grid-sec { padding: 80px 0 120px; background: rgba(255,255,255,0.02); }
+.srv-f-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 30px; 
+  max-width: 1200px; margin: 0 auto; padding: 0 24px;
+}
+.srv-f-card { background: #0F172A; padding: 30px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; }
+.srv-f-card:hover { transform: translateY(-5px); }
+.srv-f-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.srv-f-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+.srv-f-card p { color: #94A3B8; font-size: 0.95rem; line-height: 1.6; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .srv-detail-text h1 { font-size: 3rem; }
+  .srv-split-val { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* --- NEW COLOR THEMES --- */
+.theme-yellow { color: #EAB308; }
+.bg-theme-yellow { background: #EAB308; color: #020617; }
+.theme-pink { color: #EC4899; }
+.bg-theme-pink { background: #EC4899; color: white; }
+.srv-grad-yellow { background: linear-gradient(135deg, #EAB308, #CA8A04); }
+.srv-grad-pink { background: linear-gradient(135deg, #EC4899, #BE185D); }
+.srv-btn-yellow { color: #EAB308; }
+.srv-btn-pink { color: #EC4899; }
+
+/* Mockup 5: Cloud Server Rack (Yellow) */
+.mock-server-rack {
+  width: 100%; height: 400px;
+  background: #020617; border: 4px solid #1E293B;
+  border-radius: 12px; display: flex; flex-direction: column; gap: 10px; padding: 15px;
+  box-shadow: 0 30px 60px rgba(234, 179, 8, 0.15);
+}
+.m-server-blade {
+  flex-grow: 1; background: #0F172A; border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: 8px; display: flex; align-items: center; padding: 0 20px; gap: 15px;
+}
+.m-blade-vent { flex-grow: 1; height: 10px; background: repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(255,255,255,0.05) 4px, rgba(255,255,255,0.05) 8px); }
+.m-blade-lights { display: flex; gap: 6px; }
+.m-light { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; box-shadow: 0 0 8px #4ADE80; animation: blink 1.5s infinite alternate; }
+.m-light:nth-child(2) { animation-delay: 0.3s; }
+.m-light:nth-child(3) { background: #EAB308; box-shadow: 0 0 8px #EAB308; animation-delay: 0.7s; }
+@keyframes blink { 0% { opacity: 0.3; } 100% { opacity: 1; } }
+
+/* Mockup 6: UI/UX Wireframe (Pink) */
+.mock-ui-canvas {
+  width: 100%; height: 400px;
+  background: #E2E8F0; border: 1px solid rgba(236, 72, 153, 0.3);
+  border-radius: 12px; display: flex; overflow: hidden;
+  box-shadow: 0 30px 60px rgba(236, 72, 153, 0.2);
+}
+.m-ui-tools { width: 50px; background: #FFFFFF; border-right: 1px solid #CBD5E1; display: flex; flex-direction: column; align-items: center; padding-top: 20px; gap: 15px; }
+.m-tool-dot { width: 20px; height: 20px; background: #F1F5F9; border-radius: 4px; }
+.m-tool-dot.active { background: #EC4899; }
+.m-ui-board { flex-grow: 1; padding: 30px; display: flex; flex-direction: column; gap: 20px; align-items: center; position: relative; }
+.m-ui-wire-hero { width: 80%; height: 100px; background: #FFFFFF; border: 2px dashed #94A3B8; border-radius: 8px; }
+.m-ui-wire-grid { display: flex; gap: 20px; width: 80%; }
+.m-ui-wire-card { flex-grow: 1; height: 120px; background: #FFFFFF; border: 2px dashed #94A3B8; border-radius: 8px; }
+.m-ui-cursor { position: absolute; top: 60px; right: 100px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid #EC4899; transform: rotate(-30deg); animation: floatCursor 3s infinite ease-in-out; }
+@keyframes floatCursor { 0%, 100% { transform: rotate(-30deg) translate(0, 0); } 50% { transform: rotate(-30deg) translate(-20px, 20px); } }

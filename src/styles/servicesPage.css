@@ -40,6 +40,27 @@
   overflow: hidden;
 }
 
+/* --- EXPLORE SERVICE BUTTON --- */
+.srv-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 24px;
+  border: 1px solid currentColor;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background-color: rgba(255,255,255,0.03);
+}
+
+.srv-explore-btn:hover {
+  background-color: #93e2b0; /* Fills the background with the specific gradient color */
+  color: var(--srv-bg) !important; /* Turns the text dark so it's readable */
+  gap: 15px; /* Slides the arrow to the right smoothly */
+  box-shadow: 0 10px 20px rgba(162, 124, 124, 0.3);
+}
+
 .srv-bg-orb {
   position: absolute;
   width: 500px; height: 500px;

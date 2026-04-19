@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import { FaLaptopCode, FaMobileAlt, FaCloud, FaPaintBrush, FaBrain, FaChartLine, FaArrowRight, FaCheck, FaAws } from 'react-icons/fa';
 import { SiReact, SiNodedotjs, SiFlutter, SiFigma, SiOpenai } from 'react-icons/si';
 import '../../styles/servicess.css';
@@ -8,9 +8,10 @@ import '../../styles/servicess.css';
 const Services = () => {
   const navigate = useNavigate(); 
 
-  const handleNavigation = () => {
-    navigate('/services');
-    window.scrollTo(0, 0); // Optional: Scrolls to top of new page
+  // Updated to accept the specific path
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0); 
   };
 
   const services = [
@@ -21,7 +22,8 @@ const Services = () => {
       icon: <FaLaptopCode />,
       color: 'blue',
       mainTech: <SiReact />,
-      features: ['SaaS Platforms', 'Progressive Web Apps (PWA)', 'Enterprise Dashboards', 'E-commerce Solutions']
+      features: ['SaaS Platforms', 'Progressive Web Apps (PWA)', 'Enterprise Dashboards', 'E-commerce Solutions'],
+      path: '/services/full-stack' // <-- Added dynamic path
     },
     {
       id: 2,
@@ -30,7 +32,8 @@ const Services = () => {
       icon: <FaMobileAlt />,
       color: 'purple',
       mainTech: <SiFlutter />,
-      features: ['iOS & Android Apps', 'Cross-Platform (Flutter)', 'App Store Optimization', 'Offline-First Architecture']
+      features: ['iOS & Android Apps', 'Cross-Platform (Flutter)', 'App Store Optimization', 'Offline-First Architecture'],
+      path: '/services/mobile-app' // <-- Added dynamic path
     },
     {
       id: 3,
@@ -39,7 +42,8 @@ const Services = () => {
       icon: <FaCloud />,
       color: 'orange',
       mainTech: <FaAws />,
-      features: ['AWS / Azure Architecture', 'CI/CD Automation', 'Serverless Computing', 'Cloud Security Audits']
+      features: ['AWS / Azure Architecture', 'CI/CD Automation', 'Serverless Computing', 'Cloud Security Audits'],
+      path: '/services/cloud-devops' // <-- Added dynamic path
     },
     {
       id: 4,
@@ -48,7 +52,8 @@ const Services = () => {
       icon: <FaPaintBrush />,
       color: 'pink',
       mainTech: <SiFigma />,
-      features: ['User Research', 'Wireframing & Prototyping', 'Design Systems', 'Interactive High-Fi UI']
+      features: ['User Research', 'Wireframing & Prototyping', 'Design Systems', 'Interactive High-Fi UI'],
+      path: '/services/ui-ux' // <-- Added dynamic path
     },
     {
       id: 5,
@@ -57,7 +62,8 @@ const Services = () => {
       icon: <FaBrain />,
       color: 'green',
       mainTech: <SiOpenai />,
-      features: ['Custom Chatbots', 'Predictive Analytics', 'Process Automation', 'OpenAI Integration']
+      features: ['Custom Chatbots', 'Predictive Analytics', 'Process Automation', 'OpenAI Integration'],
+      path: '/services/ai-automation' // <-- Added dynamic path
     },
     {
       id: 6,
@@ -66,7 +72,8 @@ const Services = () => {
       icon: <FaChartLine />,
       color: 'cyan',
       mainTech: null,
-      features: ['CTO-as-a-Service', 'Tech Stack Selection', 'MVP Strategy', 'Legacy Modernization']
+      features: ['CTO-as-a-Service', 'Tech Stack Selection', 'MVP Strategy', 'Legacy Modernization'],
+      path: '/services/crm-erp' // <-- Added dynamic path (Routes to your Custom ERP/CRM page)
     }
   ];
 
@@ -125,8 +132,8 @@ const Services = () => {
               </div>
 
               <div className="card-footer">
-                {/* Added onClick Handler */}
-                <span className="learn-more-btn" onClick={handleNavigation}>
+                {/* Dynamically passing the specific route path to the click handler */}
+                <span className="learn-more-btn" onClick={() => handleNavigation(service.path)}>
                   Explore Service <FaArrowRight className="arrow-icon" />
                 </span>
               </div>
