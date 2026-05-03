@@ -17,294 +17,120 @@
 }
 
 /* --- HERO SECTION --- */
-.car-hero-section {
-  padding: 180px 0 100px;
-  position: relative;
-  text-align: center;
-}
+.car-hero-section { padding: 180px 0 100px; position: relative; text-align: center; }
+.car-ambient-glow { position: absolute; top: -150px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%); z-index: 0; pointer-events: none; }
+.car-hero-container { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
 
-.car-ambient-glow {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.car-hero-container {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.car-pill-badge {
-  background: rgba(6, 182, 212, 0.1);
-  color: var(--car-cyan);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  display: inline-block;
-  margin-bottom: 25px;
-}
-
-.car-hero-section h1 {
-  font-size: 4.5rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 25px;
-}
-
+.car-pill-badge { background: rgba(6, 182, 212, 0.1); color: var(--car-cyan); border: 1px solid rgba(6, 182, 212, 0.3); padding: 8px 20px; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; display: inline-block; margin-bottom: 25px; }
+.car-hero-section h1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
 .car-text-cyan { color: var(--car-cyan); }
-
-.car-hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--car-muted);
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
+.car-hero-subtitle { font-size: 1.25rem; color: var(--car-muted); line-height: 1.6; max-width: 800px; margin: 0 auto; }
 
 /* --- BENTO BOX GRID --- */
-.car-bento-section {
-  padding: 50px 0 100px;
-}
-
-.car-bento-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.car-bento-card {
-  padding: 40px;
-  border-radius: 24px;
-  border: 1px solid var(--car-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 280px;
-  transition: transform 0.3s ease;
-}
-
-.car-bento-card:hover {
-  transform: translateY(-5px);
-}
+.car-bento-section { padding: 50px 0 100px; }
+.car-bento-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+.car-bento-card { padding: 40px; border-radius: 24px; border: 1px solid var(--car-border); display: flex; flex-direction: column; justify-content: flex-end; min-height: 280px; transition: transform 0.3s ease; }
+.car-bento-card:hover { transform: translateY(-5px); }
 
 .span-2 { grid-column: span 2; }
-
 .bg-dark { background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(10px); }
 .bg-gradient { background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(2, 6, 23, 1)); border-color: rgba(16, 185, 129, 0.3); }
 .bg-gradient-alt { background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(2, 6, 23, 1)); border-color: rgba(6, 182, 212, 0.3); }
 
-.bento-icon {
-  font-size: 2.5rem;
-  color: var(--car-white);
-  margin-bottom: auto; /* Pushes text to the bottom */
-  opacity: 0.8;
-}
-
+.bento-icon { font-size: 2.5rem; color: var(--car-white); margin-bottom: auto; opacity: 0.8; }
 .bg-gradient .bento-icon { color: var(--car-green); }
 .bg-gradient-alt .bento-icon { color: var(--car-cyan); }
-
 .car-bento-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: white; }
 .car-bento-card p { color: var(--car-muted); font-size: 1.05rem; line-height: 1.5; margin: 0; }
 
-
 /* --- COMMAND CENTER TERMINAL --- */
-.car-application-section {
-  padding: 80px 0 120px;
-  background: radial-gradient(ellipse at top, rgba(15, 23, 42, 0.5) 0%, transparent 70%);
-}
-
-.car-form-header-center {
-  text-align: center;
-  margin-bottom: 50px;
-}
+.car-application-section { padding: 80px 0 120px; background: radial-gradient(ellipse at top, rgba(15, 23, 42, 0.5) 0%, transparent 70%); }
+.car-form-header-center { text-align: center; margin-bottom: 50px; }
 .car-form-header-center h2 { font-size: 3rem; margin-bottom: 10px; }
 .car-form-header-center p { color: var(--car-muted); font-size: 1.15rem; }
 
 .car-terminal-box {
-  max-width: 750px;
-  margin: 0 auto;
-  background: rgba(9, 14, 23, 0.8);
-  border: 1px solid rgba(6, 182, 212, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(6, 182, 212, 0.05);
-  overflow: hidden;
+  max-width: 800px; margin: 0 auto; background: rgba(9, 14, 23, 0.8); border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(6, 182, 212, 0.05); overflow: hidden;
 }
+.car-terminal-content { padding: 60px; }
 
-.car-terminal-content { padding: 50px; }
-
-/* Progress Track */
-.car-terminal-nav { margin-bottom: 40px; }
-.car-progress-track {
-  height: 4px; background: rgba(255,255,255,0.05); border-radius: 4px; margin-bottom: 15px; overflow: hidden;
-}
-.car-progress-fill {
-  height: 100%; background: var(--car-cyan); transition: width 0.4s ease;
-}
-.car-step-count {
-  font-size: 0.85rem; color: var(--car-cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-}
-
-/* Step Content */
-.car-step-panel h3 { font-size: 1.6rem; margin-bottom: 8px; color: white; }
-.car-muted-text { font-size: 1rem; color: #64748B; margin-bottom: 25px; line-height: 1.5; }
+/* Form Sections */
+.car-single-step-form { display: flex; flex-direction: column; gap: 0; }
+.car-section-block h3 { font-size: 1.7rem; margin-bottom: 8px; color: white; }
+.car-muted-text { font-size: 1.05rem; color: #64748B; margin-bottom: 25px; line-height: 1.5; }
+.car-divider { border: 0; height: 1px; background: rgba(255,255,255,0.05); margin: 50px 0; }
 
 .car-input-split { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 
 .car-term-input {
-  width: 100%;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: white;
-  padding: 16px 20px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  font-family: 'Inter', sans-serif;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
+  width: 100%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: white;
+  padding: 18px 20px; border-radius: 12px; font-size: 1.05rem; font-family: 'Inter', sans-serif;
+  margin-bottom: 15px; transition: all 0.3s ease; box-sizing: border-box;
 }
-.car-term-input:focus {
-  outline: none;
-  border-color: var(--car-cyan);
-  background: rgba(0,0,0,0.4);
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
-}
+.car-term-input:focus { outline: none; border-color: var(--car-cyan); background: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15); }
 .car-term-input::placeholder { color: #475569; }
 
-/* Checkboxes */
+/* Checkboxes & Radios */
 .car-cb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .car-hidden-cb { display: none; }
 .car-cb-label { cursor: pointer; }
 
 .car-cb-design {
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 16px; border-radius: 12px;
-  font-size: 0.95rem; font-weight: 500; color: #94A3B8;
-  transition: 0.3s;
+  display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px; border-radius: 12px; font-size: 0.95rem; font-weight: 500; color: #94A3B8; transition: 0.3s;
 }
 .car-icon { color: #64748B; font-size: 1.2rem; }
 
-.car-hidden-cb:checked + .car-cb-design {
-  background: rgba(6, 182, 212, 0.1);
-  border-color: var(--car-cyan); color: white;
-}
+/* The magic selector works for both Checkboxes and Radios */
+.car-hidden-cb:checked + .car-cb-design { background: rgba(6, 182, 212, 0.1); border-color: var(--car-cyan); color: white; }
 .car-hidden-cb:checked + .car-cb-design .car-icon { color: var(--car-cyan); }
 .car-cb-design:hover { background: rgba(255,255,255,0.05); }
 
 /* Icons in Input */
 .car-term-icon-wrapper { position: relative; margin-bottom: 15px; }
-.term-input-icon { position: absolute; left: 18px; top: 18px; color: #64748B; font-size: 1.2rem; }
+.term-input-icon { position: absolute; left: 18px; top: 20px; color: #64748B; font-size: 1.2rem; }
 .pl-45 { padding-left: 50px; }
 
 /* Terminal Footer */
-.car-terminal-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.term-btn-secondary {
-  background: transparent; color: var(--car-muted); border: 1px solid rgba(255,255,255,0.1);
-  padding: 14px 24px; border-radius: 10px; font-weight: 600; cursor: pointer;
-  display: flex; align-items: center; gap: 8px; transition: 0.3s;
-}
-.term-btn-secondary:hover { color: white; background: rgba(255,255,255,0.05); }
-
+.car-terminal-footer { margin-top: 20px; }
 .term-btn-primary {
-  background: var(--car-cyan); color: #020617; border: none;
-  padding: 14px 30px; border-radius: 10px; font-weight: 700; cursor: pointer;
-  display: flex; align-items: center; gap: 10px; transition: 0.3s;
+  background: var(--car-cyan); color: #020617; border: none; padding: 20px 30px; border-radius: 12px; 
+  font-weight: 800; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; 
+  gap: 12px; transition: 0.3s;
 }
-.term-btn-primary:hover { background: white; transform: translateY(-2px); }
+.full-width-btn { width: 100%; }
+.term-btn-primary:hover { background: white; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2); }
 
 .car-spin { animation: spin 1s linear infinite; }
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
 /* Success Screen */
-.car-terminal-success { text-align: center; padding: 80px 40px; }
-.success-icon-large { font-size: 5rem; color: var(--car-cyan); margin-bottom: 25px; }
-.car-terminal-success h2 { font-size: 2.5rem; margin-bottom: 15px; }
-.car-terminal-success p { color: var(--car-muted); font-size: 1.1rem; line-height: 1.6; }
-
+.car-terminal-success { text-align: center; padding: 100px 40px; }
+.success-icon-large { font-size: 6rem; color: var(--car-cyan); margin-bottom: 30px; }
+.car-terminal-success h2 { font-size: 2.8rem; margin-bottom: 15px; }
+.car-terminal-success p { color: var(--car-muted); font-size: 1.15rem; line-height: 1.6; }
 
 /* --- MOBILE RESPONSIVE --- */
-@media (max-width: 1024px) {
-  .car-bento-grid { grid-template-columns: 1fr 1fr; }
-}
-
+@media (max-width: 1024px) { .car-bento-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
   .car-hero-section h1 { font-size: 2.8rem; }
   .car-bento-grid { grid-template-columns: 1fr; }
   .span-2 { grid-column: span 1; }
   .car-bento-card { min-height: 220px; }
-  
   .car-terminal-content { padding: 30px 20px; }
   .car-input-split, .car-cb-grid { grid-template-columns: 1fr; }
 }
 
-/* ==============================================================
-   MASSIVE BREATHING NEON "LEXA" BACKGROUND
-   ============================================================== */
-.car-zigzag-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; 
-  pointer-events: none; 
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.car-zigzag-bg svg {
-  width: 100%;
-  height: 100%;
-}
-
-/* The massive glowing text outline */
+/* --- MASSIVE BREATHING NEON "LEXA" BACKGROUND --- */
+.car-zigzag-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.car-zigzag-bg svg { width: 100%; height: 100%; }
 .lexa-neon-text {
-  stroke: url(#neonMultiGradient); 
-  stroke-width: 8px; /* Adjusted so the letters are legible but thick */
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  fill: none; /* Keeps the inside of the letters hollow/transparent */
-  
-  /* Scales automatically based on screen size (Mobile to Desktop) */
-  font-size: clamp(150px, 20vw, 400px); 
-  font-weight: 900;
-  font-family: 'Outfit', sans-serif; /* Matches your brand font */
-  letter-spacing: 25px;
-  
-  /* Creates the heavy, glowing breathing effect */
+  stroke: url(#neonMultiGradient); stroke-width: 8px; stroke-linecap: round; stroke-linejoin: round; fill: none; 
+  font-size: clamp(150px, 20vw, 400px); font-weight: 900; font-family: 'Outfit', sans-serif; letter-spacing: 25px; 
   animation: massivePulseGlow 4s ease-in-out infinite alternate;
 }
-
-/* Animates the opacity and the drop-shadow size */
 @keyframes massivePulseGlow {
-  0% {
-    opacity: 0.15;
-    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.2));
-  }
-  100% {
-    opacity: 0.65; /* Prevents it from overpowering the form */
-    filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.5)) drop-shadow(0 0 60px rgba(139, 92, 246, 0.4));
-  }
+  0% { opacity: 0.15; filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.2)); }
+  100% { opacity: 0.65; filter: drop-shadow(0 0 30px rgba(6, 182, 212, 0.5)) drop-shadow(0 0 60px rgba(139, 92, 246, 0.4)); }
 }
