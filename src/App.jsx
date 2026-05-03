@@ -5,24 +5,11 @@ import { ToastContainer } from 'react-toastify';
 import { AnimatePresence, motion } from 'framer-motion';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { AuthProvider } from './context/AuthContext';
-
-// Portal Pages
-import Login from './pages/portal/Login';
-import Register from './pages/portal/Register';
-import EmployeeDashboard from './pages/portal/EmployeeDashboard';
-import AdminDashboard from './pages/portal/AdminDashboard'; 
-import AdminUsers from './pages/portal/AdminUsers';
-import AdminUserDetail from './pages/portal/AdminUserDetail';
-import CalendarPage from './pages/portal/CalendarPage';
-import AdminDeals from './pages/portal/AdminDeals';
-import EmployeeProjects from './pages/portal/EmployeeProjects';
 
 // Public Components
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
-import LexaBotWidget from './components/common/LexaBotWidget';
 
 // Public Pages
 import Home from './pages/Home';
@@ -73,7 +60,7 @@ const AppLayout = () => {
       <ToastContainer position="top-right" theme="dark" />
       
       {!isPortal && <Header />}
-      {!isPortal && <LexaBotWidget />}
+      
       
       <main>
         <AnimatePresence mode="wait">
@@ -102,16 +89,7 @@ const AppLayout = () => {
             <Route path="/industries/edtech" element={<PageWrapper><Edtech /></PageWrapper>} />
             <Route path="/industries/logistics" element={<PageWrapper><Logistics /></PageWrapper>} />
 
-            {/* === PORTAL ROUTES === */}
-            <Route path="/portal/login" element={<PageWrapper><Login /></PageWrapper>} />
-            <Route path="/portal/register" element={<PageWrapper><Register /></PageWrapper>} />
-            <Route path="/portal/employee" element={<PageWrapper><EmployeeDashboard /></PageWrapper>} />
-            <Route path="/portal/admin" element={<PageWrapper><AdminDashboard /></PageWrapper>} />
-            <Route path="/portal/admin/users" element={<PageWrapper><AdminUsers /></PageWrapper>} />
-            <Route path="/portal/admin/user/:id" element={<PageWrapper><AdminUserDetail /></PageWrapper>} />
-            <Route path="/portal/calendar" element={<PageWrapper><CalendarPage /></PageWrapper>} />
-            <Route path="/portal/admin/deals" element={<PageWrapper><AdminDeals /></PageWrapper>} />
-            <Route path="/portal/employee/projects" element={<PageWrapper><EmployeeProjects /></PageWrapper>} />
+          
           </Routes>
         </AnimatePresence>
       </main>
@@ -126,9 +104,9 @@ function App() {
     <HelmetProvider>
     <Router>
       <ScrollToTop />
-      <AuthProvider>
+    
         <AppLayout />
-      </AuthProvider>
+    
     </Router>
     </HelmetProvider>
   );
