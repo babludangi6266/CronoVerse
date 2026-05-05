@@ -6,6 +6,7 @@ import {
   FaServer, FaCheckCircle, FaSpinner, FaChartLine, FaCommentSlash, 
   FaGhost, FaMicrochip
 } from 'react-icons/fa';
+import ShaderBackground from '../components/common/ShaderBackground';
 import '../styles/careers.css';
 
 const Careers = () => {
@@ -168,8 +169,13 @@ const [formData, setFormData] = useState({
       </section>
 
       {/* --- COMMAND CENTER APPLICATION FORM (SINGLE STEP) --- */}
-      <section className="car-application-section" id="apply">
-        <div className="container car-form-container">
+    <section className="car-application-section" id="apply">
+        
+        {/* ADD THE SHADER HERE */}
+        <ShaderBackground />
+
+        {/* ADD style={{ position: 'relative', zIndex: 2 }} SO IT FLOATS ABOVE THE SHADER */}
+        <div className="container car-form-container" style={{ position: 'relative', zIndex: 2 }}>
           
           <div className="car-form-header-center">
             <h2>The Application</h2>

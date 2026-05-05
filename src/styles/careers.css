@@ -44,7 +44,12 @@
 .car-bento-card p { color: var(--car-muted); font-size: 1.05rem; line-height: 1.5; margin: 0; }
 
 /* --- COMMAND CENTER TERMINAL --- */
-.car-application-section { padding: 80px 0 120px; background: radial-gradient(ellipse at top, rgba(15, 23, 42, 0.5) 0%, transparent 70%); }
+.car-application-section { 
+  padding: 80px 0 120px; 
+  background: radial-gradient(ellipse at top, rgba(15, 23, 42, 0.5) 0%, transparent 70%); 
+  position: relative; /* Add this to trap the shader */
+  overflow: hidden;   /* Add this to prevent bleeding */
+}
 .car-form-header-center { text-align: center; margin-bottom: 50px; }
 .car-form-header-center h2 { font-size: 3rem; margin-bottom: 10px; }
 .car-form-header-center p { color: var(--car-muted); font-size: 1.15rem; }
