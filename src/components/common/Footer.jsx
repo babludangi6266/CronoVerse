@@ -35,8 +35,6 @@ const Footer = () => {
 
             <div className="social-icons">
               <a href="https://www.linkedin.com/company/lexa-tech/" className="sc-icon" aria-label="LinkedIn"><FaLinkedin /></a>
-              <a href="#" className="sc-icon" aria-label="GitHub"><FaGithub /></a>
-              <a href="#" className="sc-icon" aria-label="Twitter"><FaTwitter /></a>
               <a href="https://www.instagram.com/lexa.technologies/" className="sc-icon" aria-label="Instagram"><FaInstagram /></a>
             </div>
           </div>
@@ -45,12 +43,12 @@ const Footer = () => {
           <div className="footer-widget">
             <h4 className="widget-title">Expertise</h4>
             <ul className="footer-list">
-              <li><Link to="/services">Full-Stack Development</Link></li>
-              <li><Link to="/services">MERN Stack Solutions</Link></li>
-              <li><Link to="/services">Cloud Architecture (AWS)</Link></li>
-              <li><Link to="/services">Database Management</Link></li>
-              <li><Link to="/services">API Integration</Link></li>
-              <li><Link to="/services">DevOps & CI/CD</Link></li>
+              <li><Link to="/services/full-stack">Full-Stack Development</Link></li>
+              <li><Link to="/services/mobile-app">Mobile App Development</Link></li>
+              <li><Link to="/services/cloud-devops">Cloud Architecture & DevOps</Link></li>
+              <li><Link to="/services/ai-automation">AI & Automation</Link></li>
+              <li><Link to="/services/crm-erp">Custom CRM / ERP</Link></li>
+              <li><Link to="/services/ui-ux">UI/UX Design</Link></li>
             </ul>
           </div>
 
@@ -63,25 +61,11 @@ const Footer = () => {
               <Link to="/careers" className="link-with-badge">
    Careers <span className="badge-hiring">We're Hiring</span>
 </Link>
-              
               <li><Link to="/portfolio">Case Studies</Link></li>
-              <li><Link to="#">Press & Media</Link></li>
-              <li><Link to="#">Partnerships</Link></li>
             </ul>
           </div>
 
-          {/* Column 4: Industries (New Content)
-          // <div className="footer-widget">
-          //   <h4 className="widget-title">Industries</h4>
-          //   <ul className="footer-list">
-          //     <li><Link to="/fintech">FinTech & Banking</Link></li>
-          //     <li><Link to="/agritech">AgriTech Solutions</Link></li>
-          //     <li><Link to="/ecommerce">E-Commerce</Link></li>
-          //     <li><Link to="/healthcare">Healthcare IT</Link></li>
-          //     <li><Link to="/edtech">EdTech Platforms</Link></li>
-          //     <li><Link to="/logistics">Logistics & Supply Chain</Link></li>
-          //   </ul>
-          // </div> */}
+        
 
 {/* Column 4: Industries (Fix the paths here) */}
 <div className="footer-widget">

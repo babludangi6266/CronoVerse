@@ -13,13 +13,15 @@ const Careers = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     Name: '', Email: '', Phone: '', City: '',
     Education: '', Course: '', Year: '',
     Roles: [], Role_Type: [],
-    StartDate: '', Commitment: '', FullTimeConversion: '', // NEW FIELDS
-    Portfolio_Link: '', Video_Link: '',
-    Inspiration_Pages: '', Message: ''
+    StartDate: '', Commitment: '', FullTimeConversion: '',
+    Instagram: '', LinkedIn: '', Portfolio_Link: '', Resume_Link: '', 
+    Video_Link: '',
+    Page1: '', Page2: '', Page3: '',
+    Message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -31,9 +33,19 @@ const Careers = () => {
     { name: "Cloud & DevOps", icon: <FaServer /> },
     { name: "UI/UX & Product", icon: <FaPaintBrush /> },
     { name: "AI Prompt Engineer", icon: <FaMicrochip /> },
-    { name: "Video / Motion", icon: <FaVideo /> },
+    { name: "Videographer+Editor", icon: <FaVideo /> },
     { name: "Content / Copy", icon: <FaBrain /> },
     { name: "Sales / Growth", icon: <FaHandshake /> },
+    { name: "Data Science / Analytics", icon: <FaChartLine /> },
+    { name:"Copywriting / Content Creation", icon: <FaBrain /> },
+    { name:"Product Design / UI/UX", icon: <FaPaintBrush /> },
+    { name : "AI Engineering / Prompting", icon: <FaMicrochip /> },
+    { name:"Graphic Design / Motion", icon: <FaVideo /> },
+    { name:"Marketing / Growth", icon: <FaChartLine /> },
+    { name:"Finance / Operations", icon: <FaHandshake /> },
+    { name:"Python / Automation ", icon: <FaCode /> },
+    { name :"Backend Developer ( Nodejs , Golang , Java )", icon: <FaServer /> },
+
   ];
   
   const roleTypes = ["Full Time", "Part Time", "Freelance / Contract", "Internship"];
@@ -183,7 +195,7 @@ const Careers = () => {
                     
                     {/* SECTION 1: IDENTIFICATION */}
                     <div className="car-section-block">
-                      <h3>01. Identification & Origins</h3>
+                      <h3>Identification & Origins</h3>
                       <p className="car-muted-text">Who are you and where are you currently operating from?</p>
                       
                       <input type="text" name="Name" required placeholder="Legal Name *" value={formData.Name} onChange={handleChange} className="car-term-input" />
@@ -206,8 +218,8 @@ const Careers = () => {
 
                     {/* SECTION 2: ARSENAL */}
                     <div className="car-section-block">
-                      <h3>02. Your Arsenal</h3>
-                      <p className="car-muted-text">What are your primary technical or creative disciplines?</p>
+                      <h3>What do you want to do here?</h3>
+                      <p className="car-muted-text">Pick everything you'd genuinely be good at. Don't tick boxes for the sake of it.</p>
                       <div className="car-cb-grid">
                         {availableRoles.map((role, idx) => (
                           <label key={idx} className="car-cb-label">
@@ -234,7 +246,7 @@ const Careers = () => {
 
                     {/* SECTION 3: TIMELINE (NEW SECTION) */}
                     <div className="car-section-block">
-                      <h3>03. Timeline & Commitment</h3>
+                      <h3>When and how long?</h3>
                       
                       <p className="car-muted-text">When can you start? (A date works. So does 'ASAP' or 'after May exams'.)</p>
                       <input type="text" name="StartDate" required placeholder="e.g. Immediately" value={formData.StartDate} onChange={handleChange} className="car-term-input" />
@@ -263,17 +275,39 @@ const Careers = () => {
 
                     <hr className="car-divider" />
 
-                    {/* SECTION 4: PROOF */}
+
+  
+                    {/* SECTION 4: SHOW US WHO YOU ARE */}
                     <div className="car-section-block">
-                      <h3>04. Proof of Work</h3>
-                      <p className="car-muted-text">Talk is cheap. Show us what you have actually built, designed, or grown.</p>
+                      <h3>Show us who you are.</h3>
+                      
+                      <p className="car-muted-text">Instagram handle</p>
+                      <input type="text" name="Instagram" required placeholder="@yourhandle" value={formData.Instagram} onChange={handleChange} className="car-term-input" />
+
+                      <p className="car-muted-text" style={{marginTop: '25px'}}>LinkedIn (optional)</p>
+                      <input type="url" name="LinkedIn" placeholder="https://linkedin.com/in/..." value={formData.LinkedIn} onChange={handleChange} className="car-term-input" />
+
+                      <p className="car-muted-text" style={{marginTop: '25px'}}>Portfolio link (optional)</p>
+                      <p className="car-muted-text" style={{fontSize: '0.9rem', marginTop: '-15px'}}>Optional, but if you've made stuff, show us. Decks, side projects, reels you've edited, brands you've imagined — anything counts.</p>
                       <div className="car-term-icon-wrapper">
                         <FaLink className="term-input-icon" />
-                        <input type="url" name="Portfolio_Link" required placeholder="GitHub, Behance, or Drive Link *" value={formData.Portfolio_Link} onChange={handleChange} className="car-term-input pl-45" />
+                        <input type="url" name="Portfolio_Link" placeholder="GitHub, Behance, or Drive Link" value={formData.Portfolio_Link} onChange={handleChange} className="car-term-input pl-45" />
                       </div>
 
-                      <h3 style={{marginTop: '40px'}}>The 60-Second Pitch</h3>
-                      <p className="car-muted-text">Record a 60-second video. Why do you want to join LEXA? Talk to camera, edit a reel, animate something. Unlisted YouTube/Drive links work best.</p>
+                      <p className="car-muted-text" style={{marginTop: '25px'}}>Resume link (optional)</p>
+                      <p className="car-muted-text" style={{fontSize: '0.9rem', marginTop: '-15px'}}>Optional. If you have one, paste it. We're more interested in what you've made than where you've been.</p>
+                      <div className="car-term-icon-wrapper">
+                        <FaLink className="term-input-icon" />
+                        <input type="url" name="Resume_Link" placeholder="Drive or Dropbox link" value={formData.Resume_Link} onChange={handleChange} className="car-term-input pl-45" />
+                      </div>
+                    </div>
+
+                    <hr className="car-divider" />
+
+                    {/* SECTION 4: PROOF */}
+                    <div className="car-section-block">
+                      <h3 style={{marginTop: '40px'}}>Make us a 60-second video.</h3>
+                      <p className="car-muted-text">Why should we pick you? Make whatever you want. Talk to camera, edit a reel, animate something, narrate over a slideshow, do a sketch with your friend, whatever. 60 seconds. Upload to Drive / YouTube (unlisted is fine) / Instagram and paste the link. This matters more than your resume.</p>
                       <div className="car-term-icon-wrapper">
                         <FaVideo className="term-input-icon" />
                         <input type="url" name="Video_Link" required placeholder="Paste Video Link Here *" value={formData.Video_Link} onChange={handleChange} className="car-term-input pl-45" />
@@ -282,17 +316,24 @@ const Careers = () => {
 
                     <hr className="car-divider" />
 
-                    {/* SECTION 5: TASTE */}
+                    
+                    {/* SECTION 6: TASTE & INSPIRATION */}
                     <div className="car-section-block">
-                      <h3>05. Taste & Inspiration</h3>
-                      <p className="car-muted-text">List 3 pages/creators you follow religiously. We want to understand what influences your work.</p>
-                      <textarea name="Inspiration_Pages" required rows="2" placeholder="@figma, @mkbhd, @vercel..." value={formData.Inspiration_Pages} onChange={handleChange} className="car-term-input"></textarea>
+                      <h3>Taste & Inspiration</h3>
+                      <p className="car-muted-text">Not the ones you think we want to see. The ones you actually open Instagram / LinkedIn for. We're trying to figure out your taste.</p>
+                      
+                      <div className="car-input-split">
+                        <input type="text" name="Page1" placeholder="Page 1 (Optional)" value={formData.Page1} onChange={handleChange} className="car-term-input" />
+                        <input type="text" name="Page2" placeholder="Page 2 (Optional)" value={formData.Page2} onChange={handleChange} className="car-term-input" />
+                      </div>
+                      <input type="text" name="Page3" placeholder="Page 3 (Optional)" value={formData.Page3} onChange={handleChange} className="car-term-input" />
 
                       <h3 style={{marginTop: '40px'}}>Final Transmission</h3>
                       <p className="car-muted-text">Any extra notes, cover letter, or motivation you want to add?</p>
                       <textarea name="Message" rows="3" placeholder="I am obsessed with building because..." value={formData.Message} onChange={handleChange} className="car-term-input"></textarea>
                     </div>
 
+                  
                     {/* Terminal Footer Controls */}
                     <div className="car-terminal-footer">
                       <button type="submit" className="term-btn-primary full-width-btn" disabled={isSubmitting}>
