@@ -23,7 +23,7 @@ const About = () => {
   const leaders = [
     {
       id: 1, name: "Jackie Mohanty", role: "Founder",
-      image: "/images/jacky.png", 
+      image: "/images/jackie.jpeg", 
       linkedin: "https://www.linkedin.com/in/jackie-mohanty-9214391b2/"
     },
     {
