@@ -30,6 +30,16 @@ const About = () => {
       id: 2, name: "Bablu Dangi", role: "Co-Founder",
       image: "/images/bablu.jpg", 
       linkedin: "https://www.linkedin.com/in/bablu-dangi-ba8a01259/"
+    },
+    {
+      id: 3, name: "Radharani Dash", role: "CGO",
+      image: "/images/radha.jpeg",
+      linkedin: "https://www.linkedin.com/in/dash2025/"
+    },
+    {
+      id: 4, name: "Runi Satapathy", role: "CMO",
+      image: "/images/ruhi.jpeg",
+      linkedin: "https://www.linkedin.com/in/chandrabatisatapathy/"
     }
   ];
 
